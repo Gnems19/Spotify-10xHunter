@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnp.*
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+public/build/
+coverage/
+.cache/
+.tmp/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Environment
+.env
+.env.*
+
+# Archived original UI
+vibe/
+
