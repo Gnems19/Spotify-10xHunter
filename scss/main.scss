@@ -1,13 +1,17 @@
 @use './abstracts/variables' as *;
 @use './abstracts/mixins' as *;
+
+// BASE
+@use './base/fonts';
 @use './base/reset';
 @use './base/base';
+@use './base/typography';
 
+// LAYOUT
+@use './layout/footer';
+@use './layout/header';
+@use './layout/sidebar';
 
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+// COMPONENTS
+@use './components/card';
 
