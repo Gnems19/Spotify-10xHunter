@@ -49,9 +49,8 @@
   }
 }
 
-// ======= Desktop: show mini spacer by default =======
-// 1024px-1244px => mini spacer (60px)
-@media (min-width: #{$bp-desktop}) {
+// ======= Tablet+: show mini spacer (sidebar is visible from 768px up) =======
+@media (min-width: #{$bp-tablet}) {
   .app-header__sidebar-mini-spacer {
     display: block;
   }

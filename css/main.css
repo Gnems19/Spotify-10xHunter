@@ -95,19 +95,6 @@ body {
   color: #FFFFFF;
 }
 
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.app-body {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-}
-
 /* ======= Typography ======= */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -180,7 +167,7 @@ p, li, a, button, span {
   white-space: nowrap;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .nav-mobile {
     display: flex;
   }
@@ -230,7 +217,7 @@ p, li, a, button, span {
   flex-shrink: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .app-header__sidebar-mini-spacer {
     display: block;
   }
@@ -243,7 +230,7 @@ p, li, a, button, span {
     display: block;
   }
 }
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   .app-header {
     display: none;
   }
@@ -292,11 +279,11 @@ p, li, a, button, span {
 .nav-pill--search:has(input:checked) {
   color: #FFFFFF;
 }
-.nav-pill--search:has(input:checked)::before {
-  background-color: #121212;
-}
 .nav-pill--active::before, .nav-pill:has(input:checked)::before {
   background-color: rgba(255, 255, 255, 0.08);
+}
+.nav-pill--search:has(input:checked)::before {
+  background-color: #121212;
 }
 .nav-pill--active, .nav-pill:has(input:checked) {
   color: #FFFFFF;
@@ -355,6 +342,31 @@ p, li, a, button, span {
   border: 0;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav-pill {
+    width: 4.6rem;
+    padding: 0;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-pill--home, .nav-pill--discover {
+    width: 4.6rem;
+  }
+  .nav-pill--search {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 4.6rem;
+    max-width: 21rem;
+    justify-content: flex-start;
+    padding-left: 0.8rem;
+  }
+  .nav-pill .nav-pill__label {
+    display: none;
+  }
+  .nav-pill--search:has(input:checked) .nav-pill__label--searching {
+    display: none;
+  }
+}
 /* ======= Icon Button ======= */
 .icon-button {
   width: 4.6rem;

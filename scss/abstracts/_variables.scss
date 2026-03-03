@@ -59,6 +59,7 @@ $z-player: 20;
 $transition-fast: 150ms ease;
 
 /* ======= Breakpoints ======= */
-$bp-mobile:   1023px;
-$bp-desktop:  1024px;
-$bp-sidebar:  1245px;  // sidebar + header spacer appear above this width
+$bp-mobile:   767px;   //  ≤767px  — mobile
+$bp-tablet:   768px;   //  768px+  — tablet
+$bp-desktop:  992px;   //  992px+  — desktop
+$bp-sidebar:  1245px;  // 1245px+  — sidebar + header spacer appear

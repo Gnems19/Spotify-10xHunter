@@ -64,16 +64,17 @@
     &:has(input:checked) {
       color: $color-text;
     }
-
-    &:has(input:checked)::before {
-      background-color: $color-bg-elevated;
-    }
   }
 
   // ======= Active state — colour the ::before, not the pill =======
   &--active::before,
   &:has(input:checked)::before {
     background-color: $color-surface-active;
+  }
+
+  // Search override must come AFTER the generic rule — same specificity, source order wins
+  &--search:has(input:checked)::before {
+    background-color: $color-bg-elevated;
   }
 
   // Active/pressed — text and icon use Figma "Fg/Primary" (#E0E0E0)
@@ -145,4 +146,41 @@
 // Visually hidden radio inputs (keyboard & screen-reader accessible)
 .nav-radio {
   @include sr-only;
+}
+
+// ======= Tablet: icon-only compact square pills (768px–991px) =======
+@media (min-width: #{$bp-tablet}) and (max-width: #{$bp-desktop - 1px}) {
+  .nav-pill {
+    // Override fixed 210px — collapse to a square around the icon
+    width: $nav-item-size;
+    padding: 0;
+    justify-content: center;
+    flex-shrink: 0;
+
+    // Home & Discover: fixed wide width → square
+    &--home,
+    &--discover {
+      width: $nav-item-size;
+    }
+
+    // Search: stays flexible, no label, small room for a future input
+    &--search {
+      flex: 1 1 auto;
+      width: auto;
+      min-width: $nav-item-size;
+      max-width: 21rem;
+      justify-content: flex-start;
+      padding-left: $spacing-sm;
+    }
+
+    // Hide all label text — icon only
+    .nav-pill__label {
+      display: none;
+    }
+  }
+
+  // Also suppress the "Search..." swap label at tablet
+  .nav-pill--search:has(input:checked) .nav-pill__label--searching {
+    display: none;
+  }
 }
