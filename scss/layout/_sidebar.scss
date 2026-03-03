@@ -9,18 +9,27 @@
   // margin-top: 6rem;
   margin-left: 0.7rem;
   border-radius: 1rem;
-  // border-right: 0.2rem solid $color-border;
   display: flex;
   flex-direction: column;
 
   &__header {
-    @include flex();
-    gap: 0.625rem;
     padding: 2rem 0 0 1.6rem;
     margin-bottom: 1.1rem;
     a {
+      @include flex();
+      gap: 1rem;
       font-size: 1.4rem;
       color: $secondary-text;
+      transition: background-color 0.2s ease;
+      &:hover{
+        background-color: $hover-gb-color;
+        span{
+             color:$color-text;
+        }
+        img{
+          filter: brightness(2)
+        }
+      }
     }
   }
 
@@ -31,17 +40,24 @@
   }
 
   &__item {
-    // display: flex;
-    // align-items: center;
 
     a {
       @include flex();
       gap: 1rem;
       width: 100%;
+      transition: background-color 0.2s ease;
+      &:hover{
+        background-color: $hover-gb-color;
+        span{
+          color:$color-text;
+        }
+        img{
+          filter: brightness(2)
+        }
+      }
       span {
         font-size: 1.4rem;
         color: $secondary-text;
-        font-size: 1.4rem;
         letter-spacing: 0.03rem;
       }
     }
