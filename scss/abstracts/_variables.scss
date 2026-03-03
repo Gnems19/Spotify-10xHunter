@@ -1,3 +1,69 @@
+/* ======= Colors ======= */
+$color-bg:             #191414;
+$color-bg-elevated:    #121212;
+$color-bg-overlay:     #000000;
+$color-surface:        #282828;
+$color-surface-hover:  rgba(255, 255, 255, 0.07);
+$color-surface-active: rgba(255, 255, 255, 0.08);
+$color-accent:         #1DB954;
+$color-accent-soft:    #1ED760;
+$color-text:           #FFFFFF;
+$color-text-active:    #E0E0E0;   // Figma "Fg/Primary" — active/selected nav items
+$color-text-muted:     #B3B3B3;
+$color-text-subtle:    #898989;
+$color-border:         #282828;
+
+/* ======= Spacing ======= */
+$spacing-xs: 0.4rem;  // 4px
+$spacing-sm: 0.8rem;  // 8px
+$spacing-md: 1.2rem;  // 12px
+$spacing-lg: 1.5rem;  // 15px
+$spacing-xl: 2.4rem;  // 24px
+
+/* ======= Sizing ======= */
+$sidebar-width:      25.9rem;  // 259px — from Figma (full sidebar)
+$sidebar-collapsed:   6.0rem;  // 60px  — icon-only collapsed state
+$player-height:  9.5rem;    // 95px  — mobile nav height
+$avatar-size:    3.0rem;    // 30px
+$card-width:     16.0rem;   // 160px
+
+// 3-tier icon sizing (smallest → largest):
+$nav-icon-size:  4.041rem;  // 40.41px — SVG graphic (Figma "icons big")
+$nav-item-size:  4.6rem;    // 46.00px — clickable button area (+~6px from icon)
+$header-height:  5.4rem;    // 54.00px — full nav pill / header height (Figma .item)
+
+/* ======= Border Radius ======= */
+$radius-sm:   0.4rem;
+$radius-md:   0.8rem;
+$radius-lg:   1.2rem;
+$radius-pill: 999px;
+
+/* ======= Typography ======= */
+// $font-primary:     'Circular Spotify', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-primary:        'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+$font-size-xs:        1.0rem;  // 10px
+$font-size-sm:        1.2rem;  // 12px
+$font-size-base:      1.4rem;  // 14px
+$font-size-md:        1.6rem;  // 16px
+$font-size-lg:        1.8rem;  // 18px
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-bold:    700;
+
+/* ======= Z-Index ======= */
+$z-header: 10;
+$z-player: 20;
+
+/* ======= Transitions ======= */
+$transition-fast: 150ms ease;
+
+/* ======= Breakpoints ======= */
+$bp-mobile:   767px;   //  ≤767px  — mobile
+$bp-tablet:   768px;   //  768px+  — tablet
+$bp-desktop:  992px;   //  992px+  — desktop
+$bp-sidebar:  1245px;  // 1245px+  — sidebar + header spacer appear
+
 // Minimal Spotify-style palette for the new starter
 $color-bg: #191414;
 $color-bg-elevated: #121212;

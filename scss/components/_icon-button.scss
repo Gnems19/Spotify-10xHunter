@@ -1,0 +1,71 @@
+/* ======= Icon Button ======= */
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.icon-button {
+  width: $nav-item-size;
+  height: $nav-item-size;
+  @include flex-center;
+  border-radius: $radius-pill;
+  color: $color-text-muted;
+  // Include filter so brightness transitions smoothly
+  transition: filter $transition-fast, color $transition-fast;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  // Contain the sr-only input inside the button bounds
+  position: relative;
+
+  // Hover — brighten the icon, no background circle
+  &:hover .nav-icon {
+    filter: brightness(0) invert(1); // → #FFFFFF on hover
+  }
+
+  // CSS-only icon swap
+  .icon--on {
+    display: none;
+  }
+
+  &:has(input:checked) .icon--off {
+    display: none;
+  }
+
+  // Active icon-on → force #FFFFFF
+  &:has(input:checked) .icon--on {
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  // Preserve original SVG colour (e.g. green private-session lock)
+  &:has(input:checked) .icon--preserve {
+    filter: none;
+  }
+}
+
+.nav-icon {
+  // 40.41px — matches Figma "icons big" (same as $nav-item-size)
+  width: $nav-icon-size;
+  height: $nav-icon-size;
+  // Smooth brightness transition when parent hover/active state fires
+  transition: filter $transition-fast;
+}
+
+// ======= Avatar Button =======
+
+.avatar-button {
+  width: $avatar-size;
+  height: $avatar-size;
+  @include flex-center;
+  border-radius: $radius-pill;
+  overflow: hidden;
+  background-color: #0f0f0f;
+  cursor: pointer;
+  border: none;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

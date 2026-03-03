@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(sass scss/main.scss css/main.css --source-map)"
+      "Bash(sass scss/main.scss css/main.css --source-map)",
+      "Bash(npx sass:*)"
     ]
   }
 }
