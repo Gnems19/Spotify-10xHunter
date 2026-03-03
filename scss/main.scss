@@ -10,7 +10,7 @@
 // LAYOUT
 @use './layout/footer';
 @use './layout/header';
-@use './layout/sidebar';
+@use '../scss/layout/sidebar';
 
 // COMPONENTS
 @use './components/card';

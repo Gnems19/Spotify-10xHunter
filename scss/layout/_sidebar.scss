@@ -1,0 +1,60 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+//========SIDEBAR=========
+.sidebar {
+  max-width: 25.9rem;
+  width: 100%;
+  // height: calc(95.7rem + 5.4rem); // 957 + 54px
+  // margin-top: 6rem;
+  margin-left: 0.7rem;
+  border-radius: 1rem;
+  // border-right: 0.2rem solid $color-border;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    @include flex();
+    gap: 0.625rem;
+    padding: 2rem 0 0 1.6rem;
+    margin-bottom: 1.1rem;
+    a {
+      font-size: 1.4rem;
+      color: $secondary-text;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  &__item {
+    // display: flex;
+    // align-items: center;
+
+    a {
+      @include flex();
+      gap: 1rem;
+      width: 100%;
+      span {
+        font-size: 1.4rem;
+        color: $secondary-text;
+        font-size: 1.4rem;
+        letter-spacing: 0.03rem;
+      }
+    }
+    &--arrow a {
+      justify-content: space-between;
+    }
+  }
+  &__link-left {
+    @include flex();
+    gap: 1.2rem;
+  }
+
+  &__nav {
+    padding-left: 1.1rem;
+  }
+}
