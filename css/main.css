@@ -59,8 +59,8 @@ body {
 }
 
 .sidebar {
-  max-width: 25.9rem;
-  width: 100%;
+  width: 25.9rem;
+  flex-shrink: 0;
   margin-left: 0.7rem;
   border-radius: 1rem;
   display: flex;
@@ -79,7 +79,7 @@ body {
   gap: 1rem;
   font-size: 1.4rem;
   color: #898989;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
 }
 .sidebar__header a:hover {
   background-color: #202020;
@@ -103,7 +103,7 @@ body {
   gap: 0;
   gap: 1rem;
   width: 100%;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
 }
 .sidebar__item a:hover {
   background-color: #202020;
