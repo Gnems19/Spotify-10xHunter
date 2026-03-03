@@ -1,3 +1,55 @@
+/* ======= Colors ======= */
+/* ======= Spacing ======= */
+/* ======= Sizing ======= */
+/* ======= Border Radius ======= */
+/* ======= Typography ======= */
+/* ======= Z-Index ======= */
+/* ======= Transitions ======= */
+/* ======= Breakpoints ======= */
+/* ======= Mixins ======= */
+/* ======= Fonts ======= */
+/* -- Circular Spotify (original) --
+@font-face {
+  font-family: 'Circular Spotify';
+  src: url('../assets/fonts/CircularSpotify-Book.woff2') format('woff2'),
+       url('../assets/fonts/CircularSpotify-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular Spotify';
+  src: url('../assets/fonts/CircularSpotify-Medium.woff2') format('woff2'),
+       url('../assets/fonts/CircularSpotify-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular Spotify';
+  src: url('../assets/fonts/CircularSpotify-Bold.woff2') format('woff2'),
+       url('../assets/fonts/CircularSpotify-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+-- */
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Variable.woff2") format("woff2"), url("../assets/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Variable.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-VariableItalic.woff2") format("woff2"), url("../assets/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-VariableItalic.woff") format("woff");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 *,
 *::before,
 *::after {
@@ -30,17 +82,347 @@ button {
   border: none;
 }
 
+label {
+  cursor: pointer;
+  font: inherit;
+}
+
+/* ======= Base ======= */
 body {
   min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Satoshi", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #191414;
   color: #FFFFFF;
 }
 
-.app {
-  min-height: 100vh;
+/* ======= Typography ======= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+p, li, a, button, span {
+  font-size: 1.4rem;
+}
+
+.nav-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 9.5rem;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.85) 0%, #111111 42.62%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.nav-mobile__inner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding-inline: 2.4rem;
+}
+.nav-mobile__item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 0.4rem;
+  color: #898989;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.nav-mobile__item .icon--on {
+  display: none;
+}
+.nav-mobile__item:has(input:checked) .icon--off {
+  display: none;
+}
+.nav-mobile__item:has(input:checked) .icon--on {
+  display: block;
+}
+.nav-mobile__icon {
+  width: 4.041rem;
+  height: 4.041rem;
+  flex-shrink: 0;
+}
+.nav-mobile__label {
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .nav-mobile {
+    display: flex;
+  }
+}
+/* ======= Header ======= */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #000000;
+  border-bottom: 1px solid #282828;
+}
+.app-header__row {
+  display: flex;
+  align-items: stretch;
+}
+.app-header__sidebar-spacer {
+  display: none;
+  width: 25.9rem;
+  flex-shrink: 0;
+}
+.app-header__sidebar-mini-spacer {
+  display: none;
+  width: 6rem;
+  flex-shrink: 0;
+}
+
+.nav-primary {
+  padding: 0 2.4rem;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  min-height: 5.4rem;
+  flex: 1;
+}
+.nav-primary__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.nav-primary__right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .app-header__sidebar-mini-spacer {
+    display: block;
+  }
+}
+@media (min-width: 1245px) {
+  .app-header__sidebar-mini-spacer {
+    display: none;
+  }
+  .app-header__sidebar-spacer {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  .app-header {
+    display: none;
+  }
+}
+/* ======= Nav Pill ======= */
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0 0 1.5rem;
+  border-radius: 0.8rem;
+  color: #B3B3B3;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  transition: color 150ms ease;
+  height: 5.4rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 0;
+}
+.nav-pill::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4.6rem;
+  border-radius: 0.8rem;
+  background-color: transparent;
+  transition: background-color 150ms ease;
+  z-index: -1;
+}
+.nav-pill--home, .nav-pill--discover {
+  width: 21rem;
+  flex-shrink: 0;
+}
+.nav-pill--search {
+  flex: 1 1 24rem;
+  max-width: 35rem;
+  min-width: 21rem;
+  color: #898989;
+}
+.nav-pill--search:has(input:checked) {
+  color: #FFFFFF;
+}
+.nav-pill--active::before, .nav-pill:has(input:checked)::before {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.nav-pill--search:has(input:checked)::before {
+  background-color: #121212;
+}
+.nav-pill--active, .nav-pill:has(input:checked) {
+  color: #FFFFFF;
+}
+.nav-pill:hover::before {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+.nav-pill:hover {
+  color: #FFFFFF;
+}
+.nav-pill:hover .nav-icon {
+  filter: brightness(0) invert(1);
+}
+.nav-pill .icon--on {
+  display: none;
+}
+.nav-pill:has(input:checked) .icon--off {
+  display: none;
+}
+.nav-pill:has(input:checked) .icon--on {
+  display: block;
+  filter: brightness(0) invert(1);
+}
+.nav-pill:has(input:checked) .nav-icon {
+  filter: brightness(0) invert(1);
+}
+
+.nav-pill__label--muted {
+  color: #B3B3B3;
+}
+.nav-pill:has(input:checked) .nav-pill__label--muted {
+  color: #FFFFFF;
+}
+
+.nav-pill__label--searching {
+  display: none;
+}
+
+.nav-pill--search:has(input:checked) .nav-pill__label--default {
+  display: none;
+}
+
+.nav-pill--search:has(input:checked) .nav-pill__label--searching {
+  display: inline;
+}
+
+.nav-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav-pill {
+    width: 4.6rem;
+    padding: 0;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-pill--home, .nav-pill--discover {
+    width: 4.6rem;
+  }
+  .nav-pill--search {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 4.6rem;
+    max-width: 21rem;
+    justify-content: flex-start;
+    padding-left: 0.8rem;
+  }
+  .nav-pill .nav-pill__label {
+    display: none;
+  }
+  .nav-pill--search:has(input:checked) .nav-pill__label--searching {
+    display: none;
+  }
+}
+/* ======= Icon Button ======= */
+.icon-button {
+  width: 4.6rem;
+  height: 4.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #B3B3B3;
+  transition: filter 150ms ease, color 150ms ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+}
+.icon-button:hover .nav-icon {
+  filter: brightness(0) invert(1);
+}
+.icon-button .icon--on {
+  display: none;
+}
+.icon-button:has(input:checked) .icon--off {
+  display: none;
+}
+.icon-button:has(input:checked) .icon--on {
+  display: block;
+  filter: brightness(0) invert(1);
+}
+.icon-button:has(input:checked) .icon--preserve {
+  filter: none;
+}
+
+.nav-icon {
+  width: 4.041rem;
+  height: 4.041rem;
+  transition: filter 150ms ease;
+}
+
+.avatar-button {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #0f0f0f;
+  cursor: pointer;
+  border: none;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /*# sourceMappingURL=main.css.map */

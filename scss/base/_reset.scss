@@ -30,3 +30,9 @@ button{
   background-color: transparent;
   border: none;
 }
+
+// Interactive labels (used as CSS-only toggle controls) need the same base
+label {
+  cursor: pointer;
+  font: inherit;
+}
