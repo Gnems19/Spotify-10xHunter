@@ -1,0 +1,44 @@
+/* ======= Header ======= */
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background-color: $color-bg-overlay;
+  border-bottom: 1px solid $color-border;
+
+  &__row {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+// ======= Primary Nav Bar =======
+
+.nav-primary {
+  padding: 0 $spacing-xl;
+  @include flex-row($gap: $spacing-xl);
+  min-height: $header-height;
+  flex: 1;
+
+  &__left {
+    @include flex-row($gap: 1rem);
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__right {
+    @include flex-row($gap: $spacing-md);
+    flex-shrink: 0;
+  }
+}
+
+// ======= Mobile: hide desktop header entirely =======
+
+@media (max-width: #{$bp-mobile}) {
+  .app-header {
+    display: none;
+  }
+}

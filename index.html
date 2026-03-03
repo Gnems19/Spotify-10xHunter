@@ -1,22 +1,16 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#191414" />
-    <title>Spotify Starter</title>
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <header class="app-header">
-      <h1 class="app-title">Spotify</h1>
-      <p class="app-subtitle">Clean starter template for your mobile UI.</p>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#191414">
+  <title>Spotify — Web Player</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="app-layout">
 
-<!--=============SIDEBAR starts here=================-->
+    <!-- ===== Sidebar ===== -->
 
     <aside class="sidebar">
       <div class="sidebar__header">
@@ -41,16 +35,48 @@
               </span>
             </a>
           </li>
-          <li class="sidebar__item sidebar__item--arrow">
-            <a href="#">
-               <div class="sidebar__link-left">
+          <li class="sidebar__item sidebar__item--accordion">
+            <button class="sidebar__accordion-trigger" aria-expanded="false">
+              <div class="sidebar__link-left">
                 <img src="./assets/icons/big/playlist.svg" alt="playlist-icon" />
-                <span>Playlists</span>
+                <span class="sidebar__accordion-label">Playlists</span>
               </div>
               <span class="sidebar__arrow">
-              <img src="./assets/icons/big/right.svg" alt="arrow-right">
+                <img src="./assets/icons/big/right.svg" alt="arrow-right" />
               </span>
-            </a>
+            </button>
+            <ul class="sidebar__dropdown">
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="./assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Chill stuff</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="./assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Rock n Roll</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="./assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>The Jux Box</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="./assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Selected Linkin Park</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="./assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Vibe</span>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="sidebar__item">
             <a href="#">
@@ -119,8 +145,73 @@
       </nav>
     </aside>
 
-   <!--=============SIDEBAR ends here=================-->
+    <!-- ===== Content Area (Header + Main) ===== -->
+    <div class="app-layout__content">
 
+    <!-- ===== Desktop Header ===== -->
+
+    <header class="app-header">
+      <div class="app-header__row">
+        <nav class="nav-primary" aria-label="Primary">
+
+          <!-- ===== Nav Pills — CSS-only active state via :has(input:checked) ===== -->
+          <div class="nav-primary__left">
+
+            <label class="nav-pill nav-pill--home">
+              <input type="radio" id="nav-home" name="primary-nav" class="nav-radio" checked>
+              <img src="assets/icons/big/home.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
+              <span class="nav-pill__label">Home</span>
+            </label>
+
+            <label class="nav-pill nav-pill--discover">
+              <input type="radio" id="nav-discover" name="primary-nav" class="nav-radio">
+              <img src="assets/icons/big/discover.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/discover-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
+              <span class="nav-pill__label">Discover</span>
+            </label>
+
+            <label class="nav-pill nav-pill--search">
+              <input type="radio" id="nav-search" name="primary-nav" class="nav-radio">
+              <img src="assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true">
+              <span class="nav-pill__label nav-pill__label--muted nav-pill__label--default">Search</span>
+              <span class="nav-pill__label nav-pill__label--searching">Search...</span>
+            </label>
+
+          </div><!-- /nav-primary__left -->
+
+          <!-- ===== Icon Buttons — toggles use CSS-only label+checkbox pattern ===== -->
+          <div class="nav-primary__right">
+
+            <button class="icon-button" type="button" aria-label="News">
+              <img src="assets/icons/big/news.svg" alt="" class="nav-icon" aria-hidden="true">
+            </button>
+
+            <label class="icon-button" aria-label="Private session">
+              <input type="checkbox" class="nav-radio">
+              <img src="assets/icons/big/private.svg"     alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/private-alt.svg" alt="" class="nav-icon icon--on icon--preserve"  aria-hidden="true">
+            </label>
+
+            <label class="icon-button" aria-label="Friends activity">
+              <input type="checkbox" class="nav-radio">
+              <img src="assets/icons/big/friends.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/friends-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
+            </label>
+
+            <button class="icon-button" type="button" aria-label="Settings">
+              <img src="assets/icons/big/settings.svg" alt="" class="nav-icon" aria-hidden="true">
+            </button>
+
+            <button class="avatar-button" type="button" aria-label="Profile">
+              <img src="assets/img/profilePicture.webp" alt="User profile picture" class="avatar-image">
+            </button>
+
+          </div><!-- /nav-primary__right -->
+
+        </nav>
+      </div>
+    </header><!-- /app-header -->
 
     <main class="app-main">
       <section class="placeholder">
@@ -128,6 +219,52 @@
         <p>Use this space to build your new screens.</p>
       </section>
     </main>
+
+    </div><!-- /app-layout__content -->
+    </div><!-- /app-layout -->
+
+    <!-- ===== Mobile Bottom Nav ===== -->
+    <nav class="nav-mobile" aria-label="Primary mobile">
+      <div class="nav-mobile__inner">
+
+        <label class="nav-mobile__item" aria-label="Home">
+          <input type="radio" name="mobile-nav" class="nav-radio" checked>
+          <img src="assets/icons/big/home.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+          <img src="assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
+          <span class="nav-mobile__label">Home</span>
+        </label>
+
+        <label class="nav-mobile__item" aria-label="Discover">
+          <input type="radio" name="mobile-nav" class="nav-radio">
+          <img src="assets/icons/big/discover.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+          <img src="assets/icons/big/discover-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
+          <span class="nav-mobile__label">Discover</span>
+        </label>
+
+        <label class="nav-mobile__item" aria-label="Search">
+          <input type="radio" name="mobile-nav" class="nav-radio">
+          <img src="assets/icons/big/search.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+          <img src="assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
+          <span class="nav-mobile__label">Search</span>
+        </label>
+
+        <label class="nav-mobile__item" aria-label="Library">
+          <input type="radio" name="mobile-nav" class="nav-radio">
+          <img src="assets/icons/big/library.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+          <img src="assets/icons/big/library-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
+          <span class="nav-mobile__label">Library</span>
+        </label>
+
+        <label class="nav-mobile__item" aria-label="Me">
+          <input type="radio" name="mobile-nav" class="nav-radio">
+          <img src="assets/icons/big/user.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+          <img src="assets/icons/big/user-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
+          <span class="nav-mobile__label">Me</span>
+        </label>
+
+      </div>
+    </nav><!-- /nav-mobile -->
+
 
     <script src="js/app.js"></script>
   </body>
