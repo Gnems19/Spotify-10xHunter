@@ -8,9 +8,10 @@
 @use './base/typography';
 
 // LAYOUT
+@use './layout/app-layout';
 @use './layout/footer';
 @use './layout/header';
-@use './layout/sidebar';
+@use '../scss/layout/sidebar';
 
 // COMPONENTS
 @use './components/card';

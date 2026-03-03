@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as *;
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Mobile: stack vertically, hide sidebar
+@media (max-width: #{$bp-mobile}) {
+  .app-layout {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+}

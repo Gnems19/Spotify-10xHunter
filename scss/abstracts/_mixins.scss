@@ -42,3 +42,12 @@
   white-space: nowrap;
   border: 0;
 }
+
+//Mariam's flex mixin
+@mixin flex($direction: row, $justify: flex-start, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
