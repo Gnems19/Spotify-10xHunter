@@ -8,76 +8,9 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- ===== Desktop Header ===== -->
-  
-    <header class="app-header">
-      <div class="app-header__row">
-        <!-- Spacer that mirrors sidebar width to keep nav aligned -->
-        <div class="app-header__sidebar-spacer" aria-hidden="true"></div>
-        <div class="app-header__sidebar-mini-spacer" aria-hidden="true"></div>
+    <div class="app-layout">
 
-        <nav class="nav-primary" aria-label="Primary">
-
-          <!-- ===== Nav Pills — CSS-only active state via :has(input:checked) ===== -->
-          <div class="nav-primary__left">
-
-            <label class="nav-pill nav-pill--home">
-              <input type="radio" id="nav-home" name="primary-nav" class="nav-radio" checked>
-              <img src="assets/icons/big/home.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
-              <img src="assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
-              <span class="nav-pill__label">Home</span>
-            </label>
-
-            <label class="nav-pill nav-pill--discover">
-              <input type="radio" id="nav-discover" name="primary-nav" class="nav-radio">
-              <img src="assets/icons/big/discover.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
-              <img src="assets/icons/big/discover-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
-              <span class="nav-pill__label">Discover</span>
-            </label>
-
-            <label class="nav-pill nav-pill--search">
-              <input type="radio" id="nav-search" name="primary-nav" class="nav-radio">
-              <img src="assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true">
-              <span class="nav-pill__label nav-pill__label--muted nav-pill__label--default">Search</span>
-              <span class="nav-pill__label nav-pill__label--searching">Search...</span>
-            </label>
-
-          </div><!-- /nav-primary__left -->
-
-          <!-- ===== Icon Buttons — toggles use CSS-only label+checkbox pattern ===== -->
-          <div class="nav-primary__right">
-
-            <button class="icon-button" type="button" aria-label="News">
-              <img src="assets/icons/big/news.svg" alt="" class="nav-icon" aria-hidden="true">
-            </button>
-
-            <label class="icon-button" aria-label="Private session">
-              <input type="checkbox" class="nav-radio">
-              <img src="assets/icons/big/private.svg"     alt="" class="nav-icon icon--off" aria-hidden="true">
-              <img src="assets/icons/big/private-alt.svg" alt="" class="nav-icon icon--on icon--preserve"  aria-hidden="true">
-            </label>
-
-            <label class="icon-button" aria-label="Friends activity">
-              <input type="checkbox" class="nav-radio">
-              <img src="assets/icons/big/friends.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
-              <img src="assets/icons/big/friends-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
-            </label>
-
-            <button class="icon-button" type="button" aria-label="Settings">
-              <img src="assets/icons/big/settings.svg" alt="" class="nav-icon" aria-hidden="true">
-            </button>
-
-            <button class="avatar-button" type="button" aria-label="Profile">
-              <img src="assets/img/profilePicture.webp" alt="User profile picture" class="avatar-image">
-            </button>
-
-          </div><!-- /nav-primary__right -->
-
-        </nav>
-      </div>
-    </header><!-- /app-header -->
-
-<!--=============SIDEBAR starts here=================-->
+    <!-- ===== Sidebar ===== -->
 
     <aside class="sidebar">
       <div class="sidebar__header">
@@ -212,8 +145,73 @@
       </nav>
     </aside>
 
-   <!--=============SIDEBAR ends here=================-->
+    <!-- ===== Content Area (Header + Main) ===== -->
+    <div class="app-layout__content">
 
+    <!-- ===== Desktop Header ===== -->
+
+    <header class="app-header">
+      <div class="app-header__row">
+        <nav class="nav-primary" aria-label="Primary">
+
+          <!-- ===== Nav Pills — CSS-only active state via :has(input:checked) ===== -->
+          <div class="nav-primary__left">
+
+            <label class="nav-pill nav-pill--home">
+              <input type="radio" id="nav-home" name="primary-nav" class="nav-radio" checked>
+              <img src="assets/icons/big/home.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
+              <span class="nav-pill__label">Home</span>
+            </label>
+
+            <label class="nav-pill nav-pill--discover">
+              <input type="radio" id="nav-discover" name="primary-nav" class="nav-radio">
+              <img src="assets/icons/big/discover.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/discover-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
+              <span class="nav-pill__label">Discover</span>
+            </label>
+
+            <label class="nav-pill nav-pill--search">
+              <input type="radio" id="nav-search" name="primary-nav" class="nav-radio">
+              <img src="assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true">
+              <span class="nav-pill__label nav-pill__label--muted nav-pill__label--default">Search</span>
+              <span class="nav-pill__label nav-pill__label--searching">Search...</span>
+            </label>
+
+          </div><!-- /nav-primary__left -->
+
+          <!-- ===== Icon Buttons — toggles use CSS-only label+checkbox pattern ===== -->
+          <div class="nav-primary__right">
+
+            <button class="icon-button" type="button" aria-label="News">
+              <img src="assets/icons/big/news.svg" alt="" class="nav-icon" aria-hidden="true">
+            </button>
+
+            <label class="icon-button" aria-label="Private session">
+              <input type="checkbox" class="nav-radio">
+              <img src="assets/icons/big/private.svg"     alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/private-alt.svg" alt="" class="nav-icon icon--on icon--preserve"  aria-hidden="true">
+            </label>
+
+            <label class="icon-button" aria-label="Friends activity">
+              <input type="checkbox" class="nav-radio">
+              <img src="assets/icons/big/friends.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
+              <img src="assets/icons/big/friends-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
+            </label>
+
+            <button class="icon-button" type="button" aria-label="Settings">
+              <img src="assets/icons/big/settings.svg" alt="" class="nav-icon" aria-hidden="true">
+            </button>
+
+            <button class="avatar-button" type="button" aria-label="Profile">
+              <img src="assets/img/profilePicture.webp" alt="User profile picture" class="avatar-image">
+            </button>
+
+          </div><!-- /nav-primary__right -->
+
+        </nav>
+      </div>
+    </header><!-- /app-header -->
 
     <main class="app-main">
       <section class="placeholder">
@@ -221,6 +219,9 @@
         <p>Use this space to build your new screens.</p>
       </section>
     </main>
+
+    </div><!-- /app-layout__content -->
+    </div><!-- /app-layout -->
 
     <!-- ===== Mobile Bottom Nav ===== -->
     <nav class="nav-mobile" aria-label="Primary mobile">

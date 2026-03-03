@@ -13,20 +13,6 @@
     display: flex;
     align-items: stretch;
   }
-
-  // Blank spacer that mirrors the sidebar width to push nav right
-  &__sidebar-spacer {
-    display: none;
-    width: $sidebar-width;
-    flex-shrink: 0;
-  }
-
-  &__sidebar-mini-spacer {
-    display: none;
-    width: $sidebar-collapsed;
-    flex-shrink: 0;
-  }
-
 }
 
 // ======= Primary Nav Bar =======
@@ -46,24 +32,6 @@
   &__right {
     @include flex-row($gap: $spacing-md);
     flex-shrink: 0;
-  }
-}
-
-// ======= Tablet+: show mini spacer (sidebar is visible from 768px up) =======
-@media (min-width: #{$bp-tablet}) {
-  .app-header__sidebar-mini-spacer {
-    display: block;
-  }
-}
-
-// ======= Wide desktop: swap mini spacer for full sidebar spacer =======
-@media (min-width: #{$bp-sidebar}) {
-  .app-header__sidebar-mini-spacer {
-    display: none;
-  }
-
-  .app-header__sidebar-spacer {
-    display: block;
   }
 }
 

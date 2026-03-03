@@ -8,6 +8,7 @@
 @use './base/typography';
 
 // LAYOUT
+@use './layout/app-layout';
 @use './layout/footer';
 @use './layout/header';
 @use '../scss/layout/sidebar';
