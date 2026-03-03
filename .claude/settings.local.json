@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sass scss/main.scss css/main.css --source-map)"
+    ]
+  }
+}
