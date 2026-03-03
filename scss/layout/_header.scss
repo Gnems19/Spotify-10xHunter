@@ -1,0 +1,77 @@
+/* ======= Header ======= */
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background-color: $color-bg-overlay;
+  border-bottom: 1px solid $color-border;
+
+  &__row {
+    display: flex;
+    align-items: stretch;
+  }
+
+  // Blank spacer that mirrors the sidebar width to push nav right
+  &__sidebar-spacer {
+    display: none;
+    width: $sidebar-width;
+    flex-shrink: 0;
+  }
+
+  &__sidebar-mini-spacer {
+    display: none;
+    width: $sidebar-collapsed;
+    flex-shrink: 0;
+  }
+
+}
+
+// ======= Primary Nav Bar =======
+
+.nav-primary {
+  padding: 0 $spacing-xl;
+  @include flex-row($gap: $spacing-xl);
+  min-height: $header-height;
+  flex: 1;
+
+  &__left {
+    @include flex-row($gap: 1rem);
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__right {
+    @include flex-row($gap: $spacing-md);
+    flex-shrink: 0;
+  }
+}
+
+// ======= Desktop: show mini spacer by default =======
+// 1024px-1244px => mini spacer (60px)
+@media (min-width: #{$bp-desktop}) {
+  .app-header__sidebar-mini-spacer {
+    display: block;
+  }
+}
+
+// ======= Wide desktop: swap mini spacer for full sidebar spacer =======
+@media (min-width: #{$bp-sidebar}) {
+  .app-header__sidebar-mini-spacer {
+    display: none;
+  }
+
+  .app-header__sidebar-spacer {
+    display: block;
+  }
+}
+
+// ======= Mobile: hide desktop header entirely =======
+
+@media (max-width: #{$bp-mobile}) {
+  .app-header {
+    display: none;
+  }
+}

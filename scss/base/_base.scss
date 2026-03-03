@@ -1,3 +1,4 @@
+/* ======= Base ======= */
 @use '../abstracts/variables' as *;
 
 body {
@@ -5,4 +6,19 @@ body {
   font-family: $font-primary;
   background-color: $color-bg;
   color: $color-text;
+}
+
+// Full-page flex column wrapper
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Flex row: sidebar beside main content
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0; // prevent overflow in flex children
+  overflow: hidden;
 }

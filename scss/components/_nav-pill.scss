@@ -1,0 +1,148 @@
+/* ======= Nav Pill ======= */
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+
+  // Figma .item: padding: 0 0 0 15px; gap: 10px
+  gap: 1rem;                   // 10px — from Figma
+  padding: 0 0 0 $spacing-lg;  // 15px left only — from Figma
+
+  border-radius: $radius-md;
+  color: $color-text-muted;
+  font-size: $font-size-base;
+  line-height: 1.9rem;
+  // Colour transition on text only — background is handled by ::before
+  transition: color $transition-fast;
+
+  // 54px — full header height, this is the click target
+  height: $header-height;
+
+  cursor: pointer;
+  border: none;
+  background-color: transparent; // outer pill is always transparent
+
+  // Stacking context so ::before z-index: -1 stays under the icons/text
+  position: relative;
+  z-index: 0;
+
+  // =====================================================================
+  // ::before — the 46px visual highlight box ($nav-item-size)
+  // Centred inside the 54px click target so only THIS layer changes colour
+  // =====================================================================
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: $nav-item-size;       // 46px — the coloured button-area tier
+    border-radius: $radius-md;
+    background-color: transparent;
+    transition: background-color $transition-fast;
+    z-index: -1; // below flex items (icons + label), above nothing
+  }
+
+  // ======= Fixed-width pills (Home & Discover must NOT shrink) =======
+  &--home,
+  &--discover {
+    width: 21.0rem;   // 210px from Figma
+    flex-shrink: 0;   // flex: none — never shrinks
+  }
+
+  // ======= Search pill — the only one allowed to grow/shrink =======
+  &--search {
+    flex: 1 1 24rem;
+    max-width: 35rem;
+    min-width: 21rem;
+    color: $color-text-subtle;
+
+    // Search active: distinct dark-fill, text goes white
+    &:has(input:checked) {
+      color: $color-text;
+    }
+
+    &:has(input:checked)::before {
+      background-color: $color-bg-elevated;
+    }
+  }
+
+  // ======= Active state — colour the ::before, not the pill =======
+  &--active::before,
+  &:has(input:checked)::before {
+    background-color: $color-surface-active;
+  }
+
+  // Active/pressed — text and icon use Figma "Fg/Primary" (#E0E0E0)
+  &--active,
+  &:has(input:checked) {
+    color: $color-text;
+  }
+
+  // ======= Hover — slightly brighter than active for clear feedback =======
+  &:hover::before {
+    background-color: $color-surface-hover;
+  }
+
+  &:hover {
+    color: $color-text;
+  }
+
+  // Brighten icon on hover (off-icon is still showing)
+  &:hover .nav-icon {
+    filter: brightness(0) invert(1); // → #FFFFFF on hover
+  }
+
+  // ======= CSS-only icon swap =======
+  .icon--on {
+    display: none;
+  }
+
+  &:has(input:checked) .icon--off {
+    display: none;
+  }
+
+  // Active icon-on → force #FFFFFF regardless of SVG's baked-in colour
+  &:has(input:checked) .icon--on {
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  // Plain .nav-icon (no icon--on/off swap, e.g. search) — also turns white when active
+  &:has(input:checked) .nav-icon {
+    filter: brightness(0) invert(1);
+  }
+}
+
+// Muted placeholder text (used on the Search pill label)
+.nav-pill__label--muted {
+  color: $color-text-muted;
+
+  // Override when parent pill is active — inherited colour doesn't beat a class rule
+  .nav-pill:has(input:checked) & {
+    color: $color-text;
+  }
+}
+
+// ======= Search pill label text swap (CSS-only) =======
+// Default: show "Search", hide "Search..."
+.nav-pill__label--searching {
+  display: none;
+}
+
+// Active: hide "Search", show "Search..."
+.nav-pill--search:has(input:checked) .nav-pill__label--default {
+  display: none;
+}
+
+.nav-pill--search:has(input:checked) .nav-pill__label--searching {
+  display: inline;
+}
+
+// Visually hidden radio inputs (keyboard & screen-reader accessible)
+.nav-radio {
+  @include sr-only;
+}
