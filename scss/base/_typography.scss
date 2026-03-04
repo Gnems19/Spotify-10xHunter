@@ -1,0 +1,15 @@
+/* ======= Typography ======= */
+@use '../abstracts/variables' as *;
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: $font-size-lg;
+}
+
+p, li, a, button, span {
+  font-size: $font-size-base;
+}
