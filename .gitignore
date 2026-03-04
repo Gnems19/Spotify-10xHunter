@@ -29,6 +29,6 @@ Thumbs.db
 .env
 .env.*
 
-# Archived original UI
+# Archived files
 vibe/
-
+drafts/
