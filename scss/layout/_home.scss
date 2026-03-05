@@ -1,0 +1,315 @@
+/* ======= Home Page — Filter Bar + Feed Sections ======= */
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ── Main content area ───────────────────────────────────────
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: $color-bg-overlay;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  margin-left: $spacing-xl;
+
+  // Thin subtle scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: $color-surface transparent;
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-surface;
+    border-radius: $radius-pill;
+
+    &:hover {
+      background: $color-text-subtle;
+    }
+  }
+}
+
+// ── Filter Bar ──────────────────────────────────────────────
+.home-filter-bar {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background: $color-bg-overlay;
+  padding: $font-size-md $spacing-xl $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  border-radius: $radius-lg $radius-lg 0 0;
+}
+
+.filter-pill {
+  padding: $spacing-sm $font-size-md;
+  border-radius: $radius-md;
+  border: none;
+  font-family: $font-primary;
+  font-size: $font-size-label;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  background: $color-surface;
+  color: $color-text;
+  transition: background $transition-fast, color $transition-fast;
+
+  &--active {
+    background: $color-text;
+    color: $color-bg;
+  }
+
+  &:hover:not(.filter-pill--active) {
+    background: color.adjust($color-surface, $lightness: 8%);
+  }
+}
+
+.filter-grid-icon {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs;
+  opacity: 0.7;
+  transition: opacity $transition-fast;
+
+  img {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    filter: invert(1);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// ── Home Feed ───────────────────────────────────────────────
+.home-feed {
+  padding: 0 $spacing-xl $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// ── Section ─────────────────────────────────────────────────
+.home-section {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $font-size-md;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    margin: 0;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__track {
+    display: flex;
+    gap: $font-size-md;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// ── Section nav / more buttons ──────────────────────────────
+.section-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  @include flex-center;
+
+  img {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    filter: invert(0.6);
+    transition: filter $transition-fast;
+  }
+
+  &:hover img {
+    filter: invert(1);
+  }
+}
+
+.section-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  @include flex-center;
+  opacity: 0.6;
+
+  img {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    filter: invert(0.7);
+    transition: filter $transition-fast;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Hidden on desktop; rendered in mobile feed directly under filter pills.
+.home-quick-grid {
+  display: none;
+}
+
+@media (max-width: #{$bp-mobile}) {
+  .app-main {
+    margin-left: 0;
+    border: none;
+    border-radius: 0;
+    background: $color-bg-overlay;
+    padding-bottom: calc(#{$player-height} + #{$spacing-xl} + env(safe-area-inset-bottom, 0px));
+  }
+
+  .home-filter-bar {
+    position: sticky;
+    top: 0;
+    border-radius: 0;
+    padding: $font-size-md $spacing-lg $spacing-md;
+    gap: $spacing-base;
+
+    .filter-pill:first-child {
+      display: none;
+    }
+  }
+
+  .filter-pill {
+    border-radius: 0.8rem;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    background: $color-surface-hover-solid;
+    color: $color-text-active;
+
+    &--active {
+      background: $color-surface-hover-solid;
+      color: $color-text-active;
+    }
+  }
+
+  .filter-grid-icon {
+    opacity: 1;
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+      filter: invert(0.75);
+    }
+  }
+
+  .home-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-base;
+    padding: 0 $spacing-lg $spacing-xl;
+  }
+
+  .home-quick-card {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    min-width: 0;
+    height: 5.8rem;
+    border-radius: 1rem;
+    background: $color-surface-hover-solid;
+    padding: 0 $spacing-sm 0 0.7rem;
+
+    &__thumb {
+      width: 4.3rem;
+      height: 4.3rem;
+      border-radius: 0.3rem;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    &__meta {
+      min-width: 0;
+    }
+
+    &__title {
+      margin: 0;
+      color: $color-text-active;
+      font-size: $font-size-base;
+      line-height: 1.9rem;
+      letter-spacing: 0.03em;
+      @include truncate;
+    }
+
+    &__subtitle {
+      margin: 0;
+      color: $color-text-subtle;
+      font-size: $font-size-base;
+      line-height: 1.9rem;
+      letter-spacing: 0.03em;
+      @include truncate;
+    }
+  }
+
+  .home-feed {
+    padding: 0 $spacing-lg;
+    gap: 3rem;
+  }
+
+  .home-section {
+    &__header {
+      margin-bottom: $font-size-md;
+    }
+
+    &__title {
+      font-size: $font-size-xl;
+      line-height: 1.35;
+      letter-spacing: 0.03em;
+      color: $color-text-active;
+    }
+
+    &__controls {
+      .section-nav-btn {
+        display: none;
+      }
+    }
+
+    &__track {
+      gap: 0.9rem;
+      margin: 0 (-$spacing-lg);
+      padding: 0 $spacing-lg;
+      scroll-snap-type: x proximity;
+    }
+  }
+
+  .section-more-btn {
+    opacity: 1;
+    padding: $spacing-xs;
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+      filter: invert(0.65);
+    }
+  }
+}

@@ -12,6 +12,8 @@
 @use './layout/footer';
 @use './layout/header';
 @use '../scss/layout/sidebar';
+@use './layout/home';
+@use './layout/feed-modal';
 
 // COMPONENTS
 @use './components/card';

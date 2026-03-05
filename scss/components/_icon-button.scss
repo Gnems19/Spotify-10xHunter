@@ -58,7 +58,7 @@
   @include flex-center;
   border-radius: $radius-pill;
   overflow: hidden;
-  background-color: #0f0f0f;
+  background-color: $color-bg-elevated;
   cursor: pointer;
   border: none;
 }
