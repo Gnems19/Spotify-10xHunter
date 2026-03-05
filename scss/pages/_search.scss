@@ -1,0 +1,224 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.app-main--search {
+  background: #060606;
+  border: 1px solid #202020;
+  border-radius: 1rem;
+}
+
+.search-page {
+  height: 100%;
+  overflow-y: auto;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    min-height: 100%;
+    padding: 1.3rem 2.4rem 4rem;
+  }
+}
+
+.search-section--recent {
+  .home-section__header {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.search-recent-track {
+  gap: 3rem;
+}
+
+.search-recent-card {
+  position: relative;
+  width: 16.916rem;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.24rem;
+
+  &__thumb-wrap {
+    width: 16.916rem;
+    height: 16.916rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background: $color-bg-elevated;
+  }
+
+  &__thumb-wrap--circle {
+    border-radius: 50%;
+  }
+
+  &__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__remove {
+    @include flex-center;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.2rem;
+    width: 4.04rem;
+    height: 4.04rem;
+    border: none;
+    border-radius: 50%;
+    background: #111111;
+    cursor: pointer;
+
+    img {
+      width: 1.68rem;
+      height: 1.68rem;
+      filter: brightness(0) saturate(100%) invert(62%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(93%) contrast(88%);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-text-active;
+    font-size: $font-size-base;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    @include truncate;
+    max-width: 100%;
+  }
+
+  &__subtitle {
+    margin: -0.8rem 0 0;
+    color: $color-text-subtle;
+    font-size: $font-size-sm;
+    line-height: 1.6rem;
+    letter-spacing: 0.03em;
+  }
+}
+
+.search-browse {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__title {
+    margin: 0;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: 2.7rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
+  }
+}
+
+.search-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .home-section__header {
+    margin-bottom: 0;
+  }
+}
+
+.search-row__title {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  line-height: 2.4rem;
+  letter-spacing: 0.03em;
+  color: $color-text-active;
+}
+
+.search-tile-track {
+  gap: 1.2rem;
+}
+
+.search-tile {
+  position: relative;
+  width: 17rem;
+  height: 17rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  overflow: hidden;
+  background: var(--tile-bg, #1e3264);
+  flex: 0 0 auto;
+
+  &__title {
+    margin: 0;
+    max-width: 11.8rem;
+    color: $color-text;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 2.7rem;
+    letter-spacing: 0.03em;
+    overflow-wrap: anywhere;
+  }
+
+  &__art {
+    position: absolute;
+    width: 10.427rem;
+    height: 10.427rem;
+    right: -0.8rem;
+    bottom: -0.9rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    transform: rotate(30deg);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: #{$bp-mobile}) {
+  .app-main--search {
+    margin-left: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .search-page__inner {
+    padding: 1.6rem 1.6rem calc(#{$player-height} + 2.4rem + env(safe-area-inset-bottom, 0px));
+    gap: 2.4rem;
+  }
+
+  .search-recent-track {
+    gap: 1.6rem;
+  }
+
+  .search-recent-card {
+    width: 14rem;
+
+    &__thumb-wrap {
+      width: 14rem;
+      height: 14rem;
+    }
+
+    &__title {
+      font-size: 1.3rem;
+    }
+  }
+
+  .search-row {
+    .section-nav-btn {
+      display: none;
+    }
+  }
+
+  .search-tile {
+    width: 14rem;
+    height: 14rem;
+    padding: 1.6rem;
+
+    &__title {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      max-width: 9.5rem;
+    }
+
+    &__art {
+      width: 9rem;
+      height: 9rem;
+    }
+  }
+}
