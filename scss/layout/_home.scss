@@ -1,0 +1,173 @@
+/* ======= Home Page — Filter Bar + Feed Sections ======= */
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ── Main content area ───────────────────────────────────────
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: $color-bg-overlay;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+
+  // Thin subtle scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: $color-surface transparent;
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-surface;
+    border-radius: $radius-pill;
+
+    &:hover {
+      background: $color-text-subtle;
+    }
+  }
+}
+
+// ── Filter Bar ──────────────────────────────────────────────
+.home-filter-bar {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background: $color-bg-overlay;
+  padding: 1.6rem 1.6rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  border-radius: $radius-lg $radius-lg 0 0;
+}
+
+.filter-pill {
+  padding: 0.8rem 1.6rem;
+  border-radius: $radius-md;
+  border: none;
+  font-family: $font-primary;
+  font-size: 1.3rem;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  background: $color-surface;
+  color: $color-text;
+  transition: background $transition-fast, color $transition-fast;
+
+  &--active {
+    background: $color-text;
+    color: $color-bg;
+  }
+
+  &:hover:not(.filter-pill--active) {
+    background: color.adjust($color-surface, $lightness: 8%);
+  }
+}
+
+.filter-grid-icon {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  opacity: 0.7;
+  transition: opacity $transition-fast;
+
+  img {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    filter: invert(1);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// ── Home Feed ───────────────────────────────────────────────
+.home-feed {
+  padding: 0 1.6rem 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+// ── Section ─────────────────────────────────────────────────
+.home-section {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    margin: 0;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__track {
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// ── Section nav / more buttons ──────────────────────────────
+.section-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  @include flex-center;
+
+  img {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    filter: invert(0.6);
+    transition: filter $transition-fast;
+  }
+
+  &:hover img {
+    filter: invert(1);
+  }
+}
+
+.section-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  @include flex-center;
+  opacity: 0.6;
+
+  img {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    filter: invert(0.7);
+    transition: filter $transition-fast;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
