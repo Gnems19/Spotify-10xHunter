@@ -144,3 +144,45 @@
     filter: invert(1);
   }
 }
+
+@media (max-width: #{$bp-mobile}) {
+  .card {
+    width: 14.1rem;
+
+    &__thumb-wrap {
+      margin-bottom: 0.7rem;
+      border-radius: 0.6rem;
+    }
+
+    &__title {
+      font-size: 1.16rem;
+      line-height: 1.6rem;
+      letter-spacing: 0.03em;
+    }
+
+    &__count {
+      font-size: 1.16rem;
+      line-height: 1.6rem;
+      font-weight: $font-weight-regular;
+    }
+
+    &__desc {
+      margin-top: 0.4rem;
+      font-size: 1rem;
+      line-height: 1.3rem;
+      letter-spacing: 0.03em;
+      color: $color-text-subtle;
+    }
+
+    &__logo {
+      width: 1.6rem;
+      height: 1.6rem;
+      top: 0.6rem;
+      left: 0.6rem;
+    }
+
+    &__mix-title {
+      font-size: 1.2rem;
+    }
+  }
+}

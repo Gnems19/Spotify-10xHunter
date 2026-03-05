@@ -17,9 +17,6 @@
 
 // Mobile: stack vertically, hide sidebar
 @media (max-width: #{$bp-mobile}) {
-  .app-layout {
-    display: none;
-  }
   .sidebar {
     display: none;
   }
