@@ -16,38 +16,68 @@
       });
     }
 
-    // ── Filter pills ──────────────────────────────────────────
-    document.querySelectorAll('.filter-pill').forEach(pill => {
-      pill.addEventListener('click', () => {
-        document.querySelectorAll('.filter-pill').forEach(p =>
-          p.classList.remove('filter-pill--active')
-        );
-        pill.classList.add('filter-pill--active');
+    // ── Filter pills (event delegation) ─────────────────────
+    // One listener on the parent instead of N listeners on each pill.
+    // Uses regular `function` so `this` binds to filterBar (the listened element).
+    // Arrow functions () => {} do NOT bind `this` to the element — that's why
+    // the old code had to use the closure variable `pill` instead of `this`.
+    const filterBar = document.querySelector('.home-filter-bar');
+    if (filterBar) {
+      filterBar.addEventListener('click', function (e) {
+        const pill = e.target.closest('.filter-pill');
+        if (pill){ 
+          const current = this.querySelector('.filter-pill--active');
+          if (current) current.classList.remove('filter-pill--active');
+          pill.classList.add('filter-pill--active');
+        }
       });
-    });
+    }
 
     // ── Section carousel prev/next ────────────────────────────
+    // Scrolls by the full visible width so every card after click is new
     document.querySelectorAll('.home-section').forEach(section => {
       const track = section.querySelector('.home-section__track');
-      const prev = section.querySelector('.section-nav-btn--prev');
-      const next = section.querySelector('.section-nav-btn--next');
       if (!track) return;
 
-      const scrollAmount = () => {
-        const card = track.querySelector('.card');
-        return card ? card.offsetWidth + 16 : 196;
-      };
-
-      if (prev) {
-        prev.addEventListener('click', () =>
-          track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' })
-        );
-      }
-      if (next) {
-        next.addEventListener('click', () =>
-          track.scrollBy({ left: scrollAmount(), behavior: 'smooth' })
-        );
-      }
+      section.querySelector('.section-nav-btn--prev')?.addEventListener('click', () =>
+        track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' })
+      );
+      section.querySelector('.section-nav-btn--next')?.addEventListener('click', () =>
+        track.scrollBy({ left: track.clientWidth, behavior: 'smooth' })
+      );
     });
+
+    // // ── Customize Feed dropdown ─────────────────────────────
+    // const feedModal = document.querySelector('.feed-modal');
+    // const feedBtn = document.querySelector('.filter-grid-icon');
+
+    // if (feedModal && feedBtn) {
+    //   // Toggle dropdown on feed button click
+    //   feedBtn.addEventListener('click', function (e) {
+    //     e.stopPropagation();
+    //     feedModal.open ? feedModal.close() : feedModal.show();
+    //   });
+
+    //   // Close via X button
+    //   feedModal.querySelector('.feed-modal__close')?.addEventListener('click', function () {
+    //     feedModal.close();
+    //   });
+
+    //   // Close when clicking outside the dropdown
+    //   document.addEventListener('click', function (e) {
+    //     if (feedModal.open && !feedModal.contains(e.target) && !feedBtn.contains(e.target)) {
+    //       feedModal.close();
+    //     }
+    //   });
+
+    //   // Visibility toggle buttons (event delegation)
+    //   feedModal.querySelector('.feed-modal__list')?.addEventListener('click', function (e) {
+    //     const toggleBtn = e.target.closest('.feed-modal__toggle-vis');
+    //     if (!toggleBtn) return;
+
+    //     const isPressed = toggleBtn.getAttribute('aria-pressed') === 'true';
+    //     toggleBtn.setAttribute('aria-pressed', String(!isPressed));
+    //   });
+    //}
   });
 })();

@@ -244,7 +244,7 @@ p, li, a, button, span {
 }
 .sidebar__header {
   padding: 2rem 0 0 1.6rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
 }
 .sidebar__header a {
   display: flex;
@@ -269,7 +269,7 @@ p, li, a, button, span {
 .sidebar__list {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 .sidebar__item a {
   display: flex;
@@ -381,7 +381,7 @@ p, li, a, button, span {
   gap: 1.2rem;
 }
 .sidebar__nav {
-  padding-left: 1.1rem;
+  padding-left: 1.2rem;
 }
 
 /* ======= Home Page — Filter Bar + Feed Sections ======= */
@@ -392,6 +392,7 @@ p, li, a, button, span {
   background: #000000;
   border: 1px solid #282828;
   border-radius: 1.2rem;
+  margin-left: 2.4rem;
   scrollbar-width: thin;
   scrollbar-color: #282828 transparent;
 }
@@ -414,7 +415,7 @@ p, li, a, button, span {
   top: 0;
   z-index: 10;
   background: #000000;
-  padding: 1.6rem 1.6rem 1.2rem;
+  padding: 1.6rem 2.4rem 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -460,10 +461,10 @@ p, li, a, button, span {
 }
 
 .home-feed {
-  padding: 0 1.6rem 3.2rem;
+  padding: 0 2.4rem 2.4rem;
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2.4rem;
 }
 
 .home-section__header {
@@ -533,6 +534,216 @@ p, li, a, button, span {
   opacity: 1;
 }
 
+/* ======= Customize Feed Modal ======= */
+.feed-modal {
+  border: none;
+  padding: 0;
+  max-width: 35rem;
+  width: 90vw;
+  border-radius: 1.2rem;
+  background: #121212;
+  color: #FFFFFF;
+  box-shadow: 0 1.6rem 2.4rem rgba(0, 0, 0, 0.5);
+}
+.feed-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.feed-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem 2.4rem 1.2rem;
+  border-bottom: 1px solid #282828;
+}
+.feed-modal__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+.feed-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.feed-modal__close img {
+  width: 2.4rem;
+  height: 2.4rem;
+  filter: invert(0.6);
+  transition: filter 150ms ease;
+}
+.feed-modal__close:hover {
+  background: #282828;
+}
+.feed-modal__close:hover img {
+  filter: invert(1);
+}
+.feed-modal__body {
+  padding: 1.2rem 0;
+  max-height: 40vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #282828 transparent;
+}
+.feed-modal__body::-webkit-scrollbar {
+  width: 0.6rem;
+}
+.feed-modal__body::-webkit-scrollbar-thumb {
+  background: #282828;
+  border-radius: 999px;
+}
+.feed-modal__library-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 0.8rem 2.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Satoshi", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  transition: background 150ms ease;
+}
+.feed-modal__library-btn .feed-modal__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  filter: invert(0.6);
+}
+.feed-modal__library-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.feed-modal__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.feed-modal__item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 2.4rem;
+  transition: background 150ms ease;
+}
+.feed-modal__item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+.feed-modal__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex-shrink: 0;
+}
+.feed-modal__icon--drag {
+  filter: invert(0.5);
+  cursor: grab;
+}
+.feed-modal__item-name {
+  flex: 1;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.feed-modal__toggle-vis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.feed-modal__toggle-vis .icon--vis-off {
+  display: none;
+}
+.feed-modal__toggle-vis .icon--vis-on {
+  filter: invert(0.6);
+}
+.feed-modal__toggle-vis[aria-pressed=false] .icon--vis-on {
+  display: none;
+}
+.feed-modal__toggle-vis[aria-pressed=false] .icon--vis-off {
+  display: block;
+  filter: invert(0.4);
+}
+.feed-modal__toggle-vis:hover {
+  background: #282828;
+}
+.feed-modal__toggle-vis:hover .icon--vis-on,
+.feed-modal__toggle-vis:hover .icon--vis-off {
+  filter: invert(1);
+}
+.feed-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.4rem 2.4rem;
+  border-top: 1px solid #282828;
+}
+.feed-modal__footer-label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.feed-modal__switch {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.feed-modal__switch-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.feed-modal__switch-track {
+  display: block;
+  width: 3.6rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: #282828;
+  transition: background 150ms ease;
+  position: relative;
+}
+.feed-modal__switch-track::after {
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: #FFFFFF;
+  transition: transform 150ms ease;
+}
+.feed-modal__switch-input:checked + .feed-modal__switch-track {
+  background: #1DB954;
+}
+.feed-modal__switch-input:checked + .feed-modal__switch-track::after {
+  transform: translateX(1.6rem);
+}
+.feed-modal__switch-input:focus-visible + .feed-modal__switch-track {
+  outline: 2px solid #1DB954;
+  outline-offset: 2px;
+}
+
 /* ======= Cards ======= */
 .card {
   flex: 0 0 auto;
@@ -579,7 +790,7 @@ p, li, a, button, span {
   position: absolute;
   top: 0.8rem;
   right: 0.8rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.15rem;
   z-index: 2;
@@ -626,7 +837,7 @@ p, li, a, button, span {
 }
 .card__title {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #FFFFFF;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -640,7 +851,7 @@ p, li, a, button, span {
   flex-shrink: 0;
 }
 .card__desc {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #B3B3B3;
   margin: 0.3rem 0 0;
   line-height: 1.4;
@@ -835,7 +1046,7 @@ p, li, a, button, span {
   justify-content: center;
   border-radius: 999px;
   overflow: hidden;
-  background-color: #0f0f0f;
+  background-color: #121212;
   cursor: pointer;
   border: none;
 }

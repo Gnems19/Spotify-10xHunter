@@ -11,6 +11,7 @@
   background: $color-bg-overlay;
   border: 1px solid $color-border;
   border-radius: $radius-lg;
+  margin-left: $spacing-xl;
 
   // Thin subtle scrollbar
   scrollbar-width: thin;
@@ -40,7 +41,7 @@
   top: 0;
   z-index: $z-header;
   background: $color-bg-overlay;
-  padding: 1.6rem 1.6rem 1.2rem;
+  padding: $font-size-md $spacing-xl $spacing-md;
   display: flex;
   align-items: center;
   gap: $spacing-sm;
@@ -48,11 +49,11 @@
 }
 
 .filter-pill {
-  padding: 0.8rem 1.6rem;
+  padding: $spacing-sm $font-size-md;
   border-radius: $radius-md;
   border: none;
   font-family: $font-primary;
-  font-size: 1.3rem;
+  font-size: $font-size-label;
   font-weight: $font-weight-medium;
   cursor: pointer;
   background: $color-surface;
@@ -74,7 +75,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.4rem;
+  padding: $spacing-xs;
   opacity: 0.7;
   transition: opacity $transition-fast;
 
@@ -91,10 +92,10 @@
 
 // ── Home Feed ───────────────────────────────────────────────
 .home-feed {
-  padding: 0 1.6rem 3.2rem;
+  padding: 0 $spacing-xl $spacing-xl;
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: $spacing-xl;
 }
 
 // ── Section ─────────────────────────────────────────────────
@@ -103,11 +104,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.6rem;
+    margin-bottom: $font-size-md;
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: $font-size-xl;
     font-weight: $font-weight-bold;
     color: $color-text;
     margin: 0;
@@ -121,7 +122,7 @@
 
   &__track {
     display: flex;
-    gap: 1.6rem;
+    gap: $font-size-md;
     overflow-x: auto;
     scroll-behavior: smooth;
     scrollbar-width: none;

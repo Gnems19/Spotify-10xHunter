@@ -24,7 +24,7 @@
     border-radius: $radius-md;
     overflow: hidden;
     background: $color-bg-elevated;
-    margin-bottom: 1rem;
+    margin-bottom: $font-size-xs;
 
     &--circle {
       border-radius: 50%;
@@ -42,8 +42,8 @@
   // ── Spotify logo overlay ──
   &__logo {
     position: absolute;
-    top: 0.8rem;
-    left: 0.8rem;
+    top: $spacing-sm;
+    left: $spacing-sm;
     width: 2rem;
     height: 2rem;
     z-index: 2;
@@ -52,9 +52,9 @@
   // ── RADIO badge ──
   &__badge {
     position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
-    font-size: 0.9rem;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    font-size: $font-size-xs;
     font-weight: $font-weight-bold;
     letter-spacing: 0.15rem;
     z-index: 2;
@@ -70,7 +70,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0.8rem 1rem 0.4rem;
+    padding: $spacing-sm $font-size-xs $spacing-xs;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
     z-index: 2;
   }
@@ -78,9 +78,9 @@
   &__mix-title {
     display: block;
     color: $color-text;
-    font-size: 1.3rem;
+    font-size: $font-size-label;
     font-weight: $font-weight-bold;
-    margin-bottom: 0.4rem;
+    margin-bottom: $spacing-xs;
   }
 
   &__mix-accent {
@@ -97,8 +97,8 @@
       position: relative;
       background: $color-bg-elevated;
       border-radius: 0 0 $radius-md $radius-md;
-      padding: 0.8rem 1rem;
-      margin-top: -1rem;
+      padding: $spacing-sm $font-size-xs;
+      margin-top: -$font-size-xs;
     }
   }
 
@@ -106,26 +106,26 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 0.4rem;
+    gap: $spacing-xs;
   }
 
   &__title {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: $font-size-label;
+    font-weight: $font-weight-medium;
     color: $color-text;
     @include truncate;
     display: block;
   }
 
   &__count {
-    font-size: 1.2rem;
+    font-size: $font-size-sm;
     font-weight: $font-weight-bold;
     color: $color-accent;
     flex-shrink: 0;
   }
 
   &__desc {
-    font-size: 1.1rem;
+    font-size: $font-size-sm;
     color: $color-text-muted;
     margin: 0.3rem 0 0;
     line-height: 1.4;
@@ -137,9 +137,9 @@
 
   // ── Episode icon ──
   &__episode-icon {
-    width: 1.6rem;
-    height: 1.6rem;
-    margin-top: 0.4rem;
+    width: $font-size-md;
+    height: $font-size-md;
+    margin-top: $spacing-xs;
     opacity: 0.7;
     filter: invert(1);
   }

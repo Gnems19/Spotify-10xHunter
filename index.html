@@ -812,6 +812,148 @@
 
       </div><!-- /home-feed -->
 
+      <!-- ===== Customize Feed Modal =====
+      <dialog class="feed-modal" aria-labelledby="feed-modal-title">
+
+        <div class="feed-modal__header">
+          <h2 class="feed-modal__title" id="feed-modal-title">Customize feed</h2>
+          <button class="feed-modal__close" type="button" aria-label="Close">
+            <img src="assets/icons/big/close.svg" alt="" aria-hidden="true">
+          </button>
+        </div>
+
+        <div class="feed-modal__body">
+
+          <button class="feed-modal__library-btn" type="button">
+            <img src="assets/icons/big/add-simple.svg" alt="" class="feed-modal__icon" aria-hidden="true">
+            <span>Select from Library</span>
+          </button>
+
+          <ul class="feed-modal__list" role="list">
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">New Releases</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for New Releases" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Made For You</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Made For You" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Recently Played</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Recently Played" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Your Playlists</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Your Playlists" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Spotify Original Podcasts</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Spotify Original Podcasts" aria-pressed="false">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Your Favorite Artists</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Your Favorite Artists" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Recommended Radio</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Recommended Radio" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Audiobooks For You</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Audiobooks For You" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Your Top Mixes</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Your Top Mixes" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Episodes For You</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Episodes For You" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+            <li class="feed-modal__item">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
+              <span class="feed-modal__item-name">Albums For You</span>
+              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Albums For You" aria-pressed="true">
+                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
+                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
+              </button>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="feed-modal__footer">
+          <span class="feed-modal__footer-label">Allow Recommendation Rows</span>
+          <label class="feed-modal__switch" aria-label="Allow Recommendation Rows">
+            <input type="checkbox" class="feed-modal__switch-input" checked>
+            <span class="feed-modal__switch-track"></span>
+          </label>
+        </div>
+
+      </dialog> -->
+
     </main>
 
     </div><!-- /app-layout__content -->

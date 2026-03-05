@@ -7,7 +7,7 @@
   align-items: center;
 
   // Figma .item: padding: 0 0 0 15px; gap: 10px
-  gap: 1rem;                   // 10px — from Figma
+  gap: $spacing-base;           // 10px — from Figma
   padding: 0 0 0 $spacing-lg;  // 15px left only — from Figma
 
   border-radius: $radius-md;
@@ -49,7 +49,7 @@
   // ======= Fixed-width pills (Home & Discover must NOT shrink) =======
   &--home,
   &--discover {
-    width: 21.0rem;   // 210px from Figma
+    width: $nav-pill-width;   // 210px from Figma
     flex-shrink: 0;   // flex: none — never shrinks
   }
 
@@ -57,7 +57,7 @@
   &--search {
     flex: 1 1 24rem;
     max-width: 35rem;
-    min-width: 21rem;
+    min-width: $nav-pill-width;
     color: $color-text-subtle;
 
     // Search active: distinct dark-fill, text goes white
@@ -168,7 +168,7 @@
       flex: 1 1 auto;
       width: auto;
       min-width: $nav-item-size;
-      max-width: 21rem;
+      max-width: $nav-pill-width;
       justify-content: flex-start;
       padding-left: $spacing-sm;
     }

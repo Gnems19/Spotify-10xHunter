@@ -23,7 +23,7 @@
   flex: 1;
 
   &__left {
-    @include flex-row($gap: 1rem);
+    @include flex-row($gap: $spacing-base);
     flex: 1 1 auto;
     min-width: 0;
   }
