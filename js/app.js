@@ -20,7 +20,6 @@
     // One listener on the parent instead of N listeners on each pill.
     // Uses regular `function` so `this` binds to filterBar (the listened element).
     // Arrow functions () => {} do NOT bind `this` to the element — that's why
-    // the old code had to use the closure variable `pill` instead of `this`.
     const filterBar = document.querySelector('.home-filter-bar');
     if (filterBar) {
       filterBar.addEventListener('click', function (e) {
