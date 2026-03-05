@@ -123,12 +123,12 @@ p, li, a, button, span {
   flex-direction: column;
   overflow: hidden;
 }
+
 @media (max-width: 767px) {
-  .app-layout .sidebar {
+  .sidebar {
     display: none;
   }
 }
-
 .nav-mobile {
   position: fixed;
   bottom: 0;
@@ -381,6 +381,11 @@ p, li, a, button, span {
   padding-left: 1.2rem;
 }
 
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+}
 /* ======= Home Page — Filter Bar + Feed Sections ======= */
 .app-main {
   flex: 1;
@@ -1224,207 +1229,6 @@ p, li, a, button, span {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.app-main--search {
-  background: #060606;
-  border: 1px solid #202020;
-  border-radius: 1rem;
-}
-
-.search-page {
-  height: 100%;
-  overflow-y: auto;
-}
-.search-page__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  width: 100%;
-  min-height: 100%;
-  padding: 1.3rem 2.4rem 4rem;
-}
-
-.search-section--recent .home-section__header {
-  margin-bottom: 1.5rem;
-}
-
-.search-recent-track {
-  gap: 3rem;
-}
-
-.search-recent-card {
-  position: relative;
-  width: 16.916rem;
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.24rem;
-}
-.search-recent-card__thumb-wrap {
-  width: 16.916rem;
-  height: 16.916rem;
-  border-radius: 0.8rem;
-  overflow: hidden;
-  background: #121212;
-}
-.search-recent-card__thumb-wrap--circle {
-  border-radius: 50%;
-}
-.search-recent-card__thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.search-recent-card__remove {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -0.2rem;
-  right: -0.2rem;
-  width: 4.04rem;
-  height: 4.04rem;
-  border: none;
-  border-radius: 50%;
-  background: #111111;
-  cursor: pointer;
-}
-.search-recent-card__remove img {
-  width: 1.68rem;
-  height: 1.68rem;
-  filter: brightness(0) saturate(100%) invert(62%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(93%) contrast(88%);
-}
-.search-recent-card__title {
-  margin: 0;
-  color: #E0E0E0;
-  font-size: 1.4rem;
-  line-height: 1.9rem;
-  letter-spacing: 0.03em;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%;
-}
-.search-recent-card__subtitle {
-  margin: -0.8rem 0 0;
-  color: #898989;
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.03em;
-}
-
-.search-browse {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.search-browse__title {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.7rem;
-  letter-spacing: 0.03em;
-  color: #E0E0E0;
-}
-
-.search-row {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.search-row .home-section__header {
-  margin-bottom: 0;
-}
-
-.search-row__title {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 500;
-  line-height: 2.4rem;
-  letter-spacing: 0.03em;
-  color: #E0E0E0;
-}
-
-.search-tile-track {
-  gap: 1.2rem;
-}
-
-.search-tile {
-  position: relative;
-  width: 17rem;
-  height: 17rem;
-  border-radius: 1rem;
-  padding: 2rem;
-  overflow: hidden;
-  background: var(--tile-bg, #1e3264);
-  flex: 0 0 auto;
-}
-.search-tile__title {
-  margin: 0;
-  max-width: 11.8rem;
-  color: #FFFFFF;
-  font-size: 3rem;
-  font-weight: 900;
-  line-height: 2.7rem;
-  letter-spacing: 0.03em;
-  overflow-wrap: anywhere;
-}
-.search-tile__art {
-  position: absolute;
-  width: 10.427rem;
-  height: 10.427rem;
-  right: -0.8rem;
-  bottom: -0.9rem;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  transform: rotate(30deg);
-  opacity: 0.9;
-}
-
-@media (max-width: 767px) {
-  .app-main--search {
-    margin-left: 0;
-    border: none;
-    border-radius: 0;
-  }
-  .search-page__inner {
-    padding: 1.6rem 1.6rem calc(9.5rem + 2.4rem + env(safe-area-inset-bottom, 0px));
-    gap: 2.4rem;
-  }
-  .search-recent-track {
-    gap: 1.6rem;
-  }
-  .search-recent-card {
-    width: 14rem;
-  }
-  .search-recent-card__thumb-wrap {
-    width: 14rem;
-    height: 14rem;
-  }
-  .search-recent-card__title {
-    font-size: 1.3rem;
-  }
-  .search-row .section-nav-btn {
-    display: none;
-  }
-  .search-tile {
-    width: 14rem;
-    height: 14rem;
-    padding: 1.6rem;
-  }
-  .search-tile__title {
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-    max-width: 9.5rem;
-  }
-  .search-tile__art {
-    width: 9rem;
-    height: 9rem;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */
