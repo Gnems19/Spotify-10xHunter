@@ -12,27 +12,6 @@
   border: 1px solid $color-border;
   border-radius: $radius-lg;
   margin-left: $spacing-xl;
-
-  // Thin subtle scrollbar
-  scrollbar-width: thin;
-  scrollbar-color: $color-surface transparent;
-
-  &::-webkit-scrollbar {
-    width: 0.6rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: $color-surface;
-    border-radius: $radius-pill;
-
-    &:hover {
-      background: $color-text-subtle;
-    }
-  }
 }
 
 // ── Filter Bar ──────────────────────────────────────────────
@@ -139,17 +118,39 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  opacity: 0.45;
+  transition: opacity $transition-fast;
   @include flex-center;
 
   img {
     width: $nav-icon-size;
     height: $nav-icon-size;
-    filter: invert(0.6);
+    filter: invert(0.38);
     transition: filter $transition-fast;
   }
 
-  &:hover img {
+  &:not(.is-disabled):not(:disabled) {
+    opacity: 1;
+  }
+
+  &:not(.is-disabled):not(:disabled) img {
+    filter: invert(0.92);
+  }
+
+  &:not(.is-disabled):not(:disabled):hover img {
     filter: invert(1);
+  }
+
+  &.is-disabled,
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  &.is-disabled img,
+  &:disabled img {
+    filter: invert(0.3);
   }
 }
 

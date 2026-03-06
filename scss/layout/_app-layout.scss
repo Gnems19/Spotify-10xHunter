@@ -13,4 +13,12 @@
     flex-direction: column;
     overflow: hidden;
   }
+
+  // Mobile: stack vertically, hide sidebar
+  @media (max-width: #{$bp-mobile}) {
+    .sidebar {
+      display: none;
+    }
+  }
+
 }

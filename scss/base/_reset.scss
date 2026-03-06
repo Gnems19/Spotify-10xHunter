@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as *;
+
 //reset
 *,
 *::before,
@@ -13,6 +15,8 @@ ul, ol{
 }
 html{
   font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 img{
@@ -29,6 +33,60 @@ button{
   cursor: pointer;
   background-color: transparent;
   border: none;
+}
+
+/* Global scrollbar styling disabled
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  &:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+*/
+
+// Hide native scrollbars globally while preserving scroll behavior
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
 // Interactive labels (used as CSS-only toggle controls) need the same base

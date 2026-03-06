@@ -157,12 +157,11 @@
           <!-- ===== Nav Pills — CSS-only active state via :has(input:checked) ===== -->
           <div class="nav-primary__left">
 
-            <label class="nav-pill nav-pill--home">
-              <input type="radio" id="nav-home" name="primary-nav" class="nav-radio" checked>
+            <a class="nav-pill nav-pill--home nav-pill--active" href="index.html" aria-current="page">
               <img src="assets/icons/big/home.svg"        alt="" class="nav-icon icon--off" aria-hidden="true">
               <img src="assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on"  aria-hidden="true">
               <span class="nav-pill__label">Home</span>
-            </label>
+            </a>
 
             <label class="nav-pill nav-pill--discover">
               <input type="radio" id="nav-discover" name="primary-nav" class="nav-radio">
@@ -171,12 +170,10 @@
               <span class="nav-pill__label">Discover</span>
             </label>
 
-            <label class="nav-pill nav-pill--search">
-              <input type="radio" id="nav-search" name="primary-nav" class="nav-radio">
+            <a class="nav-pill nav-pill--search" href="pages/search.html">
               <img src="assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true">
-              <span class="nav-pill__label nav-pill__label--muted nav-pill__label--default">Search</span>
-              <span class="nav-pill__label nav-pill__label--searching">Search...</span>
-            </label>
+              <span class="nav-pill__label nav-pill__label--muted">Search</span>
+            </a>
 
           </div><!-- /nav-primary__left -->
 
@@ -221,7 +218,7 @@
         <button class="filter-pill">Music</button>
         <button class="filter-pill">Podcasts</button>
         <button class="filter-pill">Audiobooks</button>
-        <button class="filter-grid-icon" aria-label="Feed view">
+        <button class="filter-grid-icon" aria-label="Customize feed">
           <img src="assets/icons/big/feed.svg" alt="" aria-hidden="true">
         </button>
       </div>
@@ -229,7 +226,7 @@
       <!-- ===== Mobile Quick Picks ===== -->
       <section class="home-quick-grid" aria-label="Quick picks">
         <article class="home-quick-card">
-          <img src="assets/img/weekly.png" alt="Get Lucky cover art" class="home-quick-card__thumb" loading="lazy">
+          <img src="assets/img/weekly.png" alt="Cover art for Get Lucky" class="home-quick-card__thumb" loading="lazy">
           <div class="home-quick-card__meta">
             <p class="home-quick-card__title">Get Lucky (feat. Pharrell Williams and Nile Rodgers)</p>
             <p class="home-quick-card__subtitle">Daft Punk</p>
@@ -237,21 +234,21 @@
         </article>
 
         <article class="home-quick-card">
-          <img src="assets/img/weekly.png" alt="Daily Mix 2 cover art" class="home-quick-card__thumb" loading="lazy">
+          <img src="assets/img/weekly.png" alt="Cover art for Daily Mix 2" class="home-quick-card__thumb" loading="lazy">
           <div class="home-quick-card__meta">
             <p class="home-quick-card__title">Daily Mix 2</p>
           </div>
         </article>
 
         <article class="home-quick-card">
-          <img src="assets/img/weekly.png" alt="Daily Mix 1 cover art" class="home-quick-card__thumb" loading="lazy">
+          <img src="assets/img/weekly.png" alt="Cover art for Daily Mix 1" class="home-quick-card__thumb" loading="lazy">
           <div class="home-quick-card__meta">
             <p class="home-quick-card__title">Daily Mix 1</p>
           </div>
         </article>
 
         <article class="home-quick-card">
-          <img src="assets/img/weekly.png" alt="Instant Crush cover art" class="home-quick-card__thumb" loading="lazy">
+          <img src="assets/img/weekly.png" alt="Cover art for Instant Crush" class="home-quick-card__thumb" loading="lazy">
           <div class="home-quick-card__meta">
             <p class="home-quick-card__title">Instant Crush</p>
             <p class="home-quick-card__subtitle">Daft Punk</p>
@@ -259,7 +256,7 @@
         </article>
 
         <article class="home-quick-card">
-          <img src="assets/img/weekly.png" alt="Around the world cover art" class="home-quick-card__thumb" loading="lazy">
+          <img src="assets/img/weekly.png" alt="Cover art for Around the World" class="home-quick-card__thumb" loading="lazy">
           <div class="home-quick-card__meta">
             <p class="home-quick-card__title">Around the world</p>
             <p class="home-quick-card__subtitle">Daft Punk</p>
@@ -267,7 +264,7 @@
         </article>
 
         <article class="home-quick-card">
-          <img src="assets/img/weekly.png" alt="Rock Mix cover art" class="home-quick-card__thumb" loading="lazy">
+          <img src="assets/img/weekly.png" alt="Cover art for Rock Mix" class="home-quick-card__thumb" loading="lazy">
           <div class="home-quick-card__meta">
             <p class="home-quick-card__title">Rock Mix</p>
           </div>
@@ -297,7 +294,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/weekly.png" alt="Discover Weekly" class="card__thumb" loading="lazy">
+                <img src="assets/img/weekly.png" alt="Cover art for Discover Weekly" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -311,7 +308,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/daily-mix-1.webp" alt="Daily Mix 1" class="card__thumb" loading="lazy">
+                <img src="assets/img/daily-mix-1.webp" alt="Cover art for Daily Mix 1" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -325,7 +322,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/daily-mix-2.webp" alt="Daily Mix 2" class="card__thumb" loading="lazy">
+                <img src="assets/img/daily-mix-2.webp" alt="Cover art for Daily Mix 2" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -339,7 +336,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/daily-mix-3.webp" alt="Daily Mix 3" class="card__thumb" loading="lazy">
+                <img src="assets/img/daily-mix-3.webp" alt="Cover art for Daily Mix 3" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -353,7 +350,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/daily-mix-4.webp" alt="Daily Mix 4" class="card__thumb" loading="lazy">
+                <img src="assets/img/daily-mix-4.webp" alt="Cover art for Daily Mix 4" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -367,7 +364,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/daily-mix-6.webp" alt="Daily Mix 5" class="card__thumb" loading="lazy">
+                <img src="assets/img/daily-mix-6.webp" alt="Cover art for Daily Mix 5" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -381,7 +378,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/nirvana-radio.webp" alt="Nirvana Radio" class="card__thumb" loading="lazy">
+                <img src="assets/img/nirvana-radio.webp" alt="Cover art for Nirvana Radio" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <span class="card__badge card__badge--radio">RADIO</span>
               </div>
@@ -396,7 +393,7 @@
 
             <article class="card card--playlist" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/fall-out-boy-radio.webp" alt="Fall Out Boy Radio" class="card__thumb" loading="lazy">
+                <img src="assets/img/fall-out-boy-radio.webp" alt="Cover art for Fall Out Boy Radio" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <span class="card__badge card__badge--radio">RADIO</span>
               </div>
@@ -432,7 +429,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/rock-mix.webp" alt="Rock Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/rock-mix.webp" alt="Cover art for Rock Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">Rock Mix</span>
@@ -450,7 +447,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/chill-mix.webp" alt="Chill Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/chill-mix.webp" alt="Cover art for Chill Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">Chill Mix</span>
@@ -468,7 +465,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/pop-mix.webp" alt="Pop Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/pop-mix.webp" alt="Cover art for Pop Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">Pop Mix</span>
@@ -486,7 +483,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/daft-punk-mix.webp" alt="Daft Punk Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/daft-punk-mix.webp" alt="Cover art for Daft Punk Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">Daft Punk Mix</span>
@@ -504,7 +501,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/happy-mix.webp" alt="Happy Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/happy-mix.webp" alt="Cover art for Happy Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">Happy Mix</span>
@@ -522,7 +519,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/david-bowie-mix.webp" alt="David Bowie Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/david-bowie-mix.webp" alt="Cover art for David Bowie Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">David Bowie Mix</span>
@@ -540,7 +537,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/upbeat-mix.webp" alt="Upbeat Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/upbeat-mix.webp" alt="Cover art for Upbeat Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">Upbeat Mix</span>
@@ -558,7 +555,7 @@
 
             <article class="card card--mix" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/60s-mix.webp" alt="60s Mix" class="card__thumb" loading="lazy">
+                <img src="assets/img/60s-mix.webp" alt="Cover art for 60s Mix" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
                 <div class="card__mix-overlay">
                   <span class="card__mix-title">60s Mix</span>
@@ -597,7 +594,7 @@
 
             <article class="card card--artist" role="listitem">
               <div class="card__thumb-wrap card__thumb-wrap--circle">
-                <img src="assets/img/guns-n-roses.webp" alt="Guns N' Roses" class="card__thumb" loading="lazy">
+                <img src="assets/img/guns-n-roses.webp" alt="Artist photo of Guns N' Roses" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info">
                 <span class="card__title">Guns N' Roses</span>
@@ -606,7 +603,7 @@
 
             <article class="card card--artist" role="listitem">
               <div class="card__thumb-wrap card__thumb-wrap--circle">
-                <img src="assets/img/daft-punk.webp" alt="Daft Punk" class="card__thumb" loading="lazy">
+                <img src="assets/img/daft-punk.webp" alt="Artist photo of Daft Punk" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info">
                 <span class="card__title">Daft Punk</span>
@@ -615,7 +612,7 @@
 
             <article class="card card--artist" role="listitem">
               <div class="card__thumb-wrap card__thumb-wrap--circle">
-                <img src="assets/img/david-bowie.webp" alt="David Bowie" class="card__thumb" loading="lazy">
+                <img src="assets/img/david-bowie.webp" alt="Artist photo of David Bowie" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info">
                 <span class="card__title">David Bowie</span>
@@ -645,7 +642,7 @@
 
             <article class="card card--album" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/meteora.webp" alt="Meteora" class="card__thumb" loading="lazy">
+                <img src="assets/img/meteora.webp" alt="Album cover for Meteora" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -659,7 +656,7 @@
 
             <article class="card card--album" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/random-access.webp" alt="Random Access Memories" class="card__thumb" loading="lazy">
+                <img src="assets/img/random-access.webp" alt="Album cover for Random Access Memories" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -673,7 +670,7 @@
 
             <article class="card card--album" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/abbey-road.webp" alt="Abbey Road" class="card__thumb" loading="lazy">
+                <img src="assets/img/abbey-road.webp" alt="Album cover for Abbey Road" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -687,7 +684,7 @@
 
             <article class="card card--album" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/black-holes.webp" alt="Black Holes and Revelations" class="card__thumb" loading="lazy">
+                <img src="assets/img/black-holes.webp" alt="Album cover for Black Holes and Revelations" class="card__thumb" loading="lazy">
                 <img src="assets/icons/big/spotify.svg" alt="" class="card__logo" aria-hidden="true">
               </div>
               <div class="card__info">
@@ -722,7 +719,7 @@
 
             <article class="card card--audiobook" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/halo-flood.webp" alt="Halo: The Flood" class="card__thumb" loading="lazy">
+                <img src="assets/img/halo-flood.webp" alt="Book cover for Halo: The Flood" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info">
                 <span class="card__title">Halo: The Flood</span>
@@ -732,7 +729,7 @@
 
             <article class="card card--audiobook" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/halo-first-strike.webp" alt="Halo: First Strike" class="card__thumb" loading="lazy">
+                <img src="assets/img/halo-first-strike.webp" alt="Book cover for Halo: First Strike" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info">
                 <span class="card__title">Halo: First Strike</span>
@@ -742,7 +739,7 @@
 
             <article class="card card--audiobook" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/halo-ghosts.webp" alt="Halo: Ghosts of Onyx" class="card__thumb" loading="lazy">
+                <img src="assets/img/halo-ghosts.webp" alt="Book cover for Halo: Ghosts of Onyx" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info">
                 <span class="card__title">Halo: Ghosts of Onyx</span>
@@ -783,7 +780,7 @@
 
             <article class="card card--podcast" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/joe-rogan.webp" alt="The Joe Rogan Experience" class="card__thumb" loading="lazy">
+                <img src="assets/img/joe-rogan.webp" alt="Podcast cover for The Joe Rogan Experience" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info card__info--podcast">
                 <span class="card__title">The Joe Rogan…</span>
@@ -793,7 +790,7 @@
 
             <article class="card card--podcast" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/the-journal.webp" alt="The Journal" class="card__thumb" loading="lazy">
+                <img src="assets/img/the-journal.webp" alt="Podcast cover for The Journal" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info card__info--podcast">
                 <span class="card__title">The Journal</span>
@@ -835,7 +832,7 @@
 
             <article class="card card--episode" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/joe-rogan.webp" alt="The Joe Rogan Experience" class="card__thumb" loading="lazy">
+                <img src="assets/img/joe-rogan.webp" alt="Podcast cover for The Joe Rogan Experience" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info card__info--podcast">
                 <span class="card__title">The Joe Rogan…</span>
@@ -846,7 +843,7 @@
 
             <article class="card card--episode" role="listitem">
               <div class="card__thumb-wrap">
-                <img src="assets/img/the-journal.webp" alt="The Journal" class="card__thumb" loading="lazy">
+                <img src="assets/img/the-journal.webp" alt="Podcast cover for The Journal" class="card__thumb" loading="lazy">
               </div>
               <div class="card__info card__info--podcast">
                 <span class="card__title">The Journal</span>
@@ -860,147 +857,6 @@
 
       </div><!-- /home-feed -->
 
-      <!-- ===== Customize Feed Modal =====
-      <dialog class="feed-modal" aria-labelledby="feed-modal-title">
-
-        <div class="feed-modal__header">
-          <h2 class="feed-modal__title" id="feed-modal-title">Customize feed</h2>
-          <button class="feed-modal__close" type="button" aria-label="Close">
-            <img src="assets/icons/big/close.svg" alt="" aria-hidden="true">
-          </button>
-        </div>
-
-        <div class="feed-modal__body">
-
-          <button class="feed-modal__library-btn" type="button">
-            <img src="assets/icons/big/add-simple.svg" alt="" class="feed-modal__icon" aria-hidden="true">
-            <span>Select from Library</span>
-          </button>
-
-          <ul class="feed-modal__list" role="list">
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">New Releases</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for New Releases" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Made For You</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Made For You" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Recently Played</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Recently Played" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Your Playlists</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Your Playlists" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Spotify Original Podcasts</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Spotify Original Podcasts" aria-pressed="false">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Your Favorite Artists</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Your Favorite Artists" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Recommended Radio</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Recommended Radio" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Audiobooks For You</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Audiobooks For You" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Your Top Mixes</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Your Top Mixes" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Episodes For You</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Episodes For You" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-            <li class="feed-modal__item">
-              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon feed-modal__icon--pin" aria-hidden="true">
-              <span class="feed-modal__item-name">Albums For You</span>
-              <img src="assets/icons/big/move2.svg" alt="" class="feed-modal__icon feed-modal__icon--drag" aria-hidden="true">
-              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility for Albums For You" aria-pressed="true">
-                <img src="assets/icons/big/show.svg" alt="" class="feed-modal__icon icon--vis-on" aria-hidden="true">
-                <img src="assets/icons/big/hide.svg" alt="" class="feed-modal__icon icon--vis-off" aria-hidden="true">
-              </button>
-            </li>
-
-          </ul>
-        </div>
-
-        <div class="feed-modal__footer">
-          <span class="feed-modal__footer-label">Allow Recommendation Rows</span>
-          <label class="feed-modal__switch" aria-label="Allow Recommendation Rows">
-            <input type="checkbox" class="feed-modal__switch-input" checked>
-            <span class="feed-modal__switch-track"></span>
-          </label>
-        </div>
-
-      </dialog> -->
 
     </main>
 
@@ -1011,12 +867,11 @@
     <nav class="nav-mobile" aria-label="Primary mobile">
       <div class="nav-mobile__inner">
 
-        <label class="nav-mobile__item" aria-label="Home">
-          <input type="radio" name="mobile-nav" class="nav-radio" checked>
+        <a class="nav-mobile__item nav-mobile__item--active" href="index.html" aria-label="Home" aria-current="page">
           <img src="assets/icons/big/home.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
           <img src="assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
           <span class="nav-mobile__label">Home</span>
-        </label>
+        </a>
 
         <label class="nav-mobile__item" aria-label="Discover">
           <input type="radio" name="mobile-nav" class="nav-radio">
@@ -1025,12 +880,11 @@
           <span class="nav-mobile__label">Discover</span>
         </label>
 
-        <label class="nav-mobile__item" aria-label="Search">
-          <input type="radio" name="mobile-nav" class="nav-radio">
+        <a class="nav-mobile__item" href="pages/search.html" aria-label="Search">
           <img src="assets/icons/big/search.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
           <img src="assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
           <span class="nav-mobile__label">Search</span>
-        </label>
+        </a>
 
         <label class="nav-mobile__item" aria-label="Library">
           <input type="radio" name="mobile-nav" class="nav-radio">
@@ -1049,6 +903,152 @@
       </div>
     </nav><!-- /nav-mobile -->
 
+
+    <!-- ===== Customize Feed Overlay ===== -->
+    <dialog class="feed-modal">
+      <div class="feed-modal__header">
+        <h3 class="feed-modal__title">Customize feed</h3>
+      </div>
+
+      <div class="feed-modal__body">
+        <button class="feed-modal__library-btn" type="button">
+          <img src="assets/icons/big/add-simple.svg" alt="" class="feed-modal__icon" aria-hidden="true">
+          <span>Select from Library</span>
+        </button>
+
+        <ul class="feed-modal__list">
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="true">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">New Releases</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="true">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Made For You</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="true">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Recently Played</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Your Playlists</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item feed-modal__item--hidden">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Spotify Original Podcasts</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="false"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Your Favorite Artists</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Recommended Radio</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Audiobooks For You</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Your Top Mixes</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Episodes For You</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+          <li class="feed-modal__item">
+            <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
+              <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
+              <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
+            </button>
+            <span class="feed-modal__item-name">Albums For You</span>
+            <div class="feed-modal__item-actions">
+              <button class="feed-modal__drag" type="button" aria-label="Reorder"><img src="assets/icons/big/move2.svg" alt="" aria-hidden="true"></button>
+              <button class="feed-modal__toggle-vis" type="button" aria-label="Toggle visibility" aria-pressed="true"><img src="assets/icons/big/show.svg" alt="" class="icon--vis-on" aria-hidden="true"><img src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="feed-modal__footer">
+        <span class="feed-modal__footer-label">Allow Recommendation Rows</span>
+        <label class="feed-modal__switch">
+          <input type="checkbox" class="feed-modal__switch-input" checked>
+          <span class="feed-modal__switch-track"></span>
+        </label>
+      </div>
+    </dialog>
 
     <script src="js/app.js"></script>
   </body>

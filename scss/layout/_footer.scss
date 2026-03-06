@@ -39,10 +39,17 @@
     border: none;
     cursor: pointer;
 
+    &--active,
+    &:has(input:checked) {
+      color: $color-text-active;
+    }
+
     // CSS-only icon swap — no color change, only filled/outline swap
     .icon--on  { display: none; }
 
+    &--active .icon--off,
     &:has(input:checked) .icon--off { display: none; }
+    &--active .icon--on,
     &:has(input:checked) .icon--on  { display: block; }
   }
 

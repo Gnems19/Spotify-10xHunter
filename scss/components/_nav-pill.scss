@@ -61,6 +61,7 @@
     color: $color-text-subtle;
 
     // Search active: distinct dark-fill, text goes white
+    &.nav-pill--active,
     &:has(input:checked) {
       color: $color-text;
     }
@@ -73,6 +74,7 @@
   }
 
   // Search override must come AFTER the generic rule — same specificity, source order wins
+  &--search.nav-pill--active::before,
   &--search:has(input:checked)::before {
     background-color: $color-bg-elevated;
   }
@@ -102,17 +104,20 @@
     display: none;
   }
 
+  &--active .icon--off,
   &:has(input:checked) .icon--off {
     display: none;
   }
 
   // Active icon-on → force #FFFFFF regardless of SVG's baked-in colour
+  &--active .icon--on,
   &:has(input:checked) .icon--on {
     display: block;
     filter: brightness(0) invert(1);
   }
 
   // Plain .nav-icon (no icon--on/off swap, e.g. search) — also turns white when active
+  &--active .nav-icon,
   &:has(input:checked) .nav-icon {
     filter: brightness(0) invert(1);
   }
@@ -123,6 +128,7 @@
   color: $color-text-muted;
 
   // Override when parent pill is active — inherited colour doesn't beat a class rule
+  .nav-pill.nav-pill--active &,
   .nav-pill:has(input:checked) & {
     color: $color-text;
   }
@@ -135,10 +141,12 @@
 }
 
 // Active: hide "Search", show "Search..."
+.nav-pill--search.nav-pill--active .nav-pill__label--default,
 .nav-pill--search:has(input:checked) .nav-pill__label--default {
   display: none;
 }
 
+.nav-pill--search.nav-pill--active .nav-pill__label--searching,
 .nav-pill--search:has(input:checked) .nav-pill__label--searching {
   display: inline;
 }
