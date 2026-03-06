@@ -1,0 +1,219 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+//toolbar
+
+.liked-songs__toolbar {
+  @include flex ($justify: space-between);
+
+  &-right {
+      @include flex ($gap: 2rem);
+    
+  }
+}
+
+.liked-songs__btn {
+  &--sort,
+  &--filter {
+    @include flex($gap: 0.5rem);
+
+    sub {
+      font-size: $font-size-base;
+      color: $color-text-subtle;
+    }
+  }
+}
+
+//liked-songs header
+
+
+.liked-songs__header {
+  @include grid-table($columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr, $align: center);
+  padding: 1.2rem 0 1.2rem 1rem;
+  border-bottom: 1px solid $color-surface-hover;
+  // max-width: 75rem;
+  span {
+    font-weight: 400;
+    font-size: $font-size-base;
+    color: $color-text-subtle;
+  }
+
+  span:nth-child(4) {
+    justify-self: start;
+  }
+}
+
+//song row styles
+
+.song-row {
+  @include grid-table($columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr, $align: center);
+  padding: 1rem 0 1rem 1rem;
+
+  &:hover {
+    background-color: $color-surface-hover;
+    border-radius: $font-size-xs;
+
+    .song-row__actions {
+      opacity: 1;
+      visibility: visible;
+    }
+    .song-row__check-label {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__number {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-md;
+    color: $color-text-subtle;
+  }
+  &__name {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-md;
+    color: $color-text-active;
+  }
+  &__artist {
+    font-weight: $font-weight-regular;
+    font-size: $font-size-base;
+    color: $color-text-subtle;
+  }
+  &__album {
+    font-weight: $font-weight-regular;
+    font-size: $font-size-base;
+    color: $color-text-subtle;
+  }
+  &__duration {
+    font-weight: $font-weight-regular;
+    font-size: $font-size-base;
+    color: $color-text-subtle;
+  }
+
+  &__like-checkbox {
+    display: none;
+  }
+  &__like-label {
+    cursor: pointer;
+    .song-row__like-empty {
+      display: block; 
+    }
+
+    .song-row__like-filled {
+      display: none;
+    }
+  }
+
+  &__actions {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__check-label {
+    grid-column: -1;
+    justify-self: end;
+    visibility: hidden;
+    cursor: pointer;
+
+    .song-row__check-unchecked {
+      display: block;
+    }
+    .song-row__check-checked {
+      display: none;
+    }
+  }
+
+  &__duration {
+    justify-self: center;
+  }
+
+  &__title {
+       @include flex ($gap: 1rem);
+    img {
+      width: 5.1rem;
+      height: 5.1rem;
+      object-fit: cover;
+      border-radius: 0.3rem;
+    }
+  }
+}
+
+.song-row__checkbox:checked + .song-row__check-label {
+  visibility: visible;
+  .song-row__check-unchecked {
+    display: none;
+  }
+  .song-row__check-checked {
+    display: block;
+  }
+}
+
+.song-row__like-checkbox:checked + .song-row__like-label {
+  .song-row__like-empty {
+    display: none;
+  }
+  .song-row__like-filled {
+    display: block;
+  }
+}
+
+
+//responsive adjustments for mobile view!!!!!!!!!!
+
+@media (max-width: #{$bp-mobile}) {
+
+   .liked-songs__toolbar {
+    padding-inline: 2.4rem;
+    &-right {
+      gap: 1rem; // gap შეამცირე
+      
+      // ტექსტი დამალე, მხოლოდ აიქონი დარჩეს
+      .liked-songs__btn--sort sub,
+      .liked-songs__btn--filter sub {
+        display: none;
+      }
+    }
+  }
+
+
+  .liked-songs__header,
+  .song-row {
+    grid-template-columns: 3rem 1fr 7rem 3rem;
+    padding-inline: 2.4rem;
+  }
+
+  // დავმალე ინფუთ ელემენტები და აიქონები
+  .song-row__album,
+  .song-row__actions,
+  .song-row__check-label,
+  .song-row__checkbox {
+    display: none !important;
+  }
+
+  // ჰედერში ბოლო სმანები
+  .liked-songs__header span:nth-child(3),
+  .liked-songs__header span:nth-child(6),
+  .liked-songs__header span:nth-child(7) {
+    display: none;
+  }
+
+  // ჰოვერზე აიქონები არა
+  .song-row:hover {
+    .song-row__actions,
+    .song-row__check-label {
+      display: none !important;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .song-row__like-label {
+    cursor: pointer;
+  }
+
+}
