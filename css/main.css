@@ -1662,7 +1662,7 @@ p, li, a, button, span {
   grid-template-columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr;
   align-items: center;
   gap: 0;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem;
 }
 .song-row:hover {
   background-color: rgba(255, 255, 255, 0.07);
