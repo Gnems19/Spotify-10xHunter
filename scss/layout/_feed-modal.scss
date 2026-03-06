@@ -1,35 +1,33 @@
-/* ======= Customize Feed Modal (dropdown) ======= */
+/* ======= Customize Feed Modal (overlay panel) ======= */
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-// The filter-grid-icon needs relative positioning to anchor the dropdown
-.filter-grid-icon {
-  position: relative;
-}
-
-// ── Dialog as dropdown panel ───────────────────────────────
+// ── Dialog panel — fixed overlay, positioned via JS ─────
 .feed-modal {
   border: none;
   padding: 0;
-  width: 35rem;
-  border-radius: $radius-lg;
+  margin: 0;
+  width: 43.2rem;
+  border-radius: 1rem;
   color: $color-text;
-  box-shadow: 0 $font-size-md $spacing-xl rgba(0, 0, 0, 0.5);
-
-  // Glassmorphism: transparent + blurred background
-  background: rgba(18, 18, 18, 0.85);
-  backdrop-filter: blur(2.4rem);
-
-  // Position below the feed button (top-right aligned)
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: $spacing-sm;
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0);
+  background: rgba(61, 59, 50, 0.2);
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  position: fixed;
   z-index: $z-modal;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity 180ms ease;
 
-  // Hidden by default
   &:not([open]) {
     display: none;
+  }
+
+  &.feed-modal--visible {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   &::backdrop {
@@ -40,133 +38,185 @@
   &__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: $spacing-xl $spacing-xl $spacing-md;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    justify-content: flex-start;
+    height: 5.3rem;
+    padding: 0 2.3rem;
+    border-bottom: 1px solid rgba(137, 137, 137, 0.3);
   }
 
   &__title {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
     margin: 0;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
   }
 
-  &__close {
-    @include flex-center;
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: $radius-pill;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: background $transition-fast;
-
-    img {
-      width: $spacing-xl;
-      height: $spacing-xl;
-      filter: invert(0.6);
-      transition: filter $transition-fast;
-    }
-
-    &:hover {
-      background: $color-surface;
-
-      img {
-        filter: invert(1);
-      }
-    }
-  }
-
-  // ── Body (scrollable list area) ──────────────────────────
+  // ── Body (scrollable list) ─────────────────────────────
   &__body {
-    padding: $spacing-md 0;
-    max-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    padding: 1.3rem 2.1rem;
+    max-height: 44.6rem;
     overflow-y: auto;
-
-    scrollbar-width: thin;
-    scrollbar-color: $color-surface transparent;
+    scrollbar-width: none;
 
     &::-webkit-scrollbar {
-      width: 0.6rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $color-surface;
-      border-radius: $radius-pill;
+      display: none;
     }
   }
 
-  // ── "+ Select from Library" button ───────────────────────
+  // ── "Select from Library" button ───────────────────────
   &__library-btn {
-    @include flex-row($gap: $spacing-md);
-    width: 100%;
-    padding: $spacing-sm $spacing-xl;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
     background: none;
     border: none;
     cursor: pointer;
     font-family: $font-primary;
-    font-size: $font-size-base;
-    color: $color-text;
-    transition: background $transition-fast;
-
-    .feed-modal__icon {
-      width: $spacing-xl;
-      height: $spacing-xl;
-      filter: invert(0.6);
-    }
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    line-height: 2.2rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
+    transition: opacity $transition-fast;
 
     &:hover {
-      background: $color-surface-hover;
+      opacity: 0.8;
+    }
+
+    .feed-modal__icon {
+      width: $nav-icon-size;
+      height: $nav-icon-size;
+      filter: invert(0.54);
     }
   }
 
-  // ── Feed section list ────────────────────────────────────
+  // ── Feed section list ──────────────────────────────────
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
   }
 
+  // ── Category row ───────────────────────────────────────
   &__item {
-    @include flex-row($gap: $spacing-sm);
-    padding: $spacing-sm $spacing-xl;
-    transition: background $transition-fast;
+    display: flex;
+    align-items: center;
+    height: $nav-icon-size;
+    gap: 1rem;
+    transition: opacity $transition-fast;
+
+    &--hidden {
+      opacity: 0.5;
+    }
+  }
+
+  // ── Pin icon ───────────────────────────────────────────
+  &__icon {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    flex-shrink: 0;
+  }
+
+  &__pin-toggle {
+    @include flex-center;
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    .icon--pin-on {
+      display: none;
+    }
+
+    .icon--pin-off {
+      filter: invert(0.54);
+    }
+
+    &[aria-pressed='true'] {
+      .icon--pin-on {
+        display: block;
+      }
+
+      .icon--pin-off {
+        display: none;
+      }
+    }
 
     &:hover {
-      background: $color-surface-hover;
+      .icon--pin-on {
+        opacity: 0.85;
+      }
+
+      .icon--pin-off {
+        filter: invert(1);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 2px;
+      border-radius: 50%;
     }
   }
 
-  // ── Icons inside each row ────────────────────────────────
-  &__icon {
-    width: $spacing-xl;
-    height: $spacing-xl;
-    flex-shrink: 0;
-
-    &--drag {
-      filter: invert(0.5);
-      cursor: grab;
-    }
-  }
-
+  // ── Category name ──────────────────────────────────────
   &__item-name {
     flex: 1;
+    font-family: $font-primary;
     font-size: $font-size-base;
     font-weight: $font-weight-regular;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
     color: $color-text;
     @include truncate;
   }
 
-  // ── Visibility toggle button ─────────────────────────────
+  // ── Right-side action buttons ──────────────────────────
+  &__item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  // ── Drag handle ────────────────────────────────────────
+  &__drag {
+    @include flex-center;
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    background: none;
+    border: none;
+    cursor: grab;
+    padding: 0;
+
+    img {
+      width: $nav-icon-size;
+      height: $nav-icon-size;
+      filter: invert(0.54);
+    }
+  }
+
+  // ── Visibility toggle ─────────────────────────────────
   &__toggle-vis {
     @include flex-center;
     width: $nav-icon-size;
     height: $nav-icon-size;
-    border-radius: $radius-pill;
     background: none;
     border: none;
     cursor: pointer;
-    transition: background $transition-fast;
+    padding: 0;
 
     img {
       width: $nav-icon-size;
@@ -175,10 +225,12 @@
 
     .icon--vis-off {
       display: none;
+      filter: invert(0.54);
     }
 
     .icon--vis-on {
-      filter: invert(0.6);
+      display: block;
+      filter: invert(0.54);
     }
 
     &[aria-pressed='false'] {
@@ -188,36 +240,43 @@
 
       .icon--vis-off {
         display: block;
-        filter: invert(0.4);
       }
     }
 
     &:hover {
-      background: $color-surface;
-
       .icon--vis-on,
       .icon--vis-off {
         filter: invert(1);
       }
     }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
   }
 
-  // ── Footer: "Allow Recommendation Rows" ──────────────────
+  // ── Footer ─────────────────────────────────────────────
   &__footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $spacing-md $spacing-xl $spacing-xl;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    height: 5.7rem;
+    padding: 0 2.3rem;
+    border-top: 1px solid rgba(137, 137, 137, 0.3);
   }
 
   &__footer-label {
+    font-family: $font-primary;
     font-size: $font-size-base;
-    font-weight: $font-weight-medium;
-    color: $color-text;
+    font-weight: $font-weight-regular;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
   }
 
-  // ── CSS-only toggle switch ───────────────────────────────
+  // ── Toggle switch ──────────────────────────────────────
   &__switch {
     position: relative;
     display: inline-block;
@@ -230,36 +289,48 @@
 
   &__switch-track {
     display: block;
-    width: 3.6rem;
-    height: 2rem;
-    border-radius: $radius-pill;
-    background: $color-surface;
+    width: 5rem;
+    height: 2.541rem;
+    border-radius: 3.3rem;
+    background: #080808;
     transition: background $transition-fast;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      top: 0.2rem;
-      left: 0.2rem;
-      width: 1.6rem;
-      height: 1.6rem;
+      top: 50%;
+      left: 0.328rem;
+      transform: translateY(-50%);
+      width: 1.885rem;
+      height: 1.885rem;
       border-radius: 50%;
-      background: $color-text;
-      transition: transform $transition-fast;
+      background: $color-text-subtle;
+      transition: transform $transition-fast, background $transition-fast;
     }
   }
 
   &__switch-input:checked + &__switch-track {
-    background: $color-accent;
-
     &::after {
-      transform: translateX(1.6rem);
+      transform: translate(2.459rem, -50%);
+      background: $color-accent-soft;
     }
   }
 
   &__switch-input:focus-visible + &__switch-track {
     outline: 2px solid $color-accent;
     outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed-modal {
+    transition: none;
+  }
+}
+
+@media (max-width: #{$bp-mobile}) {
+  .feed-modal {
+    display: none !important;
   }
 }

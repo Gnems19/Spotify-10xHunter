@@ -7,7 +7,7 @@
   <title>Spotify - Search</title>
   <link rel="stylesheet" href="../css/main.css">
 </head>
-<body>
+<body class="page--search">
   <div class="app-layout">
 
     <aside class="sidebar">
@@ -124,12 +124,11 @@
         <div class="app-header__row">
           <nav class="nav-primary" aria-label="Primary">
             <div class="nav-primary__left">
-              <label class="nav-pill nav-pill--home">
-                <input type="radio" id="nav-home" name="primary-nav" class="nav-radio">
+              <a class="nav-pill nav-pill--home" href="../index.html">
                 <img src="../assets/icons/big/home.svg" alt="" class="nav-icon icon--off" aria-hidden="true">
                 <img src="../assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on" aria-hidden="true">
                 <span class="nav-pill__label">Home</span>
-              </label>
+              </a>
 
               <label class="nav-pill nav-pill--discover">
                 <input type="radio" id="nav-discover" name="primary-nav" class="nav-radio">
@@ -138,12 +137,10 @@
                 <span class="nav-pill__label">Discover</span>
               </label>
 
-              <label class="nav-pill nav-pill--search">
-                <input type="radio" id="nav-search" name="primary-nav" class="nav-radio" checked>
+              <a class="nav-pill nav-pill--search nav-pill--active" href="search.html" aria-current="page">
                 <img src="../assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true">
-                <span class="nav-pill__label nav-pill__label--muted nav-pill__label--default">Search</span>
-                <span class="nav-pill__label nav-pill__label--searching">Search...</span>
-              </label>
+                <span class="nav-pill__label">Search...</span>
+              </a>
             </div>
 
             <div class="nav-primary__right">
@@ -239,38 +236,54 @@
                 </div>
 
                 <div class="home-section__track search-tile-track" role="list">
-                  <article class="search-tile" role="listitem" style="--tile-bg:#1E3264;">
-                    <h4 class="search-tile__title">Made For You</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#BA5D07;">
-                    <h4 class="search-tile__title">New Releases</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#1E3264;">
-                    <h4 class="search-tile__title">Spotify Classics</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#8D67AB;">
-                    <h4 class="search-tile__title">Charts</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#B02897;">
-                    <h4 class="search-tile__title">Trending</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#8D67AB;">
-                    <h4 class="search-tile__title">Discover</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#777777;">
-                    <h4 class="search-tile__title">Spotify Singles</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#BA5D07;">
-                    <h4 class="search-tile__title">Decades</h4>
-                    <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
-                  </article>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#1E3264;">
+                      <h4 class="search-tile__title">Made For You</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#BA5D07;">
+                      <h4 class="search-tile__title">New Releases</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#1E3264;">
+                      <h4 class="search-tile__title">Spotify Classics</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#8D67AB;">
+                      <h4 class="search-tile__title">Charts</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#B02897;">
+                      <h4 class="search-tile__title">Trending</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#8D67AB;">
+                      <h4 class="search-tile__title">Discover</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#777777;">
+                      <h4 class="search-tile__title">Spotify Singles</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
+                  <a href="#" class="search-tile-link" role="listitem">
+                    <article class="search-tile" style="--tile-bg:#BA5D07;">
+                      <h4 class="search-tile__title">Decades</h4>
+                      <img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy">
+                    </article>
+                  </a>
                 </div>
               </section>
 
@@ -288,14 +301,14 @@
                 </div>
 
                 <div class="home-section__track search-tile-track" role="list">
-                  <article class="search-tile" role="listitem" style="--tile-bg:#148A08;"><h4 class="search-tile__title">Pop</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#D84000;"><h4 class="search-tile__title">Country</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#503750;"><h4 class="search-tile__title">Hip-Hop</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#006450;"><h4 class="search-tile__title">Rock</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#E91429;"><h4 class="search-tile__title">Indie</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Punk</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#E91429;"><h4 class="search-tile__title">Metal</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#537AA1;"><h4 class="search-tile__title">Instrumental</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#148A08;"><h4 class="search-tile__title">Pop</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#D84000;"><h4 class="search-tile__title">Country</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#503750;"><h4 class="search-tile__title">Hip-Hop</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#006450;"><h4 class="search-tile__title">Rock</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#E91429;"><h4 class="search-tile__title">Indie</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Punk</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#E91429;"><h4 class="search-tile__title">Metal</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#537AA1;"><h4 class="search-tile__title">Instrumental</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
                 </div>
               </section>
 
@@ -303,24 +316,24 @@
                 <div class="home-section__header">
                   <h3 class="search-row__title">Mood &amp; Activity</h3>
                   <div class="home-section__controls">
-                    <button class="section-nav-btn section-nav-btn--prev" aria-label="Previous mood and activity categories">
+                    <button class="section-nav-btn section-nav-btn--prev" aria-label="Previous mood &amp; activity categories">
                       <img src="../assets/icons/big/arrow-left.svg" alt="" aria-hidden="true">
                     </button>
-                    <button class="section-nav-btn section-nav-btn--next" aria-label="Next mood and activity categories">
+                    <button class="section-nav-btn section-nav-btn--next" aria-label="Next mood &amp; activity categories">
                       <img src="../assets/icons/big/arrow-right.svg" alt="" aria-hidden="true">
                     </button>
                   </div>
                 </div>
 
                 <div class="home-section__track search-tile-track" role="list">
-                  <article class="search-tile" role="listitem" style="--tile-bg:#2D46B9;"><h4 class="search-tile__title">In the car</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#E1118C;"><h4 class="search-tile__title">Mood</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#777777;"><h4 class="search-tile__title">Workout</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#D84000;"><h4 class="search-tile__title">Chill</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Sleep</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#537AA1;"><h4 class="search-tile__title">Party</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#5179A1;"><h4 class="search-tile__title">At Home</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#503750;"><h4 class="search-tile__title">Focus</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#2D46B9;"><h4 class="search-tile__title">In the car</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#E1118C;"><h4 class="search-tile__title">Mood</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#777777;"><h4 class="search-tile__title">Workout</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#D84000;"><h4 class="search-tile__title">Chill</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Sleep</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#537AA1;"><h4 class="search-tile__title">Party</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#5179A1;"><h4 class="search-tile__title">At Home</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#503750;"><h4 class="search-tile__title">Focus</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
                 </div>
               </section>
 
@@ -330,10 +343,10 @@
                 </div>
 
                 <div class="home-section__track search-tile-track" role="list">
-                  <article class="search-tile" role="listitem" style="--tile-bg:#EB1E32;"><h4 class="search-tile__title">Netflix</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#E41D63;"><h4 class="search-tile__title">Anime</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#0D73EC;"><h4 class="search-tile__title">Disney</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#E8115B;"><h4 class="search-tile__title">Gaming</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#EB1E32;"><h4 class="search-tile__title">Netflix</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#E41D63;"><h4 class="search-tile__title">Anime</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#0D73EC;"><h4 class="search-tile__title">Disney</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#E8115B;"><h4 class="search-tile__title">Gaming</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
                 </div>
               </section>
 
@@ -343,10 +356,10 @@
                 </div>
 
                 <div class="home-section__track search-tile-track" role="list">
-                  <article class="search-tile" role="listitem" style="--tile-bg:#006450;"><h4 class="search-tile__title">Podcasts</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#0D73EC;"><h4 class="search-tile__title">Podcast Charts</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#27856A;"><h4 class="search-tile__title">Podcast New Releases</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#E61E32;"><h4 class="search-tile__title">Video</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#006450;"><h4 class="search-tile__title">Podcasts</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#0D73EC;"><h4 class="search-tile__title">Podcast Charts</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#27856A;"><h4 class="search-tile__title">Podcast New Releases</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#E61E32;"><h4 class="search-tile__title">Video</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
                 </div>
               </section>
 
@@ -356,11 +369,11 @@
                 </div>
 
                 <div class="home-section__track search-tile-track" role="list">
-                  <article class="search-tile" role="listitem" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Audiobooks</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#8D67AB;"><h4 class="search-tile__title">Sci-Fi and Fantasy Essentials</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#503750;"><h4 class="search-tile__title">Fiction and Literature</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Mystery and Thriller</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
-                  <article class="search-tile" role="listitem" style="--tile-bg:#006450;"><h4 class="search-tile__title">Self-Help</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Audiobooks</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#8D67AB;"><h4 class="search-tile__title">Sci-Fi &amp; Fantasy Essentials</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#503750;"><h4 class="search-tile__title">Fiction &amp; Literature</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#1E3264;"><h4 class="search-tile__title">Mystery &amp; Thriller</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
+                  <a href="#" class="search-tile-link" role="listitem"><article class="search-tile" style="--tile-bg:#006450;"><h4 class="search-tile__title">Self-Help</h4><img src="../assets/img/weekly.png" alt="" class="search-tile__art" aria-hidden="true" loading="lazy"></article></a>
                 </div>
               </section>
             </section>
@@ -372,12 +385,11 @@
 
   <nav class="nav-mobile" aria-label="Primary mobile">
     <div class="nav-mobile__inner">
-      <label class="nav-mobile__item" aria-label="Home">
-        <input type="radio" name="mobile-nav" class="nav-radio">
+      <a class="nav-mobile__item" href="../index.html" aria-label="Home">
         <img src="../assets/icons/big/home.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
         <img src="../assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
         <span class="nav-mobile__label">Home</span>
-      </label>
+      </a>
 
       <label class="nav-mobile__item" aria-label="Discover">
         <input type="radio" name="mobile-nav" class="nav-radio">
@@ -386,12 +398,11 @@
         <span class="nav-mobile__label">Discover</span>
       </label>
 
-      <label class="nav-mobile__item" aria-label="Search">
-        <input type="radio" name="mobile-nav" class="nav-radio" checked>
+      <a class="nav-mobile__item nav-mobile__item--active" href="search.html" aria-label="Search" aria-current="page">
         <img src="../assets/icons/big/search.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
         <img src="../assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
         <span class="nav-mobile__label">Search</span>
-      </label>
+      </a>
 
       <label class="nav-mobile__item" aria-label="Library">
         <input type="radio" name="mobile-nav" class="nav-radio">

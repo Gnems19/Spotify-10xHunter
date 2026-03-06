@@ -1,9 +1,20 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+.page--search {
+  background: $color-bg-search;
+
+  .app-layout,
+  .app-header,
+  .sidebar,
+  .app-main--search {
+    background: $color-bg-search;
+  }
+}
+
 .app-main--search {
-  background: #060606;
-  border: 1px solid #202020;
+  background: $color-bg-search;
+  border: 1px solid $color-border-strong;
   border-radius: 1rem;
 }
 
@@ -24,6 +35,23 @@
 .search-section--recent {
   .home-section__header {
     margin-bottom: 1.5rem;
+  }
+
+  .home-section__title {
+    font-family: $font-primary;
+    color: $color-text-active;
+    font-size: $font-size-search-heading;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-search-heading;
+    letter-spacing: 0.03em;
+  }
+
+  .section-more-btn {
+    opacity: 1;
+
+    img {
+      filter: invert(0.92);
+    }
   }
 }
 
@@ -64,16 +92,16 @@
     position: absolute;
     top: -0.2rem;
     right: -0.2rem;
-    width: 4.04rem;
-    height: 4.04rem;
+    width: $nav-item-size;
+    height: $nav-item-size;
     border: none;
     border-radius: 50%;
     background: #111111;
     cursor: pointer;
 
     img {
-      width: 1.68rem;
-      height: 1.68rem;
+      width: $nav-icon-size;
+      height: $nav-icon-size;
       filter: brightness(0) saturate(100%) invert(62%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(93%) contrast(88%);
     }
   }
@@ -105,8 +133,9 @@
 
   &__title {
     margin: 0;
+    font-family: $font-primary;
     font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
     line-height: 2.7rem;
     letter-spacing: 0.03em;
     color: $color-text-active;
@@ -121,10 +150,41 @@
   .home-section__header {
     margin-bottom: 0;
   }
+
+  .section-nav-btn {
+    opacity: 0.45;
+  }
+
+  .section-nav-btn img {
+    filter: invert(0.38);
+  }
+
+  .section-nav-btn:not(.is-disabled):not(:disabled) {
+    opacity: 1;
+  }
+
+  .section-nav-btn:not(.is-disabled):not(:disabled) img {
+    filter: invert(0.92);
+  }
+
+  .section-nav-btn:not(.is-disabled):not(:disabled):hover img {
+    filter: invert(1);
+  }
+
+  .section-nav-btn.is-disabled,
+  .section-nav-btn:disabled {
+    opacity: 0.4;
+  }
+
+  .section-nav-btn.is-disabled img,
+  .section-nav-btn:disabled img {
+    filter: invert(0.3);
+  }
 }
 
 .search-row__title {
   margin: 0;
+  font-family: $font-primary;
   font-size: $font-size-lg;
   font-weight: $font-weight-medium;
   line-height: 2.4rem;
@@ -144,30 +204,48 @@
   padding: 2rem;
   overflow: hidden;
   background: var(--tile-bg, #1e3264);
-  flex: 0 0 auto;
 
   &__title {
     margin: 0;
-    max-width: 11.8rem;
+    font-family: $font-primary;
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    top: 2rem;
+    min-height: 8.1rem;
+    z-index: 2;
     color: $color-text;
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 2.7rem;
+    font-size: $font-size-search-tile-title;
+    font-weight: $font-weight-black;
+    line-height: $line-height-search-tile-title;
     letter-spacing: 0.03em;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   &__art {
     position: absolute;
     width: 10.427rem;
     height: 10.427rem;
-    right: -0.8rem;
-    bottom: -0.9rem;
+    right: -1.1rem;
+    bottom: -1.0rem;
+    z-index: 1;
     border-radius: 0.5rem;
     object-fit: cover;
-    transform: rotate(30deg);
+    transform: rotate(30deg) scale(1);
     opacity: 0.9;
+    transition: transform 0.3s ease;
   }
+
+  .search-tile-link:hover &__art {
+    transform: translate(-0.5rem, -0.7rem) rotate(0deg) scale(1.0618);
+  }
+}
+
+.search-tile-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 0 0 auto;
 }
 
 @media (max-width: #{$bp-mobile}) {
@@ -211,14 +289,19 @@
     padding: 1.6rem;
 
     &__title {
-      font-size: 2.4rem;
-      line-height: 2.4rem;
-      max-width: 9.5rem;
+      left: 1.6rem;
+      right: 1.6rem;
+      top: 1.6rem;
+      min-height: 7.2rem;
+      font-size: $font-size-search-tile-title;
+      line-height: $line-height-search-tile-title;
     }
 
     &__art {
       width: 9rem;
       height: 9rem;
+      right: -1.2rem;
+      bottom: -1.1rem;
     }
   }
 }
