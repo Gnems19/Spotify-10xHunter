@@ -34,3 +34,6 @@ vibe/
 drafts/
 
 .claude/
+
+# Design source files
+*.ai
