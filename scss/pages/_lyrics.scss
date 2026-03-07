@@ -185,7 +185,45 @@
     filter: var(--lyrics-icon-white);
   }
 
-  &__icon:focus-visible,
+  &__toggle {
+    @include sr-only;
+  }
+
+  &__icon--liked {
+    position: relative;
+
+    .lyrics-actions__icon-off,
+    .lyrics-actions__icon-on {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity $transition-fast, filter $transition-fast;
+    }
+
+    .lyrics-actions__icon-off {
+      opacity: 1;
+      filter: var(--lyrics-icon-muted);
+    }
+
+    .lyrics-actions__icon-on {
+      opacity: 0;
+      filter: none;
+    }
+
+    &:hover .lyrics-actions__icon-off {
+      filter: var(--lyrics-icon-white);
+    }
+
+    .lyrics-actions__toggle:checked ~ .lyrics-actions__icon-off {
+      opacity: 0;
+    }
+
+    .lyrics-actions__toggle:checked ~ .lyrics-actions__icon-on {
+      opacity: 1;
+    }
+  }
+
   &__play:focus-visible {
     outline: 0.2rem solid rgba(30, 215, 96, 0.55);
     outline-offset: 0.3rem;
@@ -309,7 +347,7 @@
 
   &__inner {
     display: grid;
-    grid-template-columns: 4.1rem minmax(0, 91.2rem);
+    grid-template-columns: 4.1rem minmax(0, 1fr);
     gap: 3.2rem;
     align-items: start;
   }
@@ -349,11 +387,6 @@
       filter: var(--lyrics-icon-white);
     }
 
-    &:focus-within {
-      outline: 0.2rem solid rgba(30, 215, 96, 0.55);
-      outline-offset: 0.3rem;
-      border-radius: 0.8rem;
-    }
   }
 
   &__input {
@@ -372,10 +405,50 @@
   &__button:hover &__input:checked + img {
     filter: var(--lyrics-icon-green);
   }
+
+  &__button--notes {
+    .lyrics-tools__icon-off,
+    .lyrics-tools__icon-on {
+      position: absolute;
+      inset: 0;
+      width: 4rem;
+      height: 4rem;
+      transition: opacity $transition-fast, filter $transition-fast;
+    }
+
+    .lyrics-tools__icon-off {
+      opacity: 1;
+      filter: var(--lyrics-icon-muted);
+    }
+
+    .lyrics-tools__icon-on {
+      opacity: 0;
+      filter: var(--lyrics-icon-green);
+    }
+
+    &:hover .lyrics-tools__icon-off {
+      filter: var(--lyrics-icon-white);
+    }
+
+    .lyrics-tools__input:checked ~ .lyrics-tools__icon-off {
+      opacity: 0;
+    }
+
+    .lyrics-tools__input:checked ~ .lyrics-tools__icon-on {
+      opacity: 1;
+    }
+
+    &:hover .lyrics-tools__input:checked ~ .lyrics-tools__icon-on {
+      filter: var(--lyrics-icon-green);
+    }
+  }
 }
 
 .lyrics-panel {
   min-width: 0;
+  width: min(100%, 91.2rem);
+  justify-self: center;
+  transform: translateX(3.2rem);
 
   &__column {
     display: flex;
@@ -714,6 +787,10 @@
   .lyrics-line {
     font-size: 2.5rem;
     line-height: 3.4rem;
+  }
+
+  .lyrics-panel {
+    transform: none;
   }
 
   .lyrics-playlist-popover {

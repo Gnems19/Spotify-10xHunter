@@ -174,13 +174,13 @@
       <main class="app-main app-main--lyrics">
         <div class="lyrics-page">
           <div class="lyrics-page__backdrop" aria-hidden="true">
-            <img src="../assets/img/weekly.png" alt="">
+            <img src="../assets/img/random-access-memories.webp" alt="">
           </div>
 
           <div class="lyrics-page__content">
             <section class="lyrics-hero" aria-labelledby="lyrics-song-title">
               <div class="lyrics-hero__art">
-                <img src="../assets/img/weekly.png" alt="Album cover for Get Lucky" class="lyrics-hero__cover">
+                <img src="../assets/img/random-access-memories.webp" alt="Album cover for Get Lucky" class="lyrics-hero__cover">
               </div>
 
               <div class="lyrics-hero__details">
@@ -210,18 +210,21 @@
                   <button class="lyrics-actions__play" type="button" aria-label="Play Get Lucky">
                     <img src="../assets/icons/big/play-simple.svg" alt="" aria-hidden="true">
                   </button>
-                  <button class="lyrics-actions__icon" type="button" aria-label="Like this song">
-                    <img src="../assets/icons/big/like.svg" alt="" aria-hidden="true">
-                  </button>
-                  <button class="lyrics-actions__icon" type="button" aria-label="Add to library">
-                    <img src="../assets/icons/big/add-to-library.svg" alt="" aria-hidden="true">
-                  </button>
+                  <label class="lyrics-actions__icon lyrics-actions__icon--liked" aria-label="Like this song">
+                    <input class="lyrics-actions__toggle" type="checkbox" name="lyrics-like-song">
+                    <img class="lyrics-actions__icon-off" src="../assets/icons/big/like.svg" alt="" aria-hidden="true">
+                    <img class="lyrics-actions__icon-on" src="../assets/icons/big/green-like.svg" alt="" aria-hidden="true">
+                    <span class="sr-only">Like this song</span>
+                  </label>
                   <button
                     class="lyrics-actions__icon lyrics-actions__icon--playlist"
                     type="button"
                     aria-label="Add to playlist"
                     popovertarget="lyrics-playlist-popover">
                     <img src="../assets/icons/big/add-to-playlist.svg" alt="" aria-hidden="true">
+                  </button>
+                  <button class="lyrics-actions__icon" type="button" aria-label="Add to queue">
+                    <img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true">
                   </button>
                   <button class="lyrics-actions__icon" type="button" aria-label="Download">
                     <img src="../assets/icons/big/download.svg" alt="" aria-hidden="true">
@@ -289,9 +292,10 @@
                     <img src="../assets/icons/big/translate.svg" alt="" aria-hidden="true">
                     <span class="sr-only">Translate lyrics</span>
                   </label>
-                  <label class="lyrics-tools__button">
+                  <label class="lyrics-tools__button lyrics-tools__button--notes">
                     <input class="lyrics-tools__input" type="checkbox" name="lyrics-tool-notes">
-                    <img src="../assets/icons/big/lyrics.svg" alt="" aria-hidden="true">
+                    <img class="lyrics-tools__icon-off" src="../assets/icons/big/notes.svg" alt="" aria-hidden="true">
+                    <img class="lyrics-tools__icon-on" src="../assets/icons/big/notes-filled.svg" alt="" aria-hidden="true">
                     <span class="sr-only">Lyrics notes</span>
                   </label>
                   <label class="lyrics-tools__button">
