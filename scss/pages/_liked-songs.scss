@@ -4,11 +4,10 @@
 //toolbar
 
 .liked-songs__toolbar {
-  @include flex ($justify: space-between);
+  @include flex($justify: space-between);
 
   &-right {
-      @include flex ($gap: 2rem);
-    
+    @include flex($gap: 2rem);
   }
 }
 
@@ -26,9 +25,11 @@
 
 //liked-songs header
 
-
 .liked-songs__header {
-  @include grid-table($columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr, $align: center);
+  @include grid-table(
+    $columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr,
+    $align: center
+  );
   padding: 1.2rem 0 1.2rem 1rem;
   border-bottom: 1px solid $color-surface-hover;
   // max-width: 75rem;
@@ -46,7 +47,10 @@
 //song row styles
 
 .song-row {
-  @include grid-table($columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr, $align: center);
+  @include grid-table(
+    $columns: 4.2rem 1fr 1fr 7rem 3rem 1fr 1fr,
+    $align: center
+  );
   padding: 1rem;
 
   &:hover {
@@ -95,7 +99,7 @@
   &__like-label {
     cursor: pointer;
     .song-row__like-empty {
-      display: block; 
+      display: block;
     }
 
     .song-row__like-filled {
@@ -133,7 +137,7 @@
   }
 
   &__title {
-       @include flex ($gap: 1rem);
+    @include flex($gap: 1rem);
     img {
       width: 5.1rem;
       height: 5.1rem;
@@ -162,16 +166,48 @@
   }
 }
 
+//დესკტოპამდეეე
+
+@media (max-width: #{$bp-desktop}) {
+  .liked-songs__header,
+  .song-row {
+      grid-template-columns: 4.2rem 2fr 7rem;
+  }
+
+   .song-row__like-checkbox,
+  .song-row__like-label,
+  .song-row__album,
+  .song-row__actions,
+  .song-row__check-label {
+    display: none !important;
+  }
+
+  .liked-songs__header span:nth-child(3),
+  .liked-songs__header span:nth-child(5),
+  .liked-songs__header span:nth-child(6),
+  .liked-songs__header span:nth-child(7) {
+    display: none;
+  }
+  
+  .song-row:hover {
+    .song-row__actions,
+    .song-row__check-label {
+      display: none !important;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
 
 //responsive adjustments for mobile view!!!!!!!!!!
 
 @media (max-width: #{$bp-mobile}) {
 
-   .liked-songs__toolbar {
+  .liked-songs__toolbar {
     padding-inline: 2.4rem;
     &-right {
-      gap: 1rem; // gap შეამცირე
-      
+      gap: 1rem; 
+
       // ტექსტი დამალე, მხოლოდ აიქონი დარჩეს
       .liked-songs__btn--sort sub,
       .liked-songs__btn--filter sub {
@@ -179,7 +215,6 @@
       }
     }
   }
-
 
   .liked-songs__header,
   .song-row {
@@ -191,7 +226,9 @@
   .song-row__album,
   .song-row__actions,
   .song-row__check-label,
-  .song-row__checkbox {
+  .song-row__checkbox,
+  .song-row__like-label,
+  .song-row__like-checkbox {
     display: none !important;
   }
 
@@ -205,15 +242,12 @@
   // ჰოვერზე აიქონები არა
   .song-row:hover {
     .song-row__actions,
-    .song-row__check-label {
+    .song-row__check-label,
+    .song-row__like-label {
       display: none !important;
       opacity: 0;
       visibility: hidden;
     }
-  }
-
-  .song-row__like-label {
-    cursor: pointer;
   }
 
 }

@@ -1768,6 +1768,31 @@ p, li, a, button, span {
   display: block;
 }
 
+@media (max-width: 992px) {
+  .liked-songs__header,
+  .song-row {
+    grid-template-columns: 4.2rem 2fr 7rem;
+  }
+  .song-row__like-checkbox,
+  .song-row__like-label,
+  .song-row__album,
+  .song-row__actions,
+  .song-row__check-label {
+    display: none !important;
+  }
+  .liked-songs__header span:nth-child(3),
+  .liked-songs__header span:nth-child(5),
+  .liked-songs__header span:nth-child(6),
+  .liked-songs__header span:nth-child(7) {
+    display: none;
+  }
+  .song-row:hover .song-row__actions,
+  .song-row:hover .song-row__check-label {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 @media (max-width: 767px) {
   .liked-songs__toolbar {
     padding-inline: 2.4rem;
@@ -1787,7 +1812,9 @@ p, li, a, button, span {
   .song-row__album,
   .song-row__actions,
   .song-row__check-label,
-  .song-row__checkbox {
+  .song-row__checkbox,
+  .song-row__like-label,
+  .song-row__like-checkbox {
     display: none !important;
   }
   .liked-songs__header span:nth-child(3),
@@ -1796,13 +1823,11 @@ p, li, a, button, span {
     display: none;
   }
   .song-row:hover .song-row__actions,
-  .song-row:hover .song-row__check-label {
+  .song-row:hover .song-row__check-label,
+  .song-row:hover .song-row__like-label {
     display: none !important;
     opacity: 0;
     visibility: hidden;
-  }
-  .song-row__like-label {
-    cursor: pointer;
   }
 }
 
