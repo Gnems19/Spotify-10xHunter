@@ -43,6 +43,39 @@ $radius-md:   0.8rem;
 $radius-lg:   1.2rem;
 $radius-pill: 999px;
 
+/* ======= Stacked Cards ======= */
+$stack-top-clearance:                 1rem;
+$stack-top-clearance-mobile:          0.75rem;
+$stack-stroke-width:                  0.16rem;
+$stack-thumb-wrap-background:         transparent;
+$stack-layer-stroke-color:            rgba(0, 0, 0, 0.78);
+$stack-front-stroke-color:            rgba(0, 0, 0, 0.82);
+$stack-layer-image-filter:            saturate(0.78) brightness(0.46) contrast(1.02);
+$stack-layer-image-hover-filter:      saturate(1) brightness(1) contrast(1);
+$stack-layer-overlay-background:      linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.56));
+$stack-overlay-hover-opacity:         0;
+$stack-rear-rest-transform:           translateY(-1.14rem) scale(0.83);
+$stack-middle-rest-transform:         translateY(-0.38rem) scale(0.92);
+$stack-front-rest-transform:          translateY(0.32rem) scale(0.975);
+$stack-front-hover-transform:         translateY(0.98rem) scale(0.98);
+$stack-middle-hover-transform:        translateY(-0.08rem) scale(0.94);
+$stack-rear-hover-transform:          translateY(-1.12rem) scale(0.88);
+$stack-rear-rest-opacity:             0.56;
+$stack-middle-rest-opacity:           0.9;
+$stack-middle-hover-opacity:          0.96;
+$stack-rear-hover-opacity:            0.78;
+$stack-rear-rest-transform-mobile:    translateY(-0.84rem) scale(0.86);
+$stack-middle-rest-transform-mobile:  translateY(-0.28rem) scale(0.93);
+$stack-front-rest-transform-mobile:   translateY(0.24rem) scale(0.98);
+$stack-front-hover-transform-mobile:  translateY(0.72rem) scale(0.95);
+$stack-middle-hover-transform-mobile: translateY(-0.04rem) scale(0.94);
+$stack-rear-hover-transform-mobile:   translateY(-0.8rem) scale(0.89);
+$discover-weekly-filter-front-opacity: 0.96;
+$discover-weekly-filter-layer-opacity: 0.8;
+$discover-weekly-filter-layer-hover-opacity: $discover-weekly-filter-front-opacity;
+$discover-weekly-image-position:       center top;
+$discover-weekly-layer-top-bleed:      0.8rem;
+
 /* ======= Typography ======= */
 // $font-primary:     'Circular Spotify', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-primary:        'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
