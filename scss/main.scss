@@ -9,7 +9,7 @@
 
 // LAYOUT
 @use './layout/app-layout';
-@use './layout/footer';
+@use './layout/mobile-nav';
 @use './layout/header';
 @use '../scss/layout/sidebar';
 @use './layout/home';
@@ -22,5 +22,6 @@
 
 // PAGES
 @use './pages/search';
+@use './pages/lyrics';
 @use './pages/liked-songs';
 
