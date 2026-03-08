@@ -184,8 +184,8 @@
     margin-left: 0;
     border: none;
     border-radius: 0;
-    background: $color-bg-overlay;
-    padding-bottom: calc(#{$player-height} + #{$spacing-xl} + env(safe-area-inset-bottom, 0px));
+    background: $color-bg-mobile;
+    padding-bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px));
   }
 
   .home-filter-bar {

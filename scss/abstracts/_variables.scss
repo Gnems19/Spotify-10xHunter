@@ -3,6 +3,7 @@ $color-bg:                    #191414;
 $color-bg-elevated:           #121212;
 $color-bg-overlay:            #000000;
 $color-bg-search:             #060606;
+$color-bg-mobile:             #111111;
 $color-surface:               #282828;
 $color-surface-hover:         rgba(255, 255, 255, 0.07);
 $color-surface-active:        rgba(255, 255, 255, 0.08);
@@ -31,6 +32,15 @@ $player-height:       9.5rem;  // 95px - mobile nav height
 $avatar-size:         3.0rem;  // 30px
 $card-width:         16.0rem;  // 160px
 $nav-pill-width:     21.0rem;  // 210px - home/discover pill width
+$search-mobile-padding-inline: 1.5rem;   // 15px
+$search-mobile-toolbar-height: 5.8rem;   // tighter mobile search header
+$search-mobile-field-height:   3.4rem;   // compact mobile search field
+$search-mobile-action-size:    3.6rem;   // compact mobile camera action
+$search-mobile-card-width:    17.0rem;   // 170px
+$search-mobile-card-height:   10.0rem;   // 100px
+$search-mobile-card-gap-x:     2.0rem;   // 20px
+$search-mobile-card-gap-y:     1.5rem;   // 15px
+$search-mobile-art-size:      10.427rem; // 104.27px
 
 // 3-tier icon sizing (smallest -> largest):
 $nav-icon-size:  4.041rem;  // 40.41px - SVG graphic (Figma "icons big")
@@ -89,6 +99,7 @@ $font-size-lg:                1.8rem;  // 18px
 $font-size-xl:                2.0rem;  // 20px - section headings
 $font-size-search-heading:    2.0rem;  // 20px
 $font-size-search-tile-title: 2.0rem;  // 20px
+$font-size-search-tile-compact: 1.6rem; // 16px
 
 $font-weight-regular: 400;
 $font-weight-medium:  500;
@@ -98,6 +109,7 @@ $font-weight-black:   900;
 $letter-spacing-base:          0.03rem;
 $line-height-search-heading:   2.7rem; // 27px
 $line-height-search-tile-title: 2.7rem; // 27px
+$line-height-search-tile-compact: 2.2rem; // 22px
 
 /* ======= Z-Index ======= */
 $z-header: 10;

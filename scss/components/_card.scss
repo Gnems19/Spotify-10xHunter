@@ -320,6 +320,23 @@
   }
 }
 
+$card-mix-accent-colors: (
+  'yellow': #FFFF00,
+  'gold': #FFD700,
+  'cyan': #00BFFF,
+  'violet': #8A2BE2,
+  'pink': #FF69B4,
+  'orange': #FF8C00,
+  'lime': #00FF7F,
+  'orange-red': #FF4500
+);
+
+@each $name, $color in $card-mix-accent-colors {
+  .card--accent-#{$name} {
+    --accent-color: #{$color};
+  }
+}
+
 @media (max-width: #{$bp-mobile}) {
   .card {
     width: 14.1rem;
