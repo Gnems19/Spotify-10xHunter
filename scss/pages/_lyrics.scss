@@ -129,6 +129,10 @@
     min-width: 0;
   }
 
+  &__item--with-icon {
+    color: $color-text-active;
+  }
+
   &__item--with-icon img {
     width: 2.4rem;
     height: 2.4rem;
