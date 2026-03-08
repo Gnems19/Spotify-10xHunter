@@ -16,6 +16,12 @@
 
   // Mobile: stack vertically, hide sidebar
   @media (max-width: #{$bp-mobile}) {
+    background: $color-bg-mobile;
+
+    &__content {
+      background: $color-bg-mobile;
+    }
+
     .sidebar {
       display: none;
     }

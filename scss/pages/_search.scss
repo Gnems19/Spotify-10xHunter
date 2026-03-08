@@ -268,7 +268,69 @@
   }
 }
 
+$search-tile-backgrounds: (
+  'blue': #1E3264,
+  'orange': #BA5D07,
+  'purple': #8D67AB,
+  'magenta': #B02897,
+  'gray': #777777,
+  'green': #148A08,
+  'amber': #D84000,
+  'plum': #503750,
+  'teal': #006450,
+  'red': #E91429,
+  'steel': #537AA1,
+  'indigo': #2D46B9,
+  'fuchsia': #E1118C,
+  'sky': #5179A1,
+  'scarlet': #EB1E32,
+  'rose': #E41D63,
+  'bright-blue': #0D73EC,
+  'hot-pink': #E8115B,
+  'green-bright': #27856A,
+  'red-bright': #E61E32
+);
+
+@each $name, $color in $search-tile-backgrounds {
+  .search-tile--bg-#{$name} {
+    --tile-bg: #{$color};
+  }
+}
+
+$search-tile-mobile-title-widths: (
+  99: 9.9rem,
+  108: 10.8rem,
+  112: 11.2rem,
+  114: 11.4rem,
+  117: 11.7rem,
+  118: 11.8rem,
+  128: 12.8rem,
+  129: 12.9rem,
+  132: 13.2rem
+);
+
+@each $name, $width in $search-tile-mobile-title-widths {
+  .search-tile--title-mobile-#{$name} {
+    --search-tile-title-width-mobile: #{$width};
+  }
+}
+
+.search-tile--title-mobile-compact {
+  --search-tile-title-size-mobile: #{$font-size-search-tile-compact};
+  --search-tile-title-line-mobile: #{$line-height-search-tile-compact};
+}
+
 @media (max-width: #{$bp-mobile}) {
+  .page--search {
+    background: $color-bg-mobile;
+
+    .app-layout,
+    .app-layout__content,
+    .app-main--search {
+      background: $color-bg-mobile;
+    }
+  }
+
   .app-main--search {
     margin-left: 0;
     border: none;
@@ -288,7 +350,7 @@
     margin: 0 (-$search-mobile-padding-inline) 0.8rem;
     padding: calc(env(safe-area-inset-top, 0px) + 0.8rem) $search-mobile-padding-inline 0.2rem;
     min-height: $search-mobile-toolbar-height;
-    background: $color-bg-search;
+    background: $color-bg-mobile;
 
     &__toolbar {
       display: flex;

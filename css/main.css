@@ -178,6 +178,12 @@ p, li, a, button, span {
   overflow: hidden;
 }
 @media (max-width: 767px) {
+  .app-layout {
+    background: #111111;
+  }
+  .app-layout__content {
+    background: #111111;
+  }
   .app-layout .sidebar {
     display: none;
   }
@@ -206,7 +212,7 @@ p, li, a, button, span {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17, 17, 17, 0.85) 0%, rgb(17, 17, 17) 50%);
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.85) 0%, #111111 42.62%);
   z-index: 0;
   pointer-events: none;
 }
@@ -614,7 +620,7 @@ p, li, a, button, span {
     margin-left: 0;
     border: none;
     border-radius: 0;
-    background: #000000;
+    background: #111111;
     padding-bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px));
   }
   .home-filter-bar {
@@ -1760,7 +1766,136 @@ p, li, a, button, span {
   outline-offset: 0.2rem;
 }
 
+.search-tile--bg-blue {
+  --tile-bg: #1E3264;
+}
+
+.search-tile--bg-orange {
+  --tile-bg: #BA5D07;
+}
+
+.search-tile--bg-purple {
+  --tile-bg: #8D67AB;
+}
+
+.search-tile--bg-magenta {
+  --tile-bg: #B02897;
+}
+
+.search-tile--bg-gray {
+  --tile-bg: #777777;
+}
+
+.search-tile--bg-green {
+  --tile-bg: #148A08;
+}
+
+.search-tile--bg-amber {
+  --tile-bg: #D84000;
+}
+
+.search-tile--bg-plum {
+  --tile-bg: #503750;
+}
+
+.search-tile--bg-teal {
+  --tile-bg: #006450;
+}
+
+.search-tile--bg-red {
+  --tile-bg: #E91429;
+}
+
+.search-tile--bg-steel {
+  --tile-bg: #537AA1;
+}
+
+.search-tile--bg-indigo {
+  --tile-bg: #2D46B9;
+}
+
+.search-tile--bg-fuchsia {
+  --tile-bg: #E1118C;
+}
+
+.search-tile--bg-sky {
+  --tile-bg: #5179A1;
+}
+
+.search-tile--bg-scarlet {
+  --tile-bg: #EB1E32;
+}
+
+.search-tile--bg-rose {
+  --tile-bg: #E41D63;
+}
+
+.search-tile--bg-bright-blue {
+  --tile-bg: #0D73EC;
+}
+
+.search-tile--bg-hot-pink {
+  --tile-bg: #E8115B;
+}
+
+.search-tile--bg-green-bright {
+  --tile-bg: #27856A;
+}
+
+.search-tile--bg-red-bright {
+  --tile-bg: #E61E32;
+}
+
+.search-tile--title-mobile-99 {
+  --search-tile-title-width-mobile: 9.9rem;
+}
+
+.search-tile--title-mobile-108 {
+  --search-tile-title-width-mobile: 10.8rem;
+}
+
+.search-tile--title-mobile-112 {
+  --search-tile-title-width-mobile: 11.2rem;
+}
+
+.search-tile--title-mobile-114 {
+  --search-tile-title-width-mobile: 11.4rem;
+}
+
+.search-tile--title-mobile-117 {
+  --search-tile-title-width-mobile: 11.7rem;
+}
+
+.search-tile--title-mobile-118 {
+  --search-tile-title-width-mobile: 11.8rem;
+}
+
+.search-tile--title-mobile-128 {
+  --search-tile-title-width-mobile: 12.8rem;
+}
+
+.search-tile--title-mobile-129 {
+  --search-tile-title-width-mobile: 12.9rem;
+}
+
+.search-tile--title-mobile-132 {
+  --search-tile-title-width-mobile: 13.2rem;
+}
+
+.search-tile--title-mobile-compact {
+  --search-tile-title-size-mobile: 1.6rem;
+  --search-tile-title-line-mobile: 2.2rem;
+}
+
 @media (max-width: 767px) {
+  .page--search {
+    background: #111111;
+  }
+  .page--search .app-layout,
+  .page--search .app-layout__content,
+  .page--search .app-main--search {
+    background: #111111;
+  }
   .app-main--search {
     margin-left: 0;
     border: none;
@@ -1778,7 +1913,7 @@ p, li, a, button, span {
     margin: 0 -1.5rem 0.8rem;
     padding: calc(env(safe-area-inset-top, 0px) + 0.8rem) 1.5rem 0.2rem;
     min-height: 5.8rem;
-    background: #060606;
+    background: #111111;
   }
   .search-mobile-hero__toolbar {
     display: flex;
