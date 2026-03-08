@@ -34,6 +34,122 @@
 
     // ── Section carousel prev/next ────────────────────────────
     // Scrolls by the full visible width so every card after click is new
+    // Artist page body switching
+    const artistPage = document.querySelector('.artist-page');
+    if (artistPage) {
+      const artistTabs = artistPage.querySelectorAll('[data-artist-panel-target]');
+      const artistPanels = artistPage.querySelectorAll('[data-artist-panel]');
+      const artistSubnav = artistPage.querySelector('.artist-subnav');
+      const artistViewControls = artistPage.querySelector('.artist-subnav__view-controls');
+      const artistAlbumViews = artistPage.querySelectorAll('[data-artist-albums-view-target]');
+      const artistAlbumViewPanels = artistPage.querySelectorAll(
+        '[data-artist-albums-view-panel]'
+      );
+      const artistAlbumRows = artistPage.querySelectorAll('[data-artist-album-row]');
+
+      const setArtistAlbumsView = viewName => {
+        artistAlbumViews.forEach(button => {
+          const isActive = button.dataset.artistAlbumsViewTarget === viewName;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        artistAlbumViewPanels.forEach(panel => {
+          panel.hidden = panel.dataset.artistAlbumsViewPanel !== viewName;
+        });
+      };
+
+      const setArtistAlbumRowExpanded = (row, isExpanded) => {
+        row.classList.toggle('is-expanded', isExpanded);
+
+        const details = row.querySelector('.artist-album-row__details');
+        if (details) {
+          details.hidden = !isExpanded;
+        }
+
+        row.querySelectorAll('[data-artist-album-toggle]').forEach(toggle => {
+          toggle.setAttribute('aria-expanded', String(isExpanded));
+        });
+      };
+
+      const setArtistPanel = panelName => {
+        const isAlbumsPanel = panelName === 'albums';
+
+        artistTabs.forEach(tab => {
+          const isActive = tab.dataset.artistPanelTarget === panelName;
+          tab.classList.toggle('is-active', isActive);
+
+          if (isActive) {
+            tab.setAttribute('aria-current', 'page');
+          } else {
+            tab.removeAttribute('aria-current');
+          }
+        });
+
+        artistPanels.forEach(panel => {
+          const isActive = panel.dataset.artistPanel === panelName;
+          panel.hidden = !isActive;
+          panel.classList.toggle('is-active', isActive);
+        });
+
+        artistPage.dataset.artistPanel = panelName;
+
+        if (artistSubnav) {
+          artistSubnav.classList.toggle('artist-subnav--albums-active', isAlbumsPanel);
+        }
+
+        if (artistViewControls) {
+          artistViewControls.hidden = !isAlbumsPanel;
+        }
+      };
+
+      artistTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          setArtistPanel(this.dataset.artistPanelTarget);
+        });
+      });
+
+      artistAlbumViews.forEach(button => {
+        button.addEventListener('click', function () {
+          setArtistAlbumsView(this.dataset.artistAlbumsViewTarget);
+        });
+      });
+
+      artistAlbumRows.forEach(row => {
+        const details = row.querySelector('.artist-album-row__details');
+        const isExpanded = row.classList.contains('is-expanded');
+
+        if (details) {
+          details.hidden = !isExpanded;
+        }
+
+        row.querySelectorAll('[data-artist-album-toggle]').forEach(toggle => {
+          toggle.setAttribute('aria-expanded', String(isExpanded));
+          toggle.addEventListener('click', () => {
+            const shouldExpand = !row.classList.contains('is-expanded');
+
+            artistAlbumRows.forEach(otherRow => {
+              if (otherRow !== row) {
+                setArtistAlbumRowExpanded(otherRow, false);
+              }
+            });
+
+            setArtistAlbumRowExpanded(row, shouldExpand);
+          });
+        });
+      });
+
+      const activeArtistTab = artistPage.querySelector(
+        '.artist-subnav__link.is-active[data-artist-panel-target]'
+      );
+      const activeArtistAlbumView = artistPage.querySelector(
+        '.artist-subnav__view-btn.is-active[data-artist-albums-view-target]'
+      );
+      setArtistAlbumsView(activeArtistAlbumView?.dataset.artistAlbumsViewTarget || 'grid');
+      setArtistPanel(activeArtistTab?.dataset.artistPanelTarget || 'home');
+    }
+
+    // Scrolls by the full visible width so every card after click is new
     document.querySelectorAll('.home-section').forEach(section => {
       const track = section.querySelector('.home-section__track');
       const prevBtn = section.querySelector('.section-nav-btn--prev');
