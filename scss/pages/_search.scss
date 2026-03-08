@@ -3,18 +3,18 @@
 @use '../abstracts/mixins' as *;
 
 .page--search {
-  background: $color-bg-search;
+  background: $color-bg-app;
 
   .app-layout,
   .app-header,
   .sidebar,
   .app-main--search {
-    background: $color-bg-search;
+    background: $color-bg-app;
   }
 }
 
 .app-main--search {
-  background: $color-bg-search;
+  background: $color-bg-app;
   border: 1px solid $color-border-strong;
   border-radius: 1rem;
 }

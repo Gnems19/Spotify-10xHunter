@@ -168,7 +168,7 @@ p, li, a, button, span {
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: #000000;
+  background: #060606;
 }
 .app-layout__content {
   flex: 1;
@@ -276,7 +276,7 @@ p, li, a, button, span {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #000000;
+  background-color: #060606;
 }
 .app-header__row {
   display: flex;
@@ -465,7 +465,8 @@ p, li, a, button, span {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  background: #000000;
+  --card-stack-frame-color: #060606;
+  background: #060606;
   border: 1px solid #282828;
   border-radius: 1.2rem;
   margin-left: 2.4rem;
@@ -475,7 +476,7 @@ p, li, a, button, span {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #000000;
+  background: #060606;
   padding: 1.6rem 2.4rem 1.2rem;
   display: flex;
   align-items: center;
@@ -497,7 +498,7 @@ p, li, a, button, span {
 }
 .filter-pill--active {
   background: #FFFFFF;
-  color: #191414;
+  color: #060606;
 }
 .filter-pill:hover:not(.filter-pill--active) {
   background: rgb(60.4, 60.4, 60.4);
@@ -618,6 +619,7 @@ p, li, a, button, span {
 @media (max-width: 767px) {
   .app-main {
     margin-left: 0;
+    --card-stack-frame-color: #111111;
     border: none;
     border-radius: 0;
     background: #111111;
@@ -627,6 +629,7 @@ p, li, a, button, span {
     position: sticky;
     top: 0;
     border-radius: 0;
+    background: #111111;
     padding: 1.6rem 1.5rem 1.2rem;
     gap: 1rem;
   }
@@ -649,8 +652,8 @@ p, li, a, button, span {
     opacity: 1;
   }
   .filter-grid-icon img {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 4.041rem;
+    height: 4.041rem;
     filter: invert(0.75);
   }
   .home-quick-grid {
@@ -1106,8 +1109,7 @@ p, li, a, button, span {
   z-index: 1;
   isolation: isolate;
   background: #202020;
-  border: 0.16rem solid rgba(0, 0, 0, 0.78);
-  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 0 0.2rem var(--card-stack-frame-color, #060606), 0 1.2rem 2.4rem rgba(0, 0, 0, 0.24);
 }
 .card__mix-layer::before {
   content: "";
@@ -1145,18 +1147,10 @@ p, li, a, button, span {
   isolation: isolate;
   background: #121212;
   transform: translateY(0.32rem) scale(0.975);
-  box-shadow: 0 1.8rem 3rem rgba(0, 0, 0, 0.34);
+  box-shadow: 0 0 0 0.28rem var(--card-stack-frame-color, #060606), 0 1.8rem 3rem rgba(0, 0, 0, 0.34);
 }
 .card__mix-front .card__thumb {
   z-index: 0;
-}
-.card__mix-front::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 0.16rem solid rgba(0, 0, 0, 0.82);
-  border-radius: inherit;
-  pointer-events: none;
 }
 .card--stacked {
   padding-top: 1rem;
@@ -1177,7 +1171,7 @@ p, li, a, button, span {
 }
 .card--stacked:is(:hover, :focus-visible) .card__mix-front {
   transform: translateY(0.98rem) scale(0.98);
-  box-shadow: 0 2.2rem 3.8rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 0.28rem var(--card-stack-frame-color, #060606), 0 2.2rem 3.8rem rgba(0, 0, 0, 0.4);
 }
 .card--stacked:is(:hover, :focus-visible) .card__mix-layer--middle {
   transform: translateY(-0.08rem) scale(0.94);
