@@ -2,22 +2,23 @@
 
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  background: $color-bg-overlay;
 
   &__content {
     flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
-}
 
-// Mobile: stack vertically, hide sidebar
-@media (max-width: #{$bp-mobile}) {
-  .app-layout {
-    display: none;
+  // Mobile: stack vertically, hide sidebar
+  @media (max-width: #{$bp-mobile}) {
+    .sidebar {
+      display: none;
+    }
   }
-  .sidebar {
-    display: none;
-  }
+
 }

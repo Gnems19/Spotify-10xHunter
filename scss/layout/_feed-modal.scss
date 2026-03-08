@@ -1,0 +1,336 @@
+/* ======= Customize Feed Modal (overlay panel) ======= */
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ── Dialog panel — fixed overlay, positioned via JS ─────
+.feed-modal {
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 43.2rem;
+  border-radius: 1rem;
+  color: $color-text;
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0);
+  background: rgba(61, 59, 50, 0.2);
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  position: fixed;
+  z-index: $z-modal;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity 180ms ease;
+
+  &:not([open]) {
+    display: none;
+  }
+
+  &.feed-modal--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &::backdrop {
+    background: transparent;
+  }
+
+  // ── Header ───────────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 5.3rem;
+    padding: 0 2.3rem;
+    border-bottom: 1px solid rgba(137, 137, 137, 0.3);
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
+  }
+
+  // ── Body (scrollable list) ─────────────────────────────
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    padding: 1.3rem 2.1rem;
+    max-height: 44.6rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // ── "Select from Library" button ───────────────────────
+  &__library-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: $font-primary;
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    line-height: 2.2rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .feed-modal__icon {
+      width: $nav-icon-size;
+      height: $nav-icon-size;
+      filter: invert(0.54);
+    }
+  }
+
+  // ── Feed section list ──────────────────────────────────
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+
+  // ── Category row ───────────────────────────────────────
+  &__item {
+    display: flex;
+    align-items: center;
+    height: $nav-icon-size;
+    gap: 1rem;
+    transition: opacity $transition-fast;
+
+    &--hidden {
+      opacity: 0.5;
+    }
+  }
+
+  // ── Pin icon ───────────────────────────────────────────
+  &__icon {
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    flex-shrink: 0;
+  }
+
+  &__pin-toggle {
+    @include flex-center;
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    .icon--pin-on {
+      display: none;
+    }
+
+    .icon--pin-off {
+      filter: invert(0.54);
+    }
+
+    &[aria-pressed='true'] {
+      .icon--pin-on {
+        display: block;
+      }
+
+      .icon--pin-off {
+        display: none;
+      }
+    }
+
+    &:hover {
+      .icon--pin-on {
+        opacity: 0.85;
+      }
+
+      .icon--pin-off {
+        filter: invert(1);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
+  }
+
+  // ── Category name ──────────────────────────────────────
+  &__item-name {
+    flex: 1;
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
+    color: $color-text;
+    @include truncate;
+  }
+
+  // ── Right-side action buttons ──────────────────────────
+  &__item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  // ── Drag handle ────────────────────────────────────────
+  &__drag {
+    @include flex-center;
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    background: none;
+    border: none;
+    cursor: grab;
+    padding: 0;
+
+    img {
+      width: $nav-icon-size;
+      height: $nav-icon-size;
+      filter: invert(0.54);
+    }
+  }
+
+  // ── Visibility toggle ─────────────────────────────────
+  &__toggle-vis {
+    @include flex-center;
+    width: $nav-icon-size;
+    height: $nav-icon-size;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    img {
+      width: $nav-icon-size;
+      height: $nav-icon-size;
+    }
+
+    .icon--vis-off {
+      display: none;
+      filter: invert(0.54);
+    }
+
+    .icon--vis-on {
+      display: block;
+      filter: invert(0.54);
+    }
+
+    &[aria-pressed='false'] {
+      .icon--vis-on {
+        display: none;
+      }
+
+      .icon--vis-off {
+        display: block;
+      }
+    }
+
+    &:hover {
+      .icon--vis-on,
+      .icon--vis-off {
+        filter: invert(1);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
+  }
+
+  // ── Footer ─────────────────────────────────────────────
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5.7rem;
+    padding: 0 2.3rem;
+    border-top: 1px solid rgba(137, 137, 137, 0.3);
+  }
+
+  &__footer-label {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
+    line-height: 1.9rem;
+    letter-spacing: 0.03em;
+    color: $color-text-active;
+  }
+
+  // ── Toggle switch ──────────────────────────────────────
+  &__switch {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__switch-input {
+    @include sr-only;
+  }
+
+  &__switch-track {
+    display: block;
+    width: 5rem;
+    height: 2.541rem;
+    border-radius: 3.3rem;
+    background: #080808;
+    transition: background $transition-fast;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0.328rem;
+      transform: translateY(-50%);
+      width: 1.885rem;
+      height: 1.885rem;
+      border-radius: 50%;
+      background: $color-text-subtle;
+      transition: transform $transition-fast, background $transition-fast;
+    }
+  }
+
+  &__switch-input:checked + &__switch-track {
+    &::after {
+      transform: translate(2.459rem, -50%);
+      background: $color-accent-soft;
+    }
+  }
+
+  &__switch-input:focus-visible + &__switch-track {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed-modal {
+    transition: none;
+  }
+}
+
+@media (max-width: #{$bp-mobile}) {
+  .feed-modal {
+    display: none !important;
+  }
+}

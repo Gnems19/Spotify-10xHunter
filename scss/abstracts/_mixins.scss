@@ -51,3 +51,18 @@
   align-items: $align;
   gap: $gap;
 }
+
+//grid table mixin for liked songs page
+@mixin grid-table($columns, $gap: 0, $align: center) {
+  display: grid;
+  grid-template-columns: $columns;
+  align-items: $align;
+  gap: $gap;
+}
+
+//for repetitive text styles
+@mixin text-subtle {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-md;
+  color: $color-text-subtle;
+}

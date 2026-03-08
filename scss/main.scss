@@ -12,9 +12,15 @@
 @use './layout/footer';
 @use './layout/header';
 @use '../scss/layout/sidebar';
+@use './layout/home';
+@use './layout/feed-modal';
 
 // COMPONENTS
 @use './components/card';
 @use './components/nav-pill';
 @use './components/icon-button';
+
+// PAGES
+@use './pages/search';
+@use './pages/liked-songs';
 

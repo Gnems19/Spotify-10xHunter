@@ -7,7 +7,6 @@
   top: 0;
   z-index: $z-header;
   background-color: $color-bg-overlay;
-  border-bottom: 1px solid $color-border;
 
   &__row {
     display: flex;
@@ -24,7 +23,7 @@
   flex: 1;
 
   &__left {
-    @include flex-row($gap: 1rem);
+    @include flex-row($gap: $spacing-base);
     flex: 1 1 auto;
     min-width: 0;
   }

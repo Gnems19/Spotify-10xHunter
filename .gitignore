@@ -29,7 +29,12 @@ Thumbs.db
 .env
 .env.*
 
-# Archived original UI
+# Archived files
 vibe/
 drafts/
 
+.claude/
+
+# Design source files
+*.ai
+assets/img/weekly.ai
