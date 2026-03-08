@@ -1,0 +1,195 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+
+.discovery{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.discovery__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+
+}
+.discovery__image-side {
+  position: relative;
+  width: 390px;
+  height: 612px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+ 
+}
+
+.discovery__indicators {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+}
+
+.discovery__indicator {
+  width: 8rem;
+  height: 0.4rem;
+  background-color: #DBDBDB26;
+  border-radius: 0.2rem;
+
+  &--active {
+    background-color: #ffffff;
+    width: 1.6rem;
+  }
+}
+
+
+.discovery__content{
+   display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 30px;
+}
+
+.discovery__cover {
+  position: relative;
+  width: 184px;
+  height: 184px;
+  z-index: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: 1;
+  }
+}
+
+.discovery__cover-layer {
+  position: absolute;
+  top: -1.1rem;
+  left: 0.7rem;
+  width: 17rem;
+  height: 10rem; 
+  background-color: rgba(148, 231, 211, 0.3);
+  border-radius: 0.8rem;
+  z-index: -1;
+}
+
+
+.discovery__info{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+.discovery__title{
+font-weight: 700;
+font-size: 3rem;
+color: #E0E0E0;
+}
+
+.discovery__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  &-white{
+    color: #E0E0E0;
+  }
+
+  &--txt {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: #898989;
+
+    &::before {
+      content: "•";
+      margin-right: 0.8rem;
+    }
+
+    &:first-child::before {
+      display: none; //პირველ სპანს არ უნდა წრტლ
+    }
+  }
+}
+
+.discovery__actions{
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.discovery__btn {
+
+  &--flex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #898989;
+  }
+}
+
+.discovery__tags{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+}
+
+.discovery__tag{
+font-weight: 400;
+font-size: 1.2rem;
+color: #898989;
+padding: 0.8rem 1.3rem;
+border: 2px solid #8989891A;
+border-radius: 4.4rem;
+}
+
+
+
+@media (max-width: #{$bp-mobile}) {
+  .discovery__wrapper {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .discovery__image-side {
+    width: 100%;
+    height: 100vw; // ← კვადრატი მობილურზე
+  }
+
+  .discovery__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex-direction: column; // ← ღილაკები ვერტიკალურად
+    padding: 1.6rem;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .discovery__cover {
+    display: none; // ← პატარა ფოტო იმალება
+  }
+
+  .discovery__info {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+  }
+
+  // ღილაკები ვერტიკალურად
+  .discovery__actions {
+    flex-direction: column;
+  }
+}
