@@ -1275,6 +1275,38 @@ p, li, a, button, span {
   filter: invert(1);
 }
 
+.card--accent-yellow {
+  --accent-color: #FFFF00;
+}
+
+.card--accent-gold {
+  --accent-color: #FFD700;
+}
+
+.card--accent-cyan {
+  --accent-color: #00BFFF;
+}
+
+.card--accent-violet {
+  --accent-color: #8A2BE2;
+}
+
+.card--accent-pink {
+  --accent-color: #FF69B4;
+}
+
+.card--accent-orange {
+  --accent-color: #FF8C00;
+}
+
+.card--accent-lime {
+  --accent-color: #00FF7F;
+}
+
+.card--accent-orange-red {
+  --accent-color: #FF4500;
+}
+
 @media (max-width: 767px) {
   .card {
     width: 14.1rem;
