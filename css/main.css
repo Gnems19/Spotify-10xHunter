@@ -3042,6 +3042,11 @@ p, li, a, button, span {
 .song-row__like-label {
   cursor: pointer;
 }
+.song-row__like-label img {
+  width: 4.041rem;
+  height: 4.041rem;
+  max-width: none;
+}
 .song-row__like-label .song-row__like-empty {
   display: block;
 }
@@ -4442,3 +4447,5 @@ p, li, a, button, span {
     font-size: 1.4rem;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
