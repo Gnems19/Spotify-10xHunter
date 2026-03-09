@@ -16,7 +16,7 @@
   &--filter {
     @include flex($gap: 0.5rem);
 
-    sub {
+    .liked-songs__btn-text {
       font-size: $font-size-base;
       color: $color-text-subtle;
     }
@@ -209,8 +209,8 @@
       gap: 1rem; 
 
       // ტექსტი დამალე, მხოლოდ აიქონი დარჩეს
-      .liked-songs__btn--sort sub,
-      .liked-songs__btn--filter sub {
+      .liked-songs__btn--sort .liked-songs__btn-text,
+      .liked-songs__btn--filter .liked-songs__btn-text {
         display: none;
       }
     }

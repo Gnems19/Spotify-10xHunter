@@ -150,6 +150,18 @@ body {
   color: #FFFFFF;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ======= Typography ======= */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -2958,7 +2970,7 @@ p, li, a, button, span {
   align-items: center;
   gap: 0.5rem;
 }
-.liked-songs__btn--sort sub, .liked-songs__btn--filter sub {
+.liked-songs__btn--sort .liked-songs__btn-text, .liked-songs__btn--filter .liked-songs__btn-text {
   font-size: 1.4rem;
   color: #898989;
 }
@@ -3123,8 +3135,8 @@ p, li, a, button, span {
   .liked-songs__toolbar-right {
     gap: 1rem;
   }
-  .liked-songs__toolbar-right .liked-songs__btn--sort sub,
-  .liked-songs__toolbar-right .liked-songs__btn--filter sub {
+  .liked-songs__toolbar-right .liked-songs__btn--sort .liked-songs__btn-text,
+  .liked-songs__toolbar-right .liked-songs__btn--filter .liked-songs__btn-text {
     display: none;
   }
   .liked-songs__header,
@@ -4430,5 +4442,3 @@ p, li, a, button, span {
     font-size: 1.4rem;
   }
 }
-
-/*# sourceMappingURL=main.css.map */

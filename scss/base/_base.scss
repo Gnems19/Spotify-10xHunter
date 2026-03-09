@@ -1,9 +1,14 @@
 /* ======= Base ======= */
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 body {
   min-height: 100vh;
   font-family: $font-primary;
   background-color: $color-bg;
   color: $color-text;
+}
+
+.sr-only {
+  @include sr-only;
 }
