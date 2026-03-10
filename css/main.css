@@ -2009,6 +2009,7 @@ p, li, a, button, span {
   align-items: center;
   gap: 5rem;
   overflow: hidden;
+  width: 100%;
 }
 
 .discovery__image-side {
@@ -2245,6 +2246,23 @@ p, li, a, button, span {
   .discovery__info .discovery__title,
   .discovery__info .discovery__meta {
     display: none;
+  }
+  .app-main--discover .home-filter-bar {
+    overflow-x: auto;
+    backdrop-filter: blur(70px);
+    background: rgba(61, 59, 50, 0.14);
+  }
+  .app-main--discover .filter-pill {
+    min-width: 8rem;
+    background: none;
+  }
+  .app-main--discover .filter-pill--active {
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .app-main--discover .filter-pill:hover:not(.filter-pill--active) {
+    background: rgba(255, 255, 255, 0.14);
   }
 }
 
