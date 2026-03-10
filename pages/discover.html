@@ -284,7 +284,21 @@
           </div>
         </header>
         <!--==================Discovery page starts here======================-->
-        <main class="app-main app-main--search">
+        <main class="app-main app-main--search app-main--discover">
+          <!-- ===== Filter Bar ===== -->
+          <div class="home-filter-bar">
+            <button class="filter-pill filter-pill--active">All</button>
+            <button class="filter-pill">EDM</button>
+            <button class="filter-pill">Indie</button>
+            <button class="filter-pill">Pop</button>
+            <button class="filter-pill">Rock</button>
+            <button class="filter-pill">Alt Rock</button>
+            <button class="filter-pill">Country</button>
+            <button class="filter-pill">R&B</button>
+            <button class="filter-pill">Hip-Hop</button>
+            <button class="filter-pill">Podcast</button>
+            <button class="filter-pill">Audiobooks</button>
+          </div>
           <section class="discovery">
             <div class="discovery__wrapper">
               <figure class="discovery__image-side">
@@ -356,9 +370,79 @@
               </article>
             </div>
             <!--Second content-->
-                  <div class="discovery__wrapper">
+            <div class="discovery__wrapper">
               <figure class="discovery__image-side">
                 <img src="../assets/img/get-lucky.png" alt="page cover image" />
+                <div class="discovery__indicators">
+                  <span
+                    class="discovery__indicator discovery__indicator--active"
+                  ></span>
+                  <span class="discovery__indicator"></span>
+                  <span class="discovery__indicator"></span>
+                  <span class="discovery__indicator"></span>
+                </div>
+              </figure>
+              <article class="discovery__content">
+                <div class="discovery__cover">
+                  <!-- <div class="discovery__cover-layer"></div> -->
+                  <a href="#">
+                    <img
+                      src="../assets/img/daft.png"
+                      alt="Daft Punk cover image"
+                    />
+                  </a>
+                </div>
+                <div class="discovery__info">
+                  <h3 class="discovery__title">Get Lucky</h3>
+                  <div class="discovery__meta">
+                    <span class="discovery__meta--txt"
+                      >By <span class="discovery__meta-white">Daft Punk</span>
+                    </span>
+                    <span class="discovery__meta--txt">2013</span>
+                    <span class="discovery__meta--txt">22 songs</span>
+                    <span class="discovery__meta--txt">1 hr 14 min</span>
+                  </div>
+                  <div class="discovery__actions">
+                    <button class="discovery__btn">
+                      <img src="../assets/icons/big/play.svg" alt="play icon" />
+                    </button>
+                    <button class="discovery__btn discovery__btn--flex">
+                      <img src="../assets/icons/big/save.svg" alt="save icon" />
+                      500k
+                    </button>
+                    <button class="discovery__btn">
+                      <img
+                        src="../assets/icons/big/add-to-playlist.svg"
+                        alt="add to playlist icon"
+                      />
+                    </button>
+                    <button class="discovery__btn">
+                      <img
+                        src="../assets/icons/big/add-to-queue.svg"
+                        alt="add to queue icon"
+                      />
+                    </button>
+                    <button class="discovery__btn">
+                      <img
+                        src="../assets/icons/big/share.svg"
+                        alt="share icon"
+                      />
+                    </button>
+                    <button class="discovery__btn">
+                      <img src="../assets/icons/big/more.svg" alt="more icon" />
+                    </button>
+                  </div>
+                  <div class="discovery__tags">
+                    <button class="discovery__tag">Rock</button>
+                    <button class="discovery__tag">Alt Rock</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!--third content-->
+            <div class="discovery__wrapper">
+              <figure class="discovery__image-side">
+                <!-- <img src="../assets/img/cover.png" alt="page cover image" /> -->
                 <div class="discovery__indicators">
                   <span
                     class="discovery__indicator discovery__indicator--active"
@@ -373,8 +457,8 @@
                   <div class="discovery__cover-layer"></div>
                   <a href="#">
                     <img
-                      src="../assets/img/daft.png"
-                      alt="Daft Punk cover image"
+                      src="../assets/img/lp.png"
+                      alt="Linkin Park cover image"
                     />
                   </a>
                 </div>
@@ -382,9 +466,9 @@
                   <h3 class="discovery__title">Linkin Park Mix</h3>
                   <div class="discovery__meta">
                     <span class="discovery__meta--txt"
-                      >By <span class="discovery__meta-white">Daft Punk</span>
+                      >By <span class="discovery__meta-white">Spotify</span>
                     </span>
-                    <span class="discovery__meta--txt">2013</span>
+                    <span class="discovery__meta--txt">2023</span>
                     <span class="discovery__meta--txt">22 songs</span>
                     <span class="discovery__meta--txt">1 hr 14 min</span>
                   </div>
