@@ -2009,7 +2009,6 @@ p, li, a, button, span {
   align-items: center;
   gap: 5rem;
   overflow: hidden;
-  width: 100%;
 }
 
 .discovery__image-side {
