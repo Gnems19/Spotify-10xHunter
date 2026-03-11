@@ -3159,5 +3159,154 @@ p, li, a, button, span {
     visibility: hidden;
   }
 }
+.mix-page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(59, 79, 182, 0.47) 0%, rgba(6, 6, 6, 0.47) 100%);
+}
+.mix-page .liked-songs__header {
+  grid-template-columns: 3rem 1fr 1fr 5rem 3rem;
+}
+.mix-page .liked-songs__header span:nth-child(6),
+.mix-page .liked-songs__header span:nth-child(7) {
+  display: none;
+}
+.mix-page .song-row {
+  grid-template-columns: 3rem 1fr 1fr 5rem 3rem;
+}
+.mix-page .song-row .song-row__actions,
+.mix-page .song-row .song-row__check-label,
+.mix-page .song-row .song-row__checkbox {
+  display: none;
+}
+
+.mix-main__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.mix-main__title {
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.mix__meta {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #898989;
+}
+.mix__meta-white {
+  color: #e0e0e0;
+}
+.mix__meta--txt::before {
+  content: "•";
+  margin-right: 0.8rem;
+  margin-left: 0.8rem;
+}
+.mix__meta--txt:first-child::before {
+  display: none;
+}
+
+.mix__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+
+.mix__right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.mix-sidebar__artists {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.mix-artist__img {
+  border-radius: 1rem;
+}
+
+.mix-sidebar__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mix-sidebar__genre {
+  padding: 1rem 2rem;
+  border: 0.2rem solid #898989;
+  border-radius: 4.4rem;
+  color: #898989;
+}
+.mix-sidebar__genre:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.mix-artists {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+.mix-artists img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 5rem;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .mix-page {
+    display: flex;
+    flex-direction: column;
+  }
+  .mix-page .mix-artist__img {
+    width: 50%;
+    margin: 0 auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .mix-sidebar {
+    order: -1;
+  }
+  .mix-main {
+    order: 1;
+  }
+  .mix__search {
+    display: none;
+  }
+  .mix-page .liked-songs__header {
+    display: none;
+  }
+  .mix-page .song-row {
+    grid-template-columns: 1fr auto;
+  }
+  .mix-page .song-row .song-row__number,
+  .mix-page .song-row .song-row__album,
+  .mix-page .song-row .song-row__like-label,
+  .mix-page .song-row .song-row__like-checkbox,
+  .mix-page .song-row .song-row__actions,
+  .mix-page .song-row .song-row__checkbox,
+  .mix-page .song-row .song-row__check-label {
+    display: none;
+  }
+  .mix-sidebar__genres,
+  .mix-artists {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
