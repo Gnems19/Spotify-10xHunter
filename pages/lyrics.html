@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#191414">
+  <title>Spotify - Lyrics</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="page--lyrics">
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="../index.html">
+          <img src="../assets/icons/big/library.svg" alt="spotify-library-icon" />
+          <span>My Library</span>
+        </a>
+      </div>
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item sidebar__item--arrow">
+            <a href="#">
+              <div class="sidebar__link-left">
+                <img src="../assets/icons/big/pin.svg" alt="pins-icon" />
+                <span>Pins</span>
+              </div>
+              <span class="sidebar__arrow">
+                <img src="../assets/icons/big/right.svg" alt="arrow-right">
+              </span>
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--accordion">
+            <button class="sidebar__accordion-trigger" aria-expanded="false">
+              <div class="sidebar__link-left">
+                <img src="../assets/icons/big/playlist.svg" alt="playlist-icon" />
+                <span class="sidebar__accordion-label">Playlists</span>
+              </div>
+              <span class="sidebar__arrow">
+                <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+              </span>
+            </button>
+            <ul class="sidebar__dropdown">
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Chill stuff</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Rock n Roll</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>The Jux Box</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Selected Linkin Park</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Vibe</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/like.svg" alt="spotify-liked-songs-icon" />
+              <span>Liked songs</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/save.svg" alt="spotify-saved-songs-icon" />
+              <span>Saves</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/album.svg" alt="spotify-album-songs-icon" />
+              <span>Albums</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/folder.svg" alt="spotify-folders-icon" />
+              <span>Folders</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/podcast.svg" alt="spotify-podcasts-icon" />
+              <span>Podcasts</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/audiobook.svg" alt="spotify-audiobooks-icon" />
+              <span>Audiobooks</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="artist.html">
+              <img src="../assets/icons/big/artist.svg" alt="spotify-artists-icon" />
+              <span>Artists</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="app-layout__content">
+      <header class="app-header">
+        <div class="app-header__row">
+          <nav class="nav-primary" aria-label="Primary">
+            <div class="nav-primary__left">
+              <a class="nav-pill nav-pill--home" href="../index.html">
+                <img src="../assets/icons/big/home.svg" alt="" class="nav-icon icon--off" aria-hidden="true">
+                <img src="../assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on" aria-hidden="true">
+                <span class="nav-pill__label">Home</span>
+              </a>
+
+              <label class="nav-pill nav-pill--discover">
+                <input type="radio" id="nav-discover" name="primary-nav" class="nav-radio">
+                <img src="../assets/icons/big/discover.svg" alt="" class="nav-icon icon--off" aria-hidden="true">
+                <img src="../assets/icons/big/discover-filled.svg" alt="" class="nav-icon icon--on" aria-hidden="true">
+                <span class="nav-pill__label">Discover</span>
+              </label>
+
+              <a class="nav-pill nav-pill--search nav-pill--active" href="search.html" aria-current="page">
+                <img src="../assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true">
+                <span class="nav-pill__label">Search...</span>
+              </a>
+            </div>
+
+            <div class="nav-primary__right">
+              <button class="icon-button" type="button" aria-label="News">
+                <img src="../assets/icons/big/news.svg" alt="" class="nav-icon" aria-hidden="true">
+              </button>
+
+              <label class="icon-button" aria-label="Private session">
+                <input type="checkbox" class="nav-radio">
+                <img src="../assets/icons/big/private.svg" alt="" class="nav-icon icon--off" aria-hidden="true">
+                <img src="../assets/icons/big/private-alt.svg" alt="" class="nav-icon icon--on icon--preserve" aria-hidden="true">
+              </label>
+
+              <label class="icon-button" aria-label="Friends activity">
+                <input type="checkbox" class="nav-radio">
+                <img src="../assets/icons/big/friends.svg" alt="" class="nav-icon icon--off" aria-hidden="true">
+                <img src="../assets/icons/big/friends-filled.svg" alt="" class="nav-icon icon--on" aria-hidden="true">
+              </label>
+
+              <button class="icon-button" type="button" aria-label="Settings">
+                <img src="../assets/icons/big/settings.svg" alt="" class="nav-icon" aria-hidden="true">
+              </button>
+
+              <button class="avatar-button" type="button" aria-label="Profile">
+                <img src="../assets/img/profilePicture.webp" alt="User profile picture" class="avatar-image">
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <main class="app-main app-main--lyrics">
+        <div class="lyrics-page">
+          <div class="lyrics-page__backdrop" aria-hidden="true">
+            <img src="../assets/img/random-access-memories.webp" alt="">
+          </div>
+
+          <div class="lyrics-page__content">
+            <section class="lyrics-hero" aria-labelledby="lyrics-song-title">
+              <div class="lyrics-hero__art">
+                <img src="../assets/img/random-access-memories.webp" alt="Album cover for Get Lucky" class="lyrics-hero__cover">
+              </div>
+
+              <div class="lyrics-hero__details">
+                <div class="lyrics-hero__heading">
+                  <h1 class="lyrics-hero__title" id="lyrics-song-title">Get Lucky (feat. Pharrell Williams and Nile Rodgers)</h1>
+
+                  <div class="lyrics-meta" aria-label="Song details">
+                    <span class="lyrics-meta__item lyrics-meta__item--with-icon">
+                      <img src="../assets/icons/small/artist.svg" alt="" aria-hidden="true">
+                      <span>Daft Punk</span>
+                    </span>
+                    <span class="lyrics-meta__separator" aria-hidden="true">&bull;</span>
+                    <span class="lyrics-meta__item lyrics-meta__item--with-icon">
+                      <img src="../assets/icons/small/album.svg" alt="" aria-hidden="true">
+                      <span>Random Access Memories</span>
+                    </span>
+                    <span class="lyrics-meta__separator" aria-hidden="true">&bull;</span>
+                    <span class="lyrics-meta__item">2013</span>
+                    <span class="lyrics-meta__separator" aria-hidden="true">&bull;</span>
+                    <span class="lyrics-meta__item">6:09</span>
+                    <span class="lyrics-meta__separator" aria-hidden="true">&bull;</span>
+                    <span class="lyrics-meta__item">489,691,133</span>
+                  </div>
+                </div>
+
+                <div class="lyrics-actions" aria-label="Track actions">
+                  <button class="lyrics-actions__play" type="button" aria-label="Play Get Lucky">
+                    <img src="../assets/icons/big/play-simple.svg" alt="" aria-hidden="true">
+                  </button>
+                  <label class="lyrics-actions__icon lyrics-actions__icon--liked" aria-label="Like this song">
+                    <input class="lyrics-actions__toggle" type="checkbox" name="lyrics-like-song">
+                    <img class="lyrics-actions__icon-off" src="../assets/icons/big/like.svg" alt="" aria-hidden="true">
+                    <img class="lyrics-actions__icon-on" src="../assets/icons/big/green-like.svg" alt="" aria-hidden="true">
+                    <span class="sr-only">Like this song</span>
+                  </label>
+                  <button
+                    class="lyrics-actions__icon lyrics-actions__icon--playlist"
+                    type="button"
+                    aria-label="Add to playlist"
+                    popovertarget="lyrics-playlist-popover">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="" aria-hidden="true">
+                  </button>
+                  <button class="lyrics-actions__icon" type="button" aria-label="Add to queue">
+                    <img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true">
+                  </button>
+                  <button class="lyrics-actions__icon" type="button" aria-label="Download">
+                    <img src="../assets/icons/big/download.svg" alt="" aria-hidden="true">
+                  </button>
+                  <button class="lyrics-actions__icon" type="button" aria-label="Share">
+                    <img src="../assets/icons/big/share.svg" alt="" aria-hidden="true">
+                  </button>
+                  <button class="lyrics-actions__icon" type="button" aria-label="More options">
+                    <img src="../assets/icons/big/more.svg" alt="" aria-hidden="true">
+                  </button>
+                </div>
+
+                <ul class="lyrics-tags" aria-label="Genres">
+                  <li class="lyrics-tags__item">Funk</li>
+                  <li class="lyrics-tags__item">Electronic music</li>
+                  <li class="lyrics-tags__item">Disco</li>
+                  <li class="lyrics-tags__item">Soft Rock</li>
+                  <li class="lyrics-tags__item">Progressive pop</li>
+                </ul>
+
+                <div class="lyrics-credits" aria-label="Artist credits">
+                  <article class="lyrics-credit-card">
+                    <img src="../assets/img/weekly-old.png" alt="Temporary artist image for Daft Punk" class="lyrics-credit-card__avatar" loading="lazy">
+                    <div class="lyrics-credit-card__copy">
+                      <h2 class="lyrics-credit-card__name">Daft Punk</h2>
+                      <p class="lyrics-credit-card__role">Main artist</p>
+                    </div>
+                  </article>
+
+                  <article class="lyrics-credit-card">
+                    <img src="../assets/img/profilePicture.webp" alt="Temporary artist image for Pharrell Williams" class="lyrics-credit-card__avatar" loading="lazy">
+                    <div class="lyrics-credit-card__copy">
+                      <h2 class="lyrics-credit-card__name">Pharrell Williams</h2>
+                      <p class="lyrics-credit-card__role">Main artist, Composer, Lyricist</p>
+                    </div>
+                  </article>
+
+                  <article class="lyrics-credit-card">
+                    <img src="../assets/img/weeklyp-01.png" alt="Temporary artist image for Nile Rodgers" class="lyrics-credit-card__avatar" loading="lazy">
+                    <div class="lyrics-credit-card__copy">
+                      <h2 class="lyrics-credit-card__name">Nile Rodgers</h2>
+                      <p class="lyrics-credit-card__role">Main artist, Composer, Lyricist</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <nav class="lyrics-subnav" aria-label="Song detail sections">
+              <button class="lyrics-subnav__item is-active" type="button" aria-current="page">Lyrics</button>
+              <button class="lyrics-subnav__item" type="button">Credits</button>
+              <button class="lyrics-subnav__item" type="button">More like this</button>
+            </nav>
+
+            <section class="lyrics-body" aria-label="Song lyrics">
+              <div class="lyrics-body__inner">
+                <div class="lyrics-tools" aria-label="Lyrics tools">
+                  <label class="lyrics-tools__button">
+                    <input class="lyrics-tools__input" type="checkbox" name="lyrics-tool-sync" checked>
+                    <img src="../assets/icons/big/synced-lyrics-filled.svg" alt="" aria-hidden="true">
+                    <span class="sr-only">Synced lyrics view</span>
+                  </label>
+                  <label class="lyrics-tools__button">
+                    <input class="lyrics-tools__input" type="checkbox" name="lyrics-tool-translate">
+                    <img src="../assets/icons/big/translate.svg" alt="" aria-hidden="true">
+                    <span class="sr-only">Translate lyrics</span>
+                  </label>
+                  <label class="lyrics-tools__button lyrics-tools__button--notes">
+                    <input class="lyrics-tools__input" type="checkbox" name="lyrics-tool-notes">
+                    <img class="lyrics-tools__icon-off" src="../assets/icons/big/notes.svg" alt="" aria-hidden="true">
+                    <img class="lyrics-tools__icon-on" src="../assets/icons/big/notes-filled.svg" alt="" aria-hidden="true">
+                    <span class="sr-only">Lyrics notes</span>
+                  </label>
+                  <label class="lyrics-tools__button">
+                    <input class="lyrics-tools__input" type="checkbox" name="lyrics-tool-font">
+                    <img src="../assets/icons/big/font.svg" alt="" aria-hidden="true">
+                    <span class="sr-only">Text options</span>
+                  </label>
+                </div>
+
+                <div class="lyrics-panel">
+                  <div class="lyrics-panel__column">
+                    <p class="lyrics-line lyrics-line--past">Like the legend of the phoenix, huh</p>
+                    <p class="lyrics-line lyrics-line--past">All ends with beginnings</p>
+                    <p class="lyrics-line lyrics-line--past">What keeps the planet spinning, ah</p>
+                    <p class="lyrics-line lyrics-line--past">The force from the beginning, hm, look</p>
+                    <p class="lyrics-line lyrics-line--current">We've come too far</p>
+                    <p class="lyrics-line lyrics-line--upcoming">To give up who we are</p>
+                    <p class="lyrics-line lyrics-line--upcoming">So let's raise the bar</p>
+                    <p class="lyrics-line lyrics-line--upcoming">And our cups to the stars</p>
+                    <p class="lyrics-line lyrics-line--upcoming">She's up all night 'til the sun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">I'm up all night to get some</p>
+                    <p class="lyrics-line lyrics-line--upcoming">She's up all night for good fun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">I'm up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night 'til the sun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get some</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night for good fun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">The present has no rhythm</p>
+                    <p class="lyrics-line lyrics-line--upcoming">Your gift keeps on giving</p>
+                    <p class="lyrics-line lyrics-line--upcoming">What is this I'm feeling?</p>
+                    <p class="lyrics-line lyrics-line--upcoming">If you want to leave, I'm with it</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We've come too far</p>
+                    <p class="lyrics-line lyrics-line--upcoming">To give up who we are</p>
+                    <p class="lyrics-line lyrics-line--upcoming">So let's raise the bar</p>
+                    <p class="lyrics-line lyrics-line--upcoming">And our cups to the stars</p>
+                    <p class="lyrics-line lyrics-line--upcoming">She's up all night 'til the sun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">I'm up all night to get some</p>
+                    <p class="lyrics-line lyrics-line--upcoming">She's up all night for good fun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">I'm up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night 'til the sun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get some</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night for good fun</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                    <p class="lyrics-line lyrics-line--upcoming">We're up all night to get lucky</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <nav class="nav-mobile" aria-label="Primary mobile">
+    <div class="nav-mobile__inner">
+      <a class="nav-mobile__item" href="../index.html" aria-label="Home">
+        <img src="../assets/icons/big/home.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="../assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Home</span>
+      </a>
+
+      <label class="nav-mobile__item" aria-label="Discover">
+        <input type="radio" name="mobile-nav" class="nav-radio">
+        <img src="../assets/icons/big/discover.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="../assets/icons/big/discover-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Discover</span>
+      </label>
+
+      <a class="nav-mobile__item nav-mobile__item--active" href="search.html" aria-label="Search" aria-current="page">
+        <img src="../assets/icons/big/search.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="../assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Search</span>
+      </a>
+
+      <label class="nav-mobile__item" aria-label="Library">
+        <input type="radio" name="mobile-nav" class="nav-radio">
+        <img src="../assets/icons/big/library.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="../assets/icons/big/library-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Library</span>
+      </label>
+
+      <label class="nav-mobile__item" aria-label="Me">
+        <input type="radio" name="mobile-nav" class="nav-radio">
+        <img src="../assets/icons/big/user.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="../assets/icons/big/user-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Me</span>
+      </label>
+    </div>
+  </nav>
+
+  <section class="lyrics-playlist-popover" id="lyrics-playlist-popover" popover aria-labelledby="lyrics-playlist-popover-title">
+    <div class="lyrics-playlist-popover__surface">
+      <div class="lyrics-playlist-popover__header">
+        <h2 class="lyrics-playlist-popover__title" id="lyrics-playlist-popover-title">Add to a playlist</h2>
+      </div>
+
+      <div class="lyrics-playlist-popover__body">
+        <label class="lyrics-playlist-popover__search">
+          <input
+            class="lyrics-playlist-popover__search-input"
+            type="search"
+            name="playlist-search"
+            placeholder="Search for a playlist/folder"
+            aria-label="Search for a playlist or folder">
+          <span class="lyrics-playlist-popover__search-icon" aria-hidden="true">
+            <img src="../assets/icons/big/search.svg" alt="">
+          </span>
+        </label>
+
+        <button class="lyrics-playlist-popover__create" type="button">
+          <img src="../assets/icons/big/add-simple.svg" alt="" aria-hidden="true">
+          <span>New playlist</span>
+        </button>
+
+        <div class="lyrics-playlist-popover__list" role="group" aria-label="Available playlists">
+          <label class="lyrics-playlist-popover__item">
+            <input class="lyrics-playlist-popover__selection" type="checkbox" name="playlist-target-daily" checked>
+            <span class="lyrics-playlist-popover__item-main">
+              <img class="lyrics-playlist-popover__item-icon" src="../assets/icons/big/playlist.svg" alt="" aria-hidden="true">
+              <span class="lyrics-playlist-popover__item-name">Daily Playlist</span>
+            </span>
+            <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected" src="../assets/icons/big/check-filled.svg" alt="">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected" src="../assets/icons/big/check.svg" alt="">
+            </span>
+          </label>
+
+          <label class="lyrics-playlist-popover__item">
+            <input class="lyrics-playlist-popover__selection" type="checkbox" name="playlist-target-chill">
+            <span class="lyrics-playlist-popover__item-main">
+              <img class="lyrics-playlist-popover__item-icon" src="../assets/icons/big/playlist.svg" alt="" aria-hidden="true">
+              <span class="lyrics-playlist-popover__item-name">Chill stuff</span>
+            </span>
+            <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected" src="../assets/icons/big/check-filled.svg" alt="">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected" src="../assets/icons/big/check.svg" alt="">
+            </span>
+          </label>
+
+          <label class="lyrics-playlist-popover__item">
+            <input class="lyrics-playlist-popover__selection" type="checkbox" name="playlist-target-late-night">
+            <span class="lyrics-playlist-popover__item-main">
+              <img class="lyrics-playlist-popover__item-icon" src="../assets/icons/big/playlist.svg" alt="" aria-hidden="true">
+              <span class="lyrics-playlist-popover__item-name">Late Night Drive</span>
+            </span>
+            <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected" src="../assets/icons/big/check-filled.svg" alt="">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected" src="../assets/icons/big/check.svg" alt="">
+            </span>
+          </label>
+
+          <button class="lyrics-playlist-popover__item lyrics-playlist-popover__item--folder" type="button">
+            <span class="lyrics-playlist-popover__item-main">
+              <img class="lyrics-playlist-popover__item-icon" src="../assets/icons/big/folder.svg" alt="" aria-hidden="true">
+              <span class="lyrics-playlist-popover__item-name">Chill stuff</span>
+            </span>
+            <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+              <img class="lyrics-playlist-popover__arrow-icon" src="../assets/icons/big/right.svg" alt="">
+            </span>
+          </button>
+
+          <label class="lyrics-playlist-popover__item">
+            <input class="lyrics-playlist-popover__selection" type="checkbox" name="playlist-target-city-echoes">
+            <span class="lyrics-playlist-popover__item-main">
+              <img class="lyrics-playlist-popover__item-icon" src="../assets/icons/big/playlist.svg" alt="" aria-hidden="true">
+              <span class="lyrics-playlist-popover__item-name">City Echoes</span>
+            </span>
+            <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected" src="../assets/icons/big/check-filled.svg" alt="">
+              <img class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected" src="../assets/icons/big/check.svg" alt="">
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="lyrics-playlist-popover__footer">
+        <button
+          class="lyrics-playlist-popover__footer-btn lyrics-playlist-popover__footer-btn--ghost"
+          type="button"
+          popovertarget="lyrics-playlist-popover"
+          popovertargetaction="hide">Cancel</button>
+        <button
+          class="lyrics-playlist-popover__footer-btn lyrics-playlist-popover__footer-btn--primary"
+          type="button"
+          popovertarget="lyrics-playlist-popover"
+          popovertargetaction="hide">Done</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

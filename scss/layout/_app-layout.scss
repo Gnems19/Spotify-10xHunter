@@ -4,7 +4,7 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: $color-bg-overlay;
+  background: $color-bg-app;
 
   &__content {
     flex: 1;
@@ -16,6 +16,12 @@
 
   // Mobile: stack vertically, hide sidebar
   @media (max-width: #{$bp-mobile}) {
+    background: $color-bg-mobile;
+
+    &__content {
+      background: $color-bg-mobile;
+    }
+
     .sidebar {
       display: none;
     }
