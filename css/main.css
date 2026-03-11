@@ -478,7 +478,6 @@ p, li, a, button, span {
   min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  --card-stack-frame-color: #060606;
   background: #060606;
   border: 1px solid #282828;
   border-radius: 1.2rem;
@@ -518,7 +517,7 @@ p, li, a, button, span {
 }
 .filter-pill--active {
   background: #FFFFFF;
-  color: #060606;
+  color: #191414;
 }
 .filter-pill:hover:not(.filter-pill--active) {
   background: rgb(60.4, 60.4, 60.4);
@@ -657,7 +656,7 @@ p, li, a, button, span {
     width: 35.8rem;
     height: 100%;
     padding: 2rem 2.1rem 2.4rem;
-    background: #000000;
+    background: #060606;
     border: 1px solid #202020;
     border-radius: 1rem;
     overflow-y: auto;
@@ -802,7 +801,7 @@ p, li, a, button, span {
     position: absolute;
     inset: 0;
     padding: 0.9rem 1rem 2rem;
-    background: #000000;
+    background: #060606;
     border-radius: 1rem;
     opacity: 0;
     pointer-events: none;
@@ -1029,7 +1028,6 @@ p, li, a, button, span {
   }
   .app-main {
     margin-left: 0;
-    --card-stack-frame-color: #111111;
     border: none;
     border-radius: 0;
     background: #111111;
@@ -1039,7 +1037,6 @@ p, li, a, button, span {
     position: sticky;
     top: 0;
     border-radius: 0;
-    background: #111111;
     padding: 1.6rem 1.5rem 1.2rem;
     gap: 1rem;
   }
@@ -1062,8 +1059,8 @@ p, li, a, button, span {
     opacity: 1;
   }
   .filter-grid-icon img {
-    width: 4.041rem;
-    height: 4.041rem;
+    width: 2.4rem;
+    height: 2.4rem;
     filter: invert(0.75);
   }
   .home-quick-grid {

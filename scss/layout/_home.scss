@@ -9,7 +9,6 @@
   min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  --card-stack-frame-color: #{$color-bg-app};
   background: $color-bg-app;
   border: 1px solid $color-border;
   border-radius: $radius-lg;
@@ -50,7 +49,7 @@
 
   &--active {
     background: $color-text;
-    color: $color-bg-app;
+    color: $color-bg;
   }
 
   &:hover:not(.filter-pill--active) {
@@ -214,7 +213,7 @@
       width: $friends-panel-width;
       height: 100%;
       padding: 2rem 2.1rem 2.4rem;
-      background: $color-bg-overlay;
+      background: $color-bg-app;
       border: 1px solid $color-border-strong;
       border-radius: 1rem;
       overflow-y: auto;
@@ -387,7 +386,7 @@
     position: absolute;
     inset: 0;
     padding: 0.9rem 1rem 2rem;
-    background: $color-bg-overlay;
+    background: $color-bg-app;
     border-radius: 1rem;
     opacity: 0;
     pointer-events: none;
@@ -646,7 +645,6 @@
 
   .app-main {
     margin-left: 0;
-    --card-stack-frame-color: #{$color-bg-mobile};
     border: none;
     border-radius: 0;
     background: $color-bg-mobile;
@@ -657,7 +655,6 @@
     position: sticky;
     top: 0;
     border-radius: 0;
-    background: $color-bg-mobile;
     padding: $font-size-md $spacing-lg $spacing-md;
     gap: $spacing-base;
 
@@ -684,8 +681,8 @@
     opacity: 1;
 
     img {
-      width: $nav-icon-size;
-      height: $nav-icon-size;
+      width: 2.4rem;
+      height: 2.4rem;
       filter: invert(0.75);
     }
   }
