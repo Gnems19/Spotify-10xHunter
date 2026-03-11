@@ -1,0 +1,278 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.app-main--discover {
+  background: linear-gradient(180deg, #1a2525 0%, rgba(18, 18, 18, 0) 100%);
+}
+
+.discovery {
+  margin-top: 5rem;
+  @include flex($direction: column, $gap: 5rem);
+}
+.discovery__wrapper {
+  @include flex($justify: center, $gap: 5rem);
+  overflow: hidden;
+}
+.discovery__image-side {
+  position: relative;
+  // width: 39rem;
+  // height: 61.2rem;
+  width: clamp(25rem, 35vw, 39rem);
+  height: clamp(35rem, 60vw, 61.2rem);
+  background-color: $color-border-strong;
+  border-radius: 1rem;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+}
+
+.discovery__indicators {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+}
+
+.discovery__indicator {
+  position: relative;
+  width: 8rem;
+  height: 0.4rem;
+  background-color: #dbdbdb26;
+  border-radius: 0.2rem;
+
+  &--active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.6rem;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 0.2rem;
+  }
+}
+
+.discovery__content {
+  @include flex($gap: 1.8rem);
+  padding: $spacing-xxs;
+  flex: 1;
+  min-width: 0;
+}
+
+.discovery__cover {
+  position: relative;
+  width: 18.4rem;
+  height: 18.4rem;
+  z-index: 0;
+  transition: transform 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.8rem;
+    z-index: 1;
+  }
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 3rem rgba(29, 185, 84, 0.3);
+  }
+}
+
+.discovery__cover-layer {
+  position: absolute;
+  top: -1.1rem;
+  left: 0.7rem;
+  width: 17rem;
+  height: 10rem;
+  background-color: rgba(148, 231, 211, 0.3);
+  border-radius: 0.8rem;
+  z-index: -1;
+}
+
+.discovery__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.discovery__title {
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
+  color: #e0e0e0;
+}
+
+.discovery__meta {
+  @include flex($gap: 0.8rem);
+
+  &-white {
+    color: #e0e0e0;
+  }
+
+  &--txt {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: #898989;
+
+    &::before {
+      content: "•";
+      margin-right: 0.8rem;
+    }
+
+    &:first-child::before {
+      display: none; //პირველ სპანს არ უნდა წრტლ
+    }
+  }
+}
+
+.discovery__actions {
+  @include flex($gap: 1.4rem);
+}
+
+.discovery__btn {
+  &--flex {
+    @include flex($gap: 0.5rem);
+    color: #898989;
+  }
+}
+
+.discovery__tags {
+  @include flex($gap: 1rem);
+}
+
+.discovery__tag {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #898989;
+  padding: 0.8rem 1.3rem;
+  border: 2px solid #8989891a;
+  border-radius: 4.4rem;
+  &:hover {
+    background-color: $color-surface-hover;
+  }
+}
+
+//დესკტოპამდეეე
+
+@media (max-width: #{$bp-desktop}) {
+  .discovery__wrapper {
+    @include flex(
+      $justify: center,
+      $direction: row,
+      $gap: 2rem
+    ); // ← row დატოვე, gap შეამცირე
+    padding-inline: 2rem;
+  }
+  .discovery__image-side {
+    width: clamp(20rem, 30vw, 35rem);
+    height: clamp(30rem, 50vw, 55rem);
+    flex-shrink: 0;
+  }
+
+  .discovery__content {
+    flex: 1;
+    min-width: 0;
+    padding: 1.5rem;
+  }
+}
+
+//მობილურის ვერსია=======================
+
+@media (max-width: #{$bp-mobile}) {
+  .discovery {
+    margin-top: 1rem;
+  }
+  .discovery__wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .discovery__image-side {
+    width: 100%;
+    height: 61.2rem;
+
+    // ბლარი ფოტოზე
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.95));
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .discovery__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 2rem 2.4rem;
+
+    .discovery__btn {
+      &--flex {
+        @include flex($direction: column);
+      }
+    }
+    .discovery__actions {
+      position: absolute;
+      right: 2.4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  .discovery__cover {
+    display: none;
+  }
+
+  .discovery__info {
+    .discovery__title,
+    .discovery__meta {
+      display: none;
+    }
+  }
+
+  .app-main--discover .home-filter-bar {
+    overflow-x: auto;
+    backdrop-filter: blur(70px);
+    background: rgba(61, 59, 50, 0.14); // updated to a more transparent overlay
+  }
+
+  .app-main--discover .filter-pill {
+    min-width: 8rem;
+    background: none;  
+
+    &--active {
+      background: rgba(255, 255, 255, 0.18);
+      color: $color-text;
+      border-color: rgba(255, 255, 255, 0.2);
+      
+    }
+
+    &:hover:not(.filter-pill--active) {
+      background: rgba(255, 255, 255, 0.14);
+    }
+    
+  }
+}
