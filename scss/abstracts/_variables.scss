@@ -1,8 +1,7 @@
 /* ======= Colors ======= */
 $color-bg:                    #191414;
+$color-bg-app:                #060606;
 $color-bg-elevated:           #121212;
-$color-bg-overlay:            #000000;
-$color-bg-search:             #060606;
 $color-bg-mobile:             #111111;
 $color-surface:               #282828;
 $color-surface-hover:         rgba(255, 255, 255, 0.07);
@@ -58,10 +57,9 @@ $radius-pill: 999px;
 /* ======= Stacked Cards ======= */
 $stack-top-clearance:                 1rem;
 $stack-top-clearance-mobile:          0.75rem;
-$stack-stroke-width:                  0.16rem;
+$stack-stroke-width:                  0.2rem;
+$stack-front-stroke-width:            0.28rem;
 $stack-thumb-wrap-background:         transparent;
-$stack-layer-stroke-color:            rgba(0, 0, 0, 0.78);
-$stack-front-stroke-color:            rgba(0, 0, 0, 0.82);
 $stack-layer-image-filter:            saturate(0.78) brightness(0.46) contrast(1.02);
 $stack-layer-image-hover-filter:      saturate(1) brightness(1) contrast(1);
 $stack-layer-overlay-background:      linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.56));

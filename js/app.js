@@ -32,43 +32,178 @@
       });
     }
 
-    // ── Section carousel prev/next ────────────────────────────
-    // Scrolls by the full visible width so every card after click is new
-    document.querySelectorAll('.home-section').forEach(section => {
-      const track = section.querySelector('.home-section__track');
+    // ── Artist page ────────────────────────────────────────────
+    // Handles three features on the artist page:
+    //   1. Tab switching (Home / Albums / etc.)
+    //   2. Album view toggle (grid vs list)
+    //   3. Album row accordion (expand one, collapse the rest)
+    const artistPage = document.querySelector('.artist-page');
+    if (artistPage) {
+
+      // --- Grab all the elements we need ---
+      const tabs        = artistPage.querySelectorAll('[data-artist-panel-target]');
+      const panels      = artistPage.querySelectorAll('[data-artist-panel]');
+      const subnav      = artistPage.querySelector('.artist-subnav');
+      const viewControls = artistPage.querySelector('.artist-subnav__view-controls');
+
+      const viewButtons = artistPage.querySelectorAll('[data-artist-albums-view-target]');
+      const viewPanels  = artistPage.querySelectorAll('[data-artist-albums-view-panel]');
+
+      const albumRows   = artistPage.querySelectorAll('[data-artist-album-row]');
+
+      // --- 1. Tab switching (Home / Albums / etc.) ---
+      // Shows the matching panel and hides all others.
+      // Also shows the view-controls bar only when "Albums" is active.
+      function switchTab(tabName) {
+        const isAlbums = tabName === 'albums';
+
+        tabs.forEach(function (tab) {
+          const isActive = tab.dataset.artistPanelTarget === tabName;
+          tab.classList.toggle('is-active', isActive);
+
+          if (isActive) {
+            tab.setAttribute('aria-current', 'page');
+          } else {
+            tab.removeAttribute('aria-current');
+          }
+        });
+
+        panels.forEach(function (panel) {
+          const isActive = panel.dataset.artistPanel === tabName;
+          panel.hidden = !isActive;
+          panel.classList.toggle('is-active', isActive);
+        });
+
+        artistPage.dataset.artistPanel = tabName;
+
+        if (subnav) {
+          subnav.classList.toggle('artist-subnav--albums-active', isAlbums);
+        }
+        if (viewControls) {
+          viewControls.hidden = !isAlbums;
+        }
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          switchTab(this.dataset.artistPanelTarget);
+        });
+      });
+
+      // --- 2. Album view toggle (grid vs list) ---
+      // Highlights the clicked button and shows its matching view panel.
+      function switchAlbumView(viewName) {
+        viewButtons.forEach(function (button) {
+          const isActive = button.dataset.artistAlbumsViewTarget === viewName;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        viewPanels.forEach(function (panel) {
+          panel.hidden = panel.dataset.artistAlbumsViewPanel !== viewName;
+        });
+      }
+
+      viewButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          switchAlbumView(this.dataset.artistAlbumsViewTarget);
+        });
+      });
+
+      // --- 3. Album row accordion ---
+      // Only one row can be expanded at a time — clicking a row
+      // collapses any other open row first, then toggles the clicked one.
+      function setRowExpanded(row, isExpanded) {
+        row.classList.toggle('is-expanded', isExpanded);
+
+        const details = row.querySelector('.artist-album-row__details');
+        if (details) {
+          details.hidden = !isExpanded;
+        }
+
+        row.querySelectorAll('[data-artist-album-toggle]').forEach(function (toggle) {
+          toggle.setAttribute('aria-expanded', String(isExpanded));
+        });
+      }
+
+      albumRows.forEach(function (row) {
+        // Set the initial state from the HTML markup
+        const isExpanded = row.classList.contains('is-expanded');
+        const details = row.querySelector('.artist-album-row__details');
+        if (details) {
+          details.hidden = !isExpanded;
+        }
+
+        row.querySelectorAll('[data-artist-album-toggle]').forEach(function (toggle) {
+          toggle.setAttribute('aria-expanded', String(isExpanded));
+
+          toggle.addEventListener('click', function () {
+            const shouldExpand = !row.classList.contains('is-expanded');
+
+            // Collapse every other row first
+            albumRows.forEach(function (otherRow) {
+              if (otherRow !== row) {
+                setRowExpanded(otherRow, false);
+              }
+            });
+
+            setRowExpanded(row, shouldExpand);
+          });
+        });
+      });
+
+      // --- Set the initial active tab & view from the HTML markup ---
+      const activeTab = artistPage.querySelector(
+        '.artist-subnav__link.is-active[data-artist-panel-target]'
+      );
+      const activeView = artistPage.querySelector(
+        '.artist-subnav__view-btn.is-active[data-artist-albums-view-target]'
+      );
+      switchAlbumView(activeView?.dataset.artistAlbumsViewTarget || 'grid');
+      switchTab(activeTab?.dataset.artistPanelTarget || 'home');
+    }
+
+    // ── Section carousel prev/next ──────────────────────────────
+    // Each home-section has a horizontal card track with arrow buttons.
+    // Scrolls by the full visible width so every card after a click is new.
+    document.querySelectorAll('.home-section').forEach(function (section) {
+      const track   = section.querySelector('.home-section__track');
       const prevBtn = section.querySelector('.section-nav-btn--prev');
       const nextBtn = section.querySelector('.section-nav-btn--next');
       if (!track || !prevBtn || !nextBtn) return;
 
-      const setButtonState = (button, isEnabled) => {
+      // Enable or disable a nav button and keep aria in sync
+      function setButtonEnabled(button, isEnabled) {
         button.disabled = !isEnabled;
         button.classList.toggle('is-disabled', !isEnabled);
         button.setAttribute('aria-disabled', String(!isEnabled));
-      };
+      }
 
-      const updateNavState = () => {
-        const maxScrollLeft = Math.max(0, track.scrollWidth - track.clientWidth);
-        const atStart = track.scrollLeft <= 2;
-        const atEnd = track.scrollLeft >= maxScrollLeft - 2;
+      // Check how far the track is scrolled and disable buttons at the edges.
+      // The 2px tolerance accounts for sub-pixel rounding.
+      function updateButtons() {
+        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        const atStart   = track.scrollLeft <= 2;
+        const atEnd     = track.scrollLeft >= maxScroll - 2;
 
-        setButtonState(prevBtn, !atStart);
-        setButtonState(nextBtn, !atEnd);
-      };
+        setButtonEnabled(prevBtn, !atStart);
+        setButtonEnabled(nextBtn, !atEnd);
+      }
 
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener('click', function () {
         if (prevBtn.disabled) return;
         track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
       });
 
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener('click', function () {
         if (nextBtn.disabled) return;
         track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
       });
 
-      track.addEventListener('scroll', updateNavState, { passive: true });
-      window.addEventListener('resize', updateNavState);
-      window.addEventListener('load', updateNavState, { once: true });
-      updateNavState(); // seems prety expensive at first
+      track.addEventListener('scroll', updateButtons, { passive: true });
+      window.addEventListener('resize', updateButtons);
+      window.addEventListener('load', updateButtons, { once: true });
+      updateButtons();
     });
 
     // ── Customize Feed overlay ─────────────────────────────

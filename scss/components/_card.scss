@@ -2,6 +2,8 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+$card-stack-frame-color: var(--card-stack-frame-color, #{$color-bg-app});
+
 .card {
   flex: 0 0 auto;
   width: $card-width;
@@ -31,6 +33,7 @@
     }
   }
 
+  // Base thumbnail image. The visible frame belongs to the card shell, not the image.
   &__thumb {
     position: absolute;
     inset: 0;
@@ -112,8 +115,9 @@
     z-index: 1;
     isolation: isolate;
     background: $color-surface-hover-solid;
-    border: $stack-stroke-width solid $stack-layer-stroke-color;
-    box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.24);
+    box-shadow:
+      0 0 0 $stack-stroke-width $card-stack-frame-color,
+      0 1.2rem 2.4rem rgba(0, 0, 0, 0.24);
 
     &::before {
       content: '';
@@ -152,24 +156,18 @@
     transition: filter 180ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  // Visible front card shell for stacked cards. Keep the frame outside the artwork.
   &__mix-front {
     z-index: 3;
     isolation: isolate;
     background: $color-bg-elevated;
     transform: $stack-front-rest-transform;
-    box-shadow: 0 1.8rem 3rem rgba(0, 0, 0, 0.34);
+    box-shadow:
+      0 0 0 $stack-front-stroke-width $card-stack-frame-color,
+      0 1.8rem 3rem rgba(0, 0, 0, 0.34);
 
     .card__thumb {
       z-index: 0;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: $stack-stroke-width solid $stack-front-stroke-color;
-      border-radius: inherit;
-      pointer-events: none;
     }
   }
 
@@ -197,7 +195,9 @@
 
     &:is(:hover, :focus-visible) .card__mix-front {
       transform: $stack-front-hover-transform;
-      box-shadow: 0 2.2rem 3.8rem rgba(0, 0, 0, 0.4);
+      box-shadow:
+        0 0 0 $stack-front-stroke-width $card-stack-frame-color,
+        0 2.2rem 3.8rem rgba(0, 0, 0, 0.4);
     }
 
     &:is(:hover, :focus-visible) .card__mix-layer--middle {
