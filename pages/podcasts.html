@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#191414" />
+    <title>Spotify - Liked Songs</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body class="page--liked-songs">
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <a href="../index.html">
+            <img
+              src="../assets/icons/big/library.svg"
+              alt="spotify-library-icon"
+            />
+            <span>My Library</span>
+          </a>
+        </div>
+        <nav class="sidebar__nav">
+          <ul class="sidebar__list">
+            <li class="sidebar__item sidebar__item--arrow">
+              <a href="#">
+                <div class="sidebar__link-left">
+                  <img src="../assets/icons/big/pin.svg" alt="pins-icon" />
+                  <span>Pins</span>
+                </div>
+                <span class="sidebar__arrow">
+                  <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__item sidebar__item--accordion">
+              <button class="sidebar__accordion-trigger" aria-expanded="false">
+                <div class="sidebar__link-left">
+                  <img
+                    src="../assets/icons/big/playlist.svg"
+                    alt="playlist-icon"
+                  />
+                  <span class="sidebar__accordion-label">Playlists</span>
+                </div>
+                <span class="sidebar__arrow">
+                  <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+                </span>
+              </button>
+              <ul class="sidebar__dropdown">
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Chill stuff</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Rock n Roll</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>The Jux Box</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Selected Linkin Park</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Vibe</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/like.svg"
+                  alt="spotify-liked-songs-icon"
+                />
+                <span>Liked songs</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/save.svg"
+                  alt="spotify-saved-songs-icon"
+                />
+                <span>Saves</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/album.svg"
+                  alt="spotify-album-songs-icon"
+                />
+                <span>Albums</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/folder.svg"
+                  alt="spotify-folders-icon"
+                />
+                <span>Folders</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/podcast.svg"
+                  alt="spotify-podcasts-icon"
+                />
+                <span>Podcasts</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/audiobook.svg"
+                  alt="spotify-audiobooks-icon"
+                />
+                <span>Audiobooks</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/artist.svg"
+                  alt="spotify-artists-icon"
+                />
+                <span>Artists</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="app-layout__content">
+        <header class="app-header">
+          <div class="app-header__row">
+            <nav class="nav-primary" aria-label="Primary">
+              <div class="nav-primary__left">
+                <a class="nav-pill nav-pill--home" href="../index.html">
+                  <img
+                    src="../assets/icons/big/home.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/home-filled.svg"
+                    alt=""
+                    class="nav-icon icon--on"
+                    aria-hidden="true"
+                  />
+                  <span class="nav-pill__label">Home</span>
+                </a>
+
+                <label class="nav-pill nav-pill--discover">
+                  <input
+                    type="radio"
+                    id="nav-discover"
+                    name="primary-nav"
+                    class="nav-radio"
+                  />
+                  <img
+                    src="../assets/icons/big/discover.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/discover-filled.svg"
+                    alt=""
+                    class="nav-icon icon--on"
+                    aria-hidden="true"
+                  />
+                  <span class="nav-pill__label">Discover</span>
+                </label>
+
+                <a class="nav-pill nav-pill--search" href="search.html">
+                  <img
+                    src="../assets/icons/big/search.svg"
+                    alt=""
+                    class="nav-icon"
+                    aria-hidden="true"
+                  />
+                  <span class="nav-pill__label">Search...</span>
+                </a>
+              </div>
+
+              <div class="nav-primary__right">
+                <button class="icon-button" type="button" aria-label="News">
+                  <img
+                    src="../assets/icons/big/news.svg"
+                    alt=""
+                    class="nav-icon"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <label class="icon-button" aria-label="Private session">
+                  <input type="checkbox" class="nav-radio" />
+                  <img
+                    src="../assets/icons/big/private.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/private-alt.svg"
+                    alt=""
+                    class="nav-icon icon--on icon--preserve"
+                    aria-hidden="true"
+                  />
+                </label>
+
+                <label class="icon-button" aria-label="Friends activity">
+                  <input type="checkbox" class="nav-radio" />
+                  <img
+                    src="../assets/icons/big/friends.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/friends-filled.svg"
+                    alt=""
+                    class="nav-icon icon--on"
+                    aria-hidden="true"
+                  />
+                </label>
+
+                <button class="icon-button" type="button" aria-label="Settings">
+                  <img
+                    src="../assets/icons/big/settings.svg"
+                    alt=""
+                    class="nav-icon"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <button
+                  class="avatar-button"
+                  type="button"
+                  aria-label="Profile"
+                >
+                  <img
+                    src="../assets/img/profilePicture.webp"
+                    alt="User profile picture"
+                    class="avatar-image"
+                  />
+                </button>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <!--==================Podcast page starts here======================-->
+        <main class="app-main app-main--search">
+          <section class="podcast">
+            <div class="podcast__wrapper">
+              <div class="podcast__main">
+                <div class="podcast__header">
+                  <h1 class="podcast__title">The Joe Rogan Experience</h1>
+                  <p class="podcast__author">Joe Rogan</p>
+                  <div class="podcast__actions">
+                    <button class="podcast__btn podcast__btn--follow">
+                      Follow
+                    </button>
+                    <button class="podcast__btn podcast__btn--rating">
+                      <span class="podcast__rating">
+                        4.8
+                        <img
+                          src="../assets/icons/big/rate.svg"
+                          alt="star icon"
+                          class="podcast__rating-icon"
+                        />
+                      </span>
+                      <span class="podcast__rating-count">816K</span>
+                    </button>
+                    <button class="podcast__btn podcast__btn--more">
+                      <img src="../assets/icons/big/more.svg" alt="more icon" />
+                    </button>
+                  </div>
+                </div>
+
+                <div class="podcast__filter">
+                  <h2 class="podcast__filter-title">All Episodes</h2>
+                  <div class="podcast__filter-actions">
+                    <button class="podcast__filter-btn">
+                      <img src="../assets/icons/big/sort.svg" alt="sort icon" />
+                      <span>New</span>
+                    </button>
+                    <button class="podcast__filter-btn">
+                      <img
+                        src="../assets/icons/big/filter.svg"
+                        alt="filter icon"
+                      />
+                      <span>All Episodes</span>
+                    </button>
+                    <button class="podcast__filter-btn">
+                      <img
+                        src="../assets/icons/big/search.svg"
+                        alt="search icon"
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                <article class="podcast__episode">
+                  <a href="pages/episode.html">
+                    <img
+                      src="../assets/img/sebastian.png"
+                      alt="Sebastian Maniscalco"
+                      class="podcast__episode-img"
+                    />
+                  </a>
+
+                  <div class="podcast__episode-info">
+                    <h3 class="podcast__episode-title">
+                      #2149 - Sebastian Maniscalco
+                    </h3>
+                    <div class="podcast__episode-meta">
+                      <span class="podcast__episode-date">May 10</span>
+                      <span class="podcast__episode-duration">2 hr 15 min</span>
+                    </div>
+                    <p class="podcast__episode-desc">
+                      Sebastian Maniscalco is a comedian, actor, and host of the
+                      podcast, "The Pete and Sebastian Show" alongside Pete
+                      Correale. Watch his latest TV series, “Bookie” on Max.
+                      Catch his highly anticipated 2024 tour, “It Ain’t Right,”
+                      this coming July.www.sebastianlive.com Learn more about
+                      your ad choices. Visit podcastchoices.com/adchoices
+                    </p>
+                    <div class="podcast__episode-actions">
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/play.svg"
+                          alt="play icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/save.svg"
+                          alt="save icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/add-to-playlist.svg"
+                          alt="add to playlist icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/add-to-queue.svg"
+                          alt="add to queue icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/share.svg"
+                          alt="share icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/more.svg"
+                          alt="more icon"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="podcast__episode">
+                  <a href="pages/episode.html">
+                    <img
+                      src="../assets/img/gad.png"
+                      alt="Gad Saad"
+                      class="podcast__episode-img"
+                    />
+                  </a>
+
+                  <div class="podcast__episode-info">
+                    <h3 class="podcast__episode-title">#2148 - Gad Saad</h3>
+                    <div class="podcast__episode-meta">
+                      <span class="podcast__episode-date">May 9</span>
+                      <span class="podcast__episode-duration">3 hr 30 min</span>
+                    </div>
+                    <p class="podcast__episode-desc">
+                      Gad Saad is Professor of Marketing at Concordia
+                      University, and an expert in the application of
+                      evolutionary psychology in marketing and consumer
+                      behavior. He is the host of "The Saad Truth with Dr. Saad"
+                      podcast, and the author of "The Saad Truth about
+                      Happiness: 8 Secrets for Leading the Good Life" available
+                      in paperback on May 14, 2024.www.gadsaad.com Learn more
+                      about your ad choices. Visit podcastchoices.com/adchoices
+                    </p>
+                    <div class="podcast__episode-actions">
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/play.svg"
+                          alt="play icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/save.svg"
+                          alt="save icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/add-to-playlist.svg"
+                          alt="add to playlist icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/add-to-queue.svg"
+                          alt="add to queue icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/share.svg"
+                          alt="share icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/more.svg"
+                          alt="more icon"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="podcast__episode">
+                  <a href="pages/episode.html">
+                    <img
+                      src="../assets/img/mike.png"
+                      alt="Mike Baker"
+                      class="podcast__episode-img"
+                    />
+                  </a>
+
+                  <div class="podcast__episode-info">
+                    <h3 class="podcast__episode-title">#2147 - Mike Baker</h3>
+                    <div class="podcast__episode-meta">
+                      <span class="podcast__episode-date">May 8</span>
+                      <span class="podcast__episode-duration">2 hr 54 min</span>
+                    </div>
+                    <p class="podcast__episode-desc">
+                      Mike Baker is a former CIA covert operations officer and
+                      current CEO of Portman Square Group, a global intelligence
+                      and security firm. He’s also the host of the popular
+                      "President’s Daily Brief" podcast: a twice daily news
+                      report on critical events happening around the globe
+                      available on all podcast
+                      platforms. www.portmansquaregroup.com Learn more about
+                      your ad choices. Visit podcastchoices.com/adchoices
+                    </p>
+                    <div class="podcast__episode-actions">
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/play.svg"
+                          alt="play icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/save.svg"
+                          alt="save icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/add-to-playlist.svg"
+                          alt="add to playlist icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/add-to-queue.svg"
+                          alt="add to queue icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/share.svg"
+                          alt="share icon"
+                        />
+                      </button>
+                      <button class="podcast__episode-btn">
+                        <img
+                          src="../assets/icons/big/more.svg"
+                          alt="more icon"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <aside class="podcast__sidebar">
+                <div class="podcast__sidebar-artist">
+                  <img
+                    src="../assets/img/jr.png"
+                    alt="Joe Rogan"
+                    class="podcast__sidebar-img"
+                  />
+                  <div class="podcast__sidebar-content">
+                    <h4 class="podcast__sidebar-title">About</h4>
+                    <p class="podcast__sidebar-desc">The official podcast of comedian Joe Rogan.</p>
+                    <div class="podcast__sidebar-btns">
+                      <button class="podcast__sidebar-btn">Comedy</button>
+                      <button class="podcast__sidebar-btn">Culture</button>
+                      <button class="podcast__sidebar-btn">Society</button>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </section>
+        </main>
+        <!--==================Podcast page ends here======================-->
+      </div>
+    </div>
+
+    <nav class="nav-mobile" aria-label="Primary mobile">
+      <div class="nav-mobile__inner">
+        <a class="nav-mobile__item" href="../index.html" aria-label="Home">
+          <img
+            src="../assets/icons/big/home.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/home-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Home</span>
+        </a>
+
+        <label class="nav-mobile__item" aria-label="Discover">
+          <input type="radio" name="mobile-nav" class="nav-radio" />
+          <img
+            src="../assets/icons/big/discover.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/discover-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Discover</span>
+        </label>
+
+        <a
+          class="nav-mobile__item nav-mobile__item--active"
+          href="search.html"
+          aria-label="Search"
+          aria-current="page"
+        >
+          <img
+            src="../assets/icons/big/search.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/search-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Search</span>
+        </a>
+
+        <label class="nav-mobile__item" aria-label="Library">
+          <input type="radio" name="mobile-nav" class="nav-radio" />
+          <img
+            src="../assets/icons/big/library.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/library-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Library</span>
+        </label>
+
+        <label class="nav-mobile__item" aria-label="Me">
+          <input type="radio" name="mobile-nav" class="nav-radio" />
+          <img
+            src="../assets/icons/big/user.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/user-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Me</span>
+        </label>
+      </div>
+    </nav>
+
+    <script src="../js/app.js"></script>
+  </body>
+</html>
