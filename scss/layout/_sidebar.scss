@@ -11,7 +11,7 @@
   flex-direction: column;
 
   &__header {
-    padding: $font-size-xl 0 0 $font-size-md;
+    padding: 0.5rem 0 0 1.6rem;
     margin-bottom: $spacing-md;
     a {
       @include flex();
@@ -19,8 +19,10 @@
       font-size: $font-size-base;
       color: $color-text-subtle;
       transition: background-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
+      padding: 0.2rem;
       &:hover{
-        background-color: $color-surface-hover-solid;
+        background-color: $color-surface-active;
+        border-radius: 0.8rem;
         span{
              color:$color-text;
         }
@@ -44,8 +46,9 @@
       gap: $spacing-base;
       width: 100%;
       transition: background-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
+      border-radius: 0.8rem;
       &:hover{
-        background-color: $color-surface-hover-solid;
+        background-color: $color-surface-active;
         span{
           color:$color-text;
         }
@@ -75,6 +78,7 @@
           max-height: 20rem;
         }
       }
+     
     }
   }
 
