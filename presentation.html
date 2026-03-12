@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Clone — 10X Frontend Exam Presentation</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #191414;
+      --bg-app:      #060606;
+      --bg-elevated: #121212;
+      --surface:     #282828;
+      --accent:      #1DB954;
+      --accent-soft: #1ED760;
+      --text:        #FFFFFF;
+      --text-muted:  #B3B3B3;
+      --text-subtle: #898989;
+      --border:      #282828;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg-app);
+      color: var(--text);
+    }
+
+    /* ── Slide container ── */
+    .deck {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      padding: 4rem 5.5rem 3rem;
+      flex-direction: column;
+      justify-content: flex-start;
+      animation: fadeIn 280ms ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Typography ── */
+    .slide-tag {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    p, li {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    strong { color: var(--text); font-weight: 700; }
+
+    /* ── Code blocks ── */
+    pre {
+      background: #0d0d0d;
+      border: 1px solid var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      overflow-x: auto;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      color: #e0e0e0;
+    }
+
+    .kw  { color: #C792EA; }  /* keyword / @ */
+    .fn  { color: #82AAFF; }  /* function / mixin name */
+    .str { color: #C3E88D; }  /* string / value */
+    .var { color: #F78C6C; }  /* variable */
+    .cmt { color: #546E7A; font-style: italic; }
+    .num { color: #F78C6C; }  /* numbers */
+    .sel { color: #89DDFF; }  /* selector */
+    .prop{ color: #80CBC4; }  /* property */
+
+    /* ── Layout helpers ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .card-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--surface);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+    }
+
+    .card-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card-box li {
+      padding: 0.28rem 0;
+      font-size: 1.1rem;
+    }
+
+    .card-box li::before {
+      content: '→ ';
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── Pill tag ── */
+    .pill {
+      display: inline-block;
+      background: rgba(29,185,84,0.15);
+      color: var(--accent-soft);
+      border: 1px solid rgba(29,185,84,0.35);
+      border-radius: 999px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0.2rem 0.2rem 0.2rem 0;
+    }
+
+    /* ── Tooltip ── */
+    .tooltip {
+      position: relative;
+      border-bottom: 1px dashed var(--accent);
+      cursor: help;
+      color: inherit;
+    }
+    .tooltip::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 0.5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 150ms ease;
+      z-index: 999;
+    }
+    .tooltip:hover::after { opacity: 1; }
+
+    /* ── Slide 1 — Title ── */
+    .slide--title {
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(29,185,84,0.18) 0%, transparent 70%),
+                  var(--bg-app);
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .slide--title .subtitle {
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      margin: 1rem 0 2rem;
+      font-weight: 400;
+    }
+
+    .slide--title .team-tags {
+      margin-top: 1.2rem;
+    }
+
+    /* ── Slide divider ── */
+    .divider {
+      width: 3rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 0.8rem 0 1.6rem;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      bottom: 2rem;
+      right: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      z-index: 100;
+    }
+
+    .nav-btn {
+      background: var(--surface);
+      border: 1px solid #404040;
+      color: var(--text);
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 120ms ease, border-color 120ms ease;
+    }
+    .nav-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    .slide-counter {
+      font-size: 0.95rem;
+      color: var(--text-subtle);
+      min-width: 4rem;
+      text-align: center;
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 220ms ease;
+      z-index: 200;
+    }
+
+    /* ── Key hint ── */
+    .key-hint {
+      position: fixed;
+      bottom: 2rem;
+      left: 2.5rem;
+      font-size: 0.9rem;
+      color: var(--text-subtle);
+    }
+
+    /* ── Color palette visual ── */
+    .palette {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .swatch-dot {
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .swatch span {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      font-family: monospace;
+    }
+
+    /* ── Folder tree ── */
+    .tree {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 1.0rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+    }
+    .tree .folder { color: var(--accent); }
+    .tree .file   { color: #e0e0e0; }
+    .tree .dim    { color: var(--text-subtle); }
+
+    /* ── Responsive for small screens / print ── */
+    @media print {
+      .deck { overflow: visible; height: auto; }
+      .slide { display: flex !important; height: 100vh; page-break-after: always; }
+      .nav, .key-hint, .progress-bar { display: none; }
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 2.5rem 2.5rem 2rem; }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 1 — Title                ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide slide--title active" data-slide="1">
+    <div class="slide-tag">10X Frontend Finals</div>
+    <h1>Spotify<br><span style="color:var(--accent)">Web Clone</span></h1>
+    <p class="subtitle">HTML · CSS · Sass — A deep dive into how we built it</p>
+    <div class="divider"></div>
+    <p style="color:var(--text-subtle);font-size:1.1rem;max-width:42rem;">
+      This presentation walks through the key technical decisions behind our Spotify clone —
+      from SCSS architecture and design tokens, to advanced layout techniques and component reuse.
+    </p>
+    <div class="team-tags" style="margin-top:2rem;">
+      <span class="pill">HTML5</span>
+      <span class="pill">CSS3</span>
+      <span class="pill">Sass / SCSS</span>
+      <span class="pill">BEM</span>
+      <span class="pill">Flexbox &amp; Grid</span>
+      <span class="pill">CSS Custom Properties</span>
+      <span class="pill">Responsive Design</span>
+    </div>
+    <div style="margin-top: auto; color: var(--text-subtle); font-size: 0.95rem;">
+      Use ← → arrow keys or buttons to navigate
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 2 — Project Architecture ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="2">
+    <div class="slide-tag">Slide 2 — Foundation</div>
+    <h2>SCSS Architecture — The 7-1 Pattern</h2>
+    <p style="margin-bottom:1.4rem;">We structured our stylesheets following a professional modular pattern: one entry file that imports everything in logical order.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div class="card-box tree">
+        <div><span class="folder">scss/</span></div>
+        <div>&nbsp; <span class="folder">abstracts/</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_variables.scss</span> <span class="dim">← all tokens</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_mixins.scss</span> <span class="dim">← utilities</span></div>
+        <div>&nbsp; <span class="folder">base/</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_reset.scss</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_fonts.scss</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_typography.scss</span></div>
+        <div>&nbsp; <span class="folder">layout/</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_app-layout.scss</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_sidebar.scss</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_header.scss</span></div>
+        <div>&nbsp; <span class="folder">components/</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_card.scss</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_nav-pill.scss</span></div>
+        <div>&nbsp; <span class="folder">pages/</span></div>
+        <div>&nbsp; &nbsp; <span class="file">_home.scss, _search.scss…</span></div>
+        <div>&nbsp; <span class="file" style="color:var(--accent)">main.scss</span> <span class="dim">← imports all</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="card-box">
+          <h3>Why this structure?</h3>
+          <ul>
+            <li>Each file has <strong>one responsibility</strong></li>
+            <li>Easy to find and edit any style</li>
+            <li>New pages = just add one <span class="tooltip" data-tip="A Sass file starting with _ (underscore). Not compiled on its own — imported into main.scss">partial</span></li>
+            <li>Compiles to a <strong>single CSS file</strong></li>
+          </ul>
+        </div>
+        <div class="card-box">
+          <h3>Sass Modules (@use)</h3>
+          <pre><span class="cmt">// main.scss — modern @use syntax</span>
+<span class="kw">@use</span> <span class="str">'abstracts/variables'</span> <span class="kw">as</span> *<span class="cmt">;</span>
+<span class="kw">@use</span> <span class="str">'abstracts/mixins'</span> <span class="kw">as</span> *<span class="cmt">;</span>
+<span class="kw">@use</span> <span class="str">'base/reset'</span><span class="cmt">;</span>
+<span class="kw">@use</span> <span class="str">'components/card'</span><span class="cmt">;</span></pre>
+          <p style="font-size:1rem;margin-top:0.6rem;">Using <strong>@use</strong> (not @import) — the modern, non-deprecated Sass approach with proper scoping.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 3 — Design Tokens        ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="3">
+    <div class="slide-tag">Slide 3 — Design Tokens</div>
+    <h2>SCSS Variables — One Source of Truth</h2>
+    <p style="margin-bottom:1.4rem;">Every color, spacing value, size, and z-index is defined once in <code style="color:var(--accent)">_variables.scss</code>. Change it once — it updates everywhere.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">/* Colors */</span>
+<span class="var">$color-bg</span>:         <span class="str">#191414</span><span class="cmt">;</span>
+<span class="var">$color-accent</span>:     <span class="str">#1DB954</span><span class="cmt">; ← Spotify green</span>
+<span class="var">$color-text</span>:       <span class="str">#FFFFFF</span><span class="cmt">;</span>
+<span class="var">$color-text-muted</span>: <span class="str">#B3B3B3</span><span class="cmt">;</span>
+<span class="var">$color-surface</span>:    <span class="str">#282828</span><span class="cmt">;</span>
+
+<span class="cmt">/* Spacing — base 10px system */</span>
+<span class="var">$spacing-sm</span>:   <span class="num">0.8rem</span><span class="cmt">;  // 8px</span>
+<span class="var">$spacing-base</span>: <span class="num">1.0rem</span><span class="cmt">;  // 10px</span>
+<span class="var">$spacing-md</span>:   <span class="num">1.2rem</span><span class="cmt">;  // 12px</span>
+<span class="var">$spacing-xl</span>:   <span class="num">2.4rem</span><span class="cmt">;  // 24px</span>
+
+<span class="cmt">/* Sizing from Figma */</span>
+<span class="var">$sidebar-width</span>: <span class="num">25.9rem</span><span class="cmt">; // 259px</span>
+<span class="var">$card-width</span>:    <span class="num">16.0rem</span><span class="cmt">; // 160px</span>
+
+<span class="cmt">/* Z-index layers */</span>
+<span class="var">$z-header</span>: <span class="num">10</span><span class="cmt">;</span>
+<span class="var">$z-player</span>: <span class="num">20</span><span class="cmt">;</span>
+<span class="var">$z-modal</span>:  <span class="num">30</span><span class="cmt">;</span></pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="card-box">
+          <h3>Color Palette</h3>
+          <div class="palette">
+            <div class="swatch"><div class="swatch-dot" style="background:#191414"></div><span>#191414</span></div>
+            <div class="swatch"><div class="swatch-dot" style="background:#060606;border:1px solid #333"></div><span>#060606</span></div>
+            <div class="swatch"><div class="swatch-dot" style="background:#121212"></div><span>#121212</span></div>
+            <div class="swatch"><div class="swatch-dot" style="background:#282828"></div><span>#282828</span></div>
+            <div class="swatch"><div class="swatch-dot" style="background:#1DB954"></div><span>#1DB954</span></div>
+            <div class="swatch"><div class="swatch-dot" style="background:#B3B3B3"></div><span>#B3B3B3</span></div>
+            <div class="swatch"><div class="swatch-dot" style="background:#FFFFFF"></div><span>#FFFFFF</span></div>
+          </div>
+        </div>
+        <div class="card-box">
+          <h3>Why variables?</h3>
+          <ul>
+            <li>Consistent spacing across <strong>all pages</strong></li>
+            <li>Update the accent color in <strong>one place</strong></li>
+            <li>Figma measurements become <strong>named values</strong></li>
+            <li>Z-index collisions are <strong>impossible</strong></li>
+            <li>Font scale is <strong>systematic</strong>, not random</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 4 — Mixins               ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="4">
+    <div class="slide-tag">Slide 4 — Reusability</div>
+    <h2>Sass Mixins — Write Once, Use Everywhere</h2>
+    <p style="margin-bottom:1.4rem;">Mixins are reusable Sass functions. Instead of repeating the same 3–5 lines across every file, we include a named mixin once.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">// flex-center — used everywhere</span>
+<span class="kw">@mixin</span> <span class="fn">flex-center</span> {
+  <span class="prop">display</span>:          <span class="str">flex</span>;
+  <span class="prop">align-items</span>:     <span class="str">center</span>;
+  <span class="prop">justify-content</span>: <span class="str">center</span>;
+}
+
+<span class="cmt">// flex with parameters</span>
+<span class="kw">@mixin</span> <span class="fn">flex</span>(<span class="var">$direction</span>: row, <span class="var">$justify</span>: flex-start,
+           <span class="var">$align</span>: center, <span class="var">$gap</span>: 0) {
+  <span class="prop">display</span>:         <span class="str">flex</span>;
+  <span class="prop">flex-direction</span>:  <span class="var">$direction</span>;
+  <span class="prop">justify-content</span>: <span class="var">$justify</span>;
+  <span class="prop">align-items</span>:     <span class="var">$align</span>;
+  <span class="prop">gap</span>:             <span class="var">$gap</span>;
+}
+
+<span class="cmt">// truncate long text</span>
+<span class="kw">@mixin</span> <span class="fn">truncate</span> {
+  <span class="prop">overflow</span>:      <span class="str">hidden</span>;
+  <span class="prop">text-overflow</span>: <span class="str">ellipsis</span>;
+  <span class="prop">white-space</span>:   <span class="str">nowrap</span>;
+}
+
+<span class="cmt">// screen reader only (accessibility)</span>
+<span class="kw">@mixin</span> <span class="fn">sr-only</span> {
+  <span class="prop">position</span>: <span class="str">absolute</span>;
+  <span class="prop">width</span>: <span class="num">1px</span>; <span class="prop">height</span>: <span class="num">1px</span>;
+  <span class="prop">clip</span>: <span class="str">rect(0, 0, 0, 0)</span>;
+}</pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">// Usage — clean and readable</span>
+<span class="sel">.nav-pill</span> {
+  <span class="kw">@include</span> <span class="fn">flex-row</span>(<span class="var">$spacing-sm</span>);
+  <span class="prop">width</span>: <span class="var">$nav-pill-width</span>;
+}
+
+<span class="sel">.card__title</span> {
+  <span class="kw">@include</span> <span class="fn">truncate</span>;
+  <span class="prop">font-size</span>: <span class="var">$font-size-label</span>;
+}
+
+<span class="cmt">// grid-table mixin — liked songs page</span>
+<span class="kw">@mixin</span> <span class="fn">grid-table</span>(<span class="var">$columns</span>, <span class="var">$gap</span>: 0, <span class="var">$align</span>: center) {
+  <span class="prop">display</span>:               <span class="str">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="var">$columns</span>;
+  <span class="prop">align-items</span>:          <span class="var">$align</span>;
+  <span class="prop">gap</span>:                   <span class="var">$gap</span>;
+}
+
+<span class="cmt">// called as:</span>
+<span class="sel">.liked-song__row</span> {
+  <span class="kw">@include</span> <span class="fn">grid-table</span>(<span class="str">4.2rem 1fr 1fr 7rem 3rem 1fr</span>);
+}</pre>
+
+        <div class="card-box">
+          <h3>8 Mixins in the project</h3>
+          <ul>
+            <li><strong>flex-center</strong> — center anything</li>
+            <li><strong>flex-row</strong> — row with gap</li>
+            <li><strong>flex</strong> — full parametric flex</li>
+            <li><strong>grid-table</strong> — grid layouts</li>
+            <li><strong>truncate</strong> — ellipsis overflow</li>
+            <li><strong>nav-column-item</strong> — icon+label stack</li>
+            <li><strong>sr-only</strong> — accessibility</li>
+            <li><strong>text-subtle</strong> — muted text style</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 5 — CSS Custom Props     ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="5">
+    <div class="slide-tag">Slide 5 — Dynamic Theming</div>
+    <h2>CSS Custom Properties — Runtime Variables</h2>
+    <p style="margin-bottom:1.4rem;">SCSS variables are resolved at <strong>compile time</strong>. CSS Custom Properties (var()) are resolved at <strong>runtime</strong> — letting us change values per-element with just a class.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">// _card.scss — accent bar uses CSS variable</span>
+<span class="sel">.card__accent-bar</span> {
+  <span class="prop">background</span>: <span class="fn">var</span>(<span class="var">--accent-color</span>, <span class="var">$color-accent</span>);
+}
+
+<span class="cmt">// Each accent class sets the variable</span>
+<span class="var">$card-mix-accent-colors</span>: (
+  <span class="str">'yellow'</span>:     <span class="str">#FFFF00</span>,
+  <span class="str">'gold'</span>:       <span class="str">#FFD700</span>,
+  <span class="str">'cyan'</span>:       <span class="str">#00BFFF</span>,
+  <span class="str">'violet'</span>:     <span class="str">#8A2BE2</span>,
+  <span class="str">'pink'</span>:       <span class="str">#FF69B4</span>,
+  <span class="str">'orange'</span>:     <span class="str">#FF8C00</span>,
+  <span class="str">'lime'</span>:       <span class="str">#00FF7F</span>,
+  <span class="str">'orange-red'</span>: <span class="str">#FF4500</span>,
+);
+
+<span class="kw">@each</span> <span class="var">$name</span>, <span class="var">$color</span> <span class="kw">in</span> <span class="var">$card-mix-accent-colors</span> {
+  <span class="sel">.card--accent-#{$name}</span> {
+    <span class="var">--accent-color</span>: <span class="str">#{$color}</span>;
+  }
+}</pre>
+
+        <pre><span class="cmt">/* HTML — just add a class */</span>
+&lt;<span class="kw">article</span> <span class="prop">class</span>=<span class="str">"card card--accent-yellow"</span>&gt;
+&lt;<span class="kw">article</span> <span class="prop">class</span>=<span class="str">"card card--accent-violet"</span>&gt;
+&lt;<span class="kw">article</span> <span class="prop">class</span>=<span class="str">"card card--accent-cyan"</span>&gt;</pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.4rem;">
+        <div class="card-box">
+          <h3>Why the hybrid approach?</h3>
+          <ul>
+            <li>SCSS vars → <strong>consistent global defaults</strong></li>
+            <li>CSS vars → <strong>per-card color override</strong></li>
+            <li><code style="color:var(--accent-soft)">var(--name, fallback)</code> = always safe</li>
+            <li>8 accent colors from <strong>one @each loop</strong></li>
+            <li>Add a new color = <strong>one line of Sass</strong></li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h3>Accent color preview</h3>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.4rem;">
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#FFFF00;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#FFD700;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#00BFFF;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#8A2BE2;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#FF69B4;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#FF8C00;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#00FF7F;"></div>
+            <div style="width:2rem;height:2rem;border-radius:4px;background:#FF4500;"></div>
+          </div>
+          <p style="font-size:1rem;margin-top:0.6rem;">Each card picks its own color — zero extra CSS written.</p>
+        </div>
+
+        <div class="card-box">
+          <h3>Also used for frame color</h3>
+          <pre style="font-size:0.95rem;"><span class="var">$card-stack-frame-color</span>:
+  <span class="fn">var</span>(<span class="var">--card-stack-frame-color</span>,
+      <span class="str">#{$color-bg-app}</span>);</pre>
+          <p style="font-size:1rem;margin-top:0.4rem;">The stacked card frame border can be overridden per-context without touching SCSS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 6 — BEM & HTML Structure ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="6">
+    <div class="slide-tag">Slide 6 — HTML &amp; BEM</div>
+    <h2>BEM Naming — Predictable, Scalable HTML</h2>
+    <p style="margin-bottom:1.4rem;">We used <strong>BEM</strong> (Block, Element, Modifier) so every class name tells you exactly what it does and where it belongs.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">&lt;!-- BEM anatomy --&gt;</span>
+<span class="cmt">&lt;!-- .block__element--modifier --&gt;</span>
+
+<span class="cmt">&lt;!-- Sidebar --&gt;</span>
+&lt;<span class="kw">aside</span> <span class="prop">class</span>=<span class="str">"sidebar"</span>&gt;
+  &lt;<span class="kw">div</span>  <span class="prop">class</span>=<span class="str">"sidebar__header"</span>&gt;
+  &lt;<span class="kw">li</span>   <span class="prop">class</span>=<span class="str">"sidebar__item"</span>&gt;
+  &lt;<span class="kw">li</span>   <span class="prop">class</span>=<span class="str">"sidebar__item--arrow"</span>&gt;
+  &lt;<span class="kw">li</span>   <span class="prop">class</span>=<span class="str">"sidebar__item--accordion"</span>&gt;
+  &lt;<span class="kw">button</span> <span class="prop">class</span>=<span class="str">"sidebar__accordion-trigger"</span>&gt;
+
+<span class="cmt">&lt;!-- Stacked card --&gt;</span>
+&lt;<span class="kw">article</span> <span class="prop">class</span>=<span class="str">"card card--stacked card--accent-yellow"</span>&gt;
+  &lt;<span class="kw">div</span>  <span class="prop">class</span>=<span class="str">"card__thumb-wrap"</span>&gt;
+    &lt;<span class="kw">span</span> <span class="prop">class</span>=<span class="str">"card__mix-layer card__mix-layer--rear"</span>&gt;
+    &lt;<span class="kw">span</span> <span class="prop">class</span>=<span class="str">"card__mix-layer card__mix-layer--middle"</span>&gt;
+    &lt;<span class="kw">div</span>  <span class="prop">class</span>=<span class="str">"card__mix-front"</span>&gt;
+  &lt;<span class="kw">div</span>  <span class="prop">class</span>=<span class="str">"card__info"</span>&gt;
+    &lt;<span class="kw">h3</span>  <span class="prop">class</span>=<span class="str">"card__title"</span>&gt;
+    &lt;<span class="kw">p</span>   <span class="prop">class</span>=<span class="str">"card__desc"</span>&gt;</span></pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="card-box">
+          <h3>BEM rules we followed</h3>
+          <ul>
+            <li><strong>.block</strong> — standalone component</li>
+            <li><strong>.block__element</strong> — child of block</li>
+            <li><strong>.block--modifier</strong> — variant / state</li>
+            <li>Never use IDs for styling</li>
+            <li>Classes only — no tag selectors</li>
+          </ul>
+        </div>
+        <div class="card-box">
+          <h3>Semantic HTML choices</h3>
+          <ul>
+            <li><code style="color:var(--accent-soft)">&lt;aside&gt;</code> for sidebar</li>
+            <li><code style="color:var(--accent-soft)">&lt;header&gt;</code> for top nav</li>
+            <li><code style="color:var(--accent-soft)">&lt;nav&gt;</code> for navigation</li>
+            <li><code style="color:var(--accent-soft)">&lt;article&gt;</code> for cards</li>
+            <li><code style="color:var(--accent-soft)">&lt;main&gt;</code> for page content</li>
+            <li><code style="color:var(--accent-soft)">&lt;button&gt;</code> for interactions</li>
+          </ul>
+        </div>
+        <div class="card-box">
+          <h3>Accessibility built-in</h3>
+          <ul>
+            <li><code style="color:var(--accent-soft)">aria-expanded="false"</code> on accordion</li>
+            <li><code style="color:var(--accent-soft)">aria-current="page"</code> on active nav</li>
+            <li><code style="color:var(--accent-soft)">aria-hidden="true"</code> on decorative icons</li>
+            <li><code style="color:var(--accent-soft)">@mixin sr-only</code> for hidden labels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 7 — Layout (Flex + Grid) ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="7">
+    <div class="slide-tag">Slide 7 — Layout</div>
+    <h2>Flexbox &amp; Grid — The Right Tool for the Job</h2>
+    <p style="margin-bottom:1.4rem;">We chose flexbox or grid intentionally — not randomly. Each layout context uses whichever fits the problem best.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <h3>Flexbox — directional flows</h3>
+        <pre><span class="cmt">/* App shell — sidebar beside content */</span>
+<span class="sel">.app-layout</span> {
+  <span class="prop">display</span>:   <span class="str">flex</span>;
+  <span class="prop">flex-direction</span>: <span class="str">row</span>;
+  <span class="prop">height</span>:    <span class="num">100vh</span>;
+}
+<span class="sel">.app-layout__content</span> {
+  <span class="prop">flex</span>: <span class="num">1</span>; <span class="cmt">/* grows to fill remaining space */</span>
+  <span class="prop">flex-direction</span>: <span class="str">column</span>;
+}
+
+<span class="cmt">/* Cards in a row — wrap on overflow */</span>
+<span class="sel">.home__shelf-row</span> {
+  <span class="prop">display</span>: <span class="str">flex</span>;
+  <span class="prop">gap</span>:     <span class="var">$spacing-xl</span>;
+  <span class="prop">flex-wrap</span>: <span class="str">wrap</span>;
+}
+
+<span class="cmt">/* Nav pill — icon + label side by side */</span>
+<span class="sel">.nav-pill</span> {
+  <span class="kw">@include</span> <span class="fn">flex-row</span>(<span class="var">$spacing-sm</span>);
+  <span class="prop">width</span>: <span class="var">$nav-pill-width</span>;
+}</pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <h3>CSS Grid — 2D alignment</h3>
+        <pre><span class="cmt">/* Mobile nav — 5 equal columns */</span>
+<span class="sel">.nav-mobile__inner</span> {
+  <span class="prop">display</span>:               <span class="str">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="str">repeat(5, 1fr)</span>;
+  <span class="prop">align-items</span>:          <span class="str">stretch</span>;
+}
+
+<span class="cmt">/* Liked songs — table layout */</span>
+<span class="sel">.liked-song__row</span> {
+  <span class="kw">@include</span> <span class="fn">grid-table</span>(
+    <span class="str">4.2rem 1fr 1fr 7rem 3rem 1fr</span>
+  );
+}
+
+<span class="cmt">/* When to use Grid vs Flex:
+   Flex  → 1D: a row or column of things
+   Grid  → 2D: rows AND columns together  */</span></pre>
+
+        <div class="card-box" style="margin-top:0.2rem;">
+          <h3>Key flex/grid decisions</h3>
+          <ul>
+            <li><code style="color:var(--accent-soft)">flex: 1</code> → content fills available space</li>
+            <li><code style="color:var(--accent-soft)">repeat(5, 1fr)</code> → always-equal nav items</li>
+            <li><code style="color:var(--accent-soft)">align-items: stretch</code> → equal-height columns</li>
+            <li><code style="color:var(--accent-soft)">gap</code> spacing — never use margin hacks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 8 — Stacked Cards        ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="8">
+    <div class="slide-tag">Slide 8 — Advanced CSS</div>
+    <h2>The Stacked Card Effect — Pure CSS</h2>
+    <p style="margin-bottom:1.4rem;">The Discover Weekly / Mix cards have a 3D stacked appearance. Three absolutely-positioned layers + transform + filter — no images, no JS.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">/* Variables tune every layer precisely */</span>
+<span class="var">$stack-rear-rest-transform</span>:
+  <span class="fn">translateY</span>(<span class="num">-1.14rem</span>) <span class="fn">scale</span>(<span class="num">0.83</span>);
+<span class="var">$stack-middle-rest-transform</span>:
+  <span class="fn">translateY</span>(<span class="num">-0.38rem</span>) <span class="fn">scale</span>(<span class="num">0.92</span>);
+<span class="var">$stack-rear-rest-opacity</span>:   <span class="num">0.56</span>;
+
+<span class="cmt">/* Images are desaturated at rest... */</span>
+<span class="var">$stack-layer-image-filter</span>:
+  <span class="fn">saturate</span>(<span class="num">0.78</span>) <span class="fn">brightness</span>(<span class="num">0.46</span>) <span class="fn">contrast</span>(<span class="num">1.02</span>);
+
+<span class="cmt">/* ...and restored on hover */</span>
+<span class="var">$stack-layer-image-hover-filter</span>:
+  <span class="fn">saturate</span>(<span class="num">1</span>) <span class="fn">brightness</span>(<span class="num">1</span>) <span class="fn">contrast</span>(<span class="num">1</span>);
+
+<span class="sel">.card:is(:hover, :focus-visible)</span> {
+  <span class="sel">.card__mix-layer-image</span> {
+    <span class="prop">filter</span>: <span class="var">$stack-layer-image-hover-filter</span>;
+    <span class="prop">transition</span>: <span class="str">filter 180ms cubic-bezier(0.22,1,0.36,1)</span>;
+  }
+}</pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="card-box">
+          <h3>How the layers work</h3>
+          <ul>
+            <li><strong>3 layers</strong> absolutely positioned in same space</li>
+            <li>Each layer has different <code style="color:var(--accent-soft)">translateY + scale</code></li>
+            <li>Rear: small, low, desaturated</li>
+            <li>Middle: mid-size, partially visible</li>
+            <li>Front: full size, bright, on top</li>
+            <li><strong>Hover:</strong> layers shift + images brighten</li>
+          </ul>
+        </div>
+        <div class="card-box">
+          <h3>CSS tricks used</h3>
+          <ul>
+            <li><code style="color:var(--accent-soft)">isolation: isolate</code> — prevents z-index leaks</li>
+            <li><code style="color:var(--accent-soft)">box-shadow</code> frame border per layer</li>
+            <li><code style="color:var(--accent-soft)">cubic-bezier(0.22,1,0.36,1)</code> — smooth spring</li>
+            <li><code style="color:var(--accent-soft)">:is(:hover,:focus-visible)</code> — modern selector</li>
+            <li><strong>20+ variables</strong> to tune the effect precisely</li>
+          </ul>
+        </div>
+        <div class="card-box">
+          <h3>Discover Weekly variant</h3>
+          <ul>
+            <li>Uses <code style="color:var(--accent-soft)">::before</code> pseudo-elements</li>
+            <li>Overlay PNG applied via CSS background</li>
+            <li>Different opacity values per layer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 9 — Responsive Design    ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="9">
+    <div class="slide-tag">Slide 9 — Responsive</div>
+    <h2>Responsive Design — 4-Tier Breakpoint System</h2>
+    <p style="margin-bottom:1.4rem;">One codebase, every screen. The layout adapts from mobile to wide desktop using four precisely chosen breakpoints.</p>
+
+    <div class="two-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <pre><span class="cmt">/* Breakpoints stored as variables */</span>
+<span class="var">$bp-mobile</span>:  <span class="num">767px</span><span class="cmt">;  // ≤767px  — mobile</span>
+<span class="var">$bp-tablet</span>:  <span class="num">768px</span><span class="cmt">;  // 768px+ — tablet</span>
+<span class="var">$bp-desktop</span>: <span class="num">992px</span><span class="cmt">;  // 992px+ — desktop</span>
+<span class="var">$bp-sidebar</span>: <span class="num">1245px</span><span class="cmt">; // 1245px+ — wide</span>
+
+<span class="cmt">/* Mobile: swap header nav for bottom nav */</span>
+<span class="kw">@media</span> (max-width: #{<span class="var">$bp-mobile</span>}) {
+  <span class="sel">.app-header</span>  { <span class="prop">display</span>: <span class="str">none</span>; }
+  <span class="sel">.sidebar</span>     { <span class="prop">display</span>: <span class="str">none</span>; }
+  <span class="sel">.nav-mobile</span>  { <span class="prop">display</span>: <span class="str">flex</span>; }
+}
+
+<span class="cmt">/* Tablet: nav pills collapse to icon-only */</span>
+<span class="kw">@media</span> (min-width: <span class="var">$bp-tablet</span>) and
+       (max-width: <span class="num">991px</span>) {
+  <span class="sel">.nav-pill</span> {
+    <span class="prop">width</span>: <span class="var">$nav-item-size</span>; <span class="cmt">// square, no label</span>
+  }
+  <span class="sel">.nav-pill__label</span> { <span class="prop">display</span>: <span class="str">none</span>; }
+}
+
+<span class="cmt">/* Responsive sizing with clamp() */</span>
+<span class="sel">.discover__hero</span> {
+  <span class="prop">width</span>:  <span class="fn">clamp</span>(<span class="num">25rem</span>, <span class="num">35vw</span>, <span class="num">39rem</span>);
+  <span class="prop">height</span>: <span class="fn">clamp</span>(<span class="num">35rem</span>, <span class="num">60vw</span>, <span class="num">61.2rem</span>);
+}</pre>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="card-box">
+          <h3>What changes per breakpoint</h3>
+          <ul>
+            <li><strong>Mobile</strong>: bottom nav, no sidebar, compact cards</li>
+            <li><strong>Tablet</strong>: icon-only nav pills, no labels</li>
+            <li><strong>Desktop</strong>: full header, sidebar visible</li>
+            <li><strong>Wide desktop</strong>: sidebar always expanded</li>
+          </ul>
+        </div>
+
+        <div class="card-box">
+          <h3>Modern CSS: clamp()</h3>
+          <pre style="font-size:0.92rem;"><span class="cmt">/* min, ideal, max — fluid in between */</span>
+<span class="fn">clamp</span>(<span class="num">25rem</span>, <span class="num">35vw</span>, <span class="num">39rem</span>)
+<span class="cmt">// Replaces 3 separate media queries!</span></pre>
+        </div>
+
+        <div class="card-box">
+          <h3>Mobile-first decisions</h3>
+          <ul>
+            <li>Safe area inset for iPhone notch: <br/><code style="color:var(--accent-soft);font-size:0.9rem;">padding-bottom: env(safe-area-inset-bottom)</code></li>
+            <li>Stacked card transforms tuned separately for mobile screen sizes</li>
+            <li>Feed modal hidden on mobile — different UX pattern</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 10 — CSS Tricks          ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="10">
+    <div class="slide-tag">Slide 10 — CSS Magic</div>
+    <h2>Notable CSS Techniques</h2>
+    <p style="margin-bottom:1.4rem;">Small details that add up to a polished result.</p>
+
+    <div class="three-col" style="align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card-box">
+          <h3>1:1 Aspect Ratio Trick</h3>
+          <pre style="font-size:0.9rem;"><span class="sel">.card__thumb-wrap</span> {
+  <span class="prop">position</span>:   <span class="str">relative</span>;
+  <span class="prop">padding-top</span>: <span class="num">100%</span>;
+}
+<span class="sel">.card__thumb</span> {
+  <span class="prop">position</span>:  <span class="str">absolute</span>;
+  <span class="prop">inset</span>:     <span class="num">0</span>;
+  <span class="prop">object-fit</span>: <span class="str">cover</span>;
+}</span></pre>
+          <p style="font-size:1rem;margin-top:0.5rem;">Always-square thumbnails regardless of image dimensions.</p>
+        </div>
+
+        <div class="card-box">
+          <h3>CSS-only icon swap</h3>
+          <pre style="font-size:0.9rem;"><span class="sel">.icon--on</span>  { <span class="prop">display</span>: <span class="str">none</span>; }
+
+<span class="sel">.nav-pill--active</span> {
+  <span class="sel">.icon--off</span> { <span class="prop">display</span>: <span class="str">none</span>; }
+  <span class="sel">.icon--on</span>  { <span class="prop">display</span>: <span class="str">block</span>; }
+}</span></pre>
+          <p style="font-size:1rem;margin-top:0.5rem;">Active/inactive icon states — no JavaScript needed.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card-box">
+          <h3>Accordion — max-height</h3>
+          <pre style="font-size:0.9rem;"><span class="sel">.sidebar__dropdown</span> {
+  <span class="prop">max-height</span>: <span class="num">0</span>;
+  <span class="prop">overflow</span>:   <span class="str">hidden</span>;
+  <span class="prop">transition</span>: <span class="str">max-height 0.3s ease</span>;
+}
+<span class="sel">.is-open .sidebar__dropdown</span> {
+  <span class="prop">max-height</span>: <span class="num">20rem</span>;
+}</span></pre>
+          <p style="font-size:1rem;margin-top:0.5rem;">Smooth open/close animation without JavaScript layout hacks.</p>
+        </div>
+
+        <div class="card-box">
+          <h3>Glass-morphism modal</h3>
+          <pre style="font-size:0.9rem;"><span class="sel">.feed-modal</span> {
+  <span class="prop">background</span>:
+    <span class="fn">rgba</span>(<span class="num">61,59,50</span>, <span class="num">0.2</span>);
+  <span class="prop">backdrop-filter</span>:
+    <span class="fn">blur</span>(<span class="num">100px</span>);
+  <span class="prop">-webkit-backdrop-filter</span>:
+    <span class="fn">blur</span>(<span class="num">100px</span>);
+}</span></pre>
+          <p style="font-size:1rem;margin-top:0.5rem;">Frosted glass effect with Safari prefix for compatibility.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card-box">
+          <h3>Sass color.adjust()</h3>
+          <pre style="font-size:0.9rem;"><span class="kw">@use</span> <span class="str">'sass:color'</span>;
+
+<span class="sel">.filter-pill:hover</span> {
+  <span class="prop">background</span>:
+    <span class="fn">color.adjust</span>(
+      <span class="var">$color-surface</span>,
+      <span class="var">$lightness</span>: <span class="num">8%</span>
+    );
+}</span></pre>
+          <p style="font-size:1rem;margin-top:0.5rem;">Programmatically lighten a color — no need to hardcode hex values.</p>
+        </div>
+
+        <div class="card-box">
+          <h3>Reduced motion</h3>
+          <pre style="font-size:0.9rem;"><span class="kw">@media</span> (prefers-reduced-motion: reduce) {
+  <span class="sel">.feed-modal</span> {
+    <span class="prop">transition</span>: <span class="str">none</span>;
+  }
+}</span></pre>
+          <p style="font-size:1rem;margin-top:0.5rem;">Respects user's OS accessibility preference — no motion if they ask for it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 11 — Summary             ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide" data-slide="11">
+    <div class="slide-tag">Slide 11 — Summary</div>
+    <h2>What We Built &amp; What We Proved</h2>
+    <p style="margin-bottom:1.8rem;">A full Spotify UI clone — multi-page, fully responsive, Figma-accurate — using only HTML, CSS, and Sass.</p>
+
+    <div class="three-col" style="align-items:start;">
+      <div class="card-box">
+        <h3>Architecture</h3>
+        <ul>
+          <li>7-1 SCSS folder pattern</li>
+          <li>Modern <strong>@use</strong> (not @import)</li>
+          <li>One compiled CSS file</li>
+          <li>9 pages, 1 layout system</li>
+          <li>~20 SCSS <span class="tooltip" data-tip="Files starting with _ — imported, not compiled directly">partials</span></li>
+        </ul>
+      </div>
+      <div class="card-box">
+        <h3>Design System</h3>
+        <ul>
+          <li>100+ SCSS variables</li>
+          <li>8 reusable mixins</li>
+          <li>CSS Custom Properties</li>
+          <li>Full color token system</li>
+          <li>Spacing scale (base 10px)</li>
+        </ul>
+      </div>
+      <div class="card-box">
+        <h3>CSS Techniques</h3>
+        <ul>
+          <li>Flexbox + CSS Grid</li>
+          <li>3D stacked card effect</li>
+          <li>CSS-only icon/state swap</li>
+          <li>Glass-morphism backdrop</li>
+          <li>clamp() responsive sizing</li>
+        </ul>
+      </div>
+      <div class="card-box">
+        <h3>HTML Quality</h3>
+        <ul>
+          <li>Full BEM naming system</li>
+          <li>Semantic elements throughout</li>
+          <li>ARIA roles &amp; attributes</li>
+          <li>Screen-reader accessible</li>
+          <li>Lazy-loaded images</li>
+        </ul>
+      </div>
+      <div class="card-box">
+        <h3>Responsive</h3>
+        <ul>
+          <li>4-tier breakpoint system</li>
+          <li>Mobile bottom nav</li>
+          <li>Sidebar show/hide</li>
+          <li>iPhone safe-area support</li>
+          <li>Reduced-motion support</li>
+        </ul>
+      </div>
+      <div class="card-box">
+        <h3>Git Workflow</h3>
+        <ul>
+          <li>Feature branches per page</li>
+          <li>Meaningful commit messages</li>
+          <li>Pull requests with review</li>
+          <li>Merge to main on approval</li>
+          <li>Clean, traceable history</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════╗ -->
+  <!-- ║  SLIDE 12 — Thank You           ║ -->
+  <!-- ╚══════════════════════════════════╝ -->
+  <div class="slide slide--title" data-slide="12" style="justify-content:center;">
+    <div class="slide-tag">10X Frontend — Final Exam</div>
+    <h1>Thank<br><span style="color:var(--accent)">You</span></h1>
+    <div class="divider"></div>
+    <p style="font-size:1.3rem;color:var(--text-muted);max-width:44rem;line-height:1.8;">
+      We hope this walkthrough showed how thoughtful architecture, design tokens, and modern CSS
+      techniques come together into a product that looks and feels like the real thing.
+    </p>
+    <div style="margin-top:2rem;">
+      <span class="pill">HTML</span>
+      <span class="pill">CSS</span>
+      <span class="pill">Sass</span>
+      <span class="pill">BEM</span>
+      <span class="pill">Git</span>
+      <span class="pill">Figma → Code</span>
+      <span class="pill">Responsive</span>
+      <span class="pill">Accessible</span>
+    </div>
+    <div style="margin-top:3rem;color:var(--text-subtle);font-size:1rem;">
+      <strong style="color:var(--accent)">Spotify 10xHunter</strong> · 10X Frontend Program
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nav-btn" id="prev" title="Previous (←)">&#8592;</button>
+  <span class="slide-counter" id="counter">1 / 12</span>
+  <button class="nav-btn" id="next" title="Next (→)">&#8594;</button>
+</div>
+<div class="key-hint">← → to navigate &nbsp;·&nbsp; P to print</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let current = 0;
+
+  function go(n) {
+    slides[current].classList.remove('active');
+    current = Math.max(0, Math.min(total - 1, n));
+    slides[current].classList.add('active');
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+    document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  document.getElementById('next').addEventListener('click', () => go(current + 1));
+  document.getElementById('prev').addEventListener('click', () => go(current - 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     go(current - 1);
+    if (e.key === 'p' || e.key === 'P') window.print();
+  });
+
+  // init progress
+  go(0);
+</script>
+</body>
+</html>
