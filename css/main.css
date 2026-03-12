@@ -331,7 +331,7 @@ p, li, a, button, span {
   flex-direction: column;
 }
 .sidebar__header {
-  padding: 2rem 0 0 1.6rem;
+  padding: 0.5rem 0 0 1.6rem;
   margin-bottom: 1.2rem;
 }
 .sidebar__header a {
@@ -344,9 +344,11 @@ p, li, a, button, span {
   font-size: 1.4rem;
   color: #898989;
   transition: background-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
+  padding: 0.2rem;
 }
 .sidebar__header a:hover {
-  background-color: #202020;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 0.8rem;
 }
 .sidebar__header a:hover span {
   color: #FFFFFF;
@@ -368,9 +370,10 @@ p, li, a, button, span {
   gap: 1rem;
   width: 100%;
   transition: background-color 0.2s ease, color 0.2s ease, filter 0.2s ease;
+  border-radius: 0.8rem;
 }
 .sidebar__item a:hover {
-  background-color: #202020;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 .sidebar__item a:hover span {
   color: #FFFFFF;
