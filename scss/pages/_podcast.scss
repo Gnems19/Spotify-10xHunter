@@ -1,0 +1,220 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.podcast {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 32rem;
+    gap: 2rem;
+    padding: 3rem;
+    background: linear-gradient(
+      180deg,
+      rgba(165, 96, 42, 0.47) 0%,
+      rgba(6, 6, 6, 0.47) 100%
+    );
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-weight: $font-weight-bold;
+    color: $color-text-active;
+  }
+
+  &__author {
+    font-size: 1.4rem;
+    color: $color-text-active;
+  }
+
+  &__actions {
+    @include flex($gap: 1.4rem);
+  }
+
+  &__btn {
+    font-weight: $font-weight-regular;
+    font-size: 1.4rem;
+    color: $color-text-active;
+    padding: 1rem 2rem;
+    border-radius: 4.4rem;
+    border: 2px solid $color-text-subtle;
+
+    &--follow {
+      background-color: $color-text-subtle;
+    }
+
+    &--rating {
+      @include flex($gap: 1rem);
+    }
+
+    &--more {
+      border: none;
+    }
+  }
+
+  &__rating {
+    @include flex($gap: 1rem);
+
+    &-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+
+  &__filter {
+    @include flex($justify: space-between);
+
+    &-title {
+      color: $color-text-active;
+    }
+    &-actions {
+      @include flex($gap: 1rem);
+    }
+
+    &-btn {
+      @include flex($gap: 0.5rem);
+      font-size: 1.4rem;
+      color: $color-text-subtle;
+    }
+  }
+
+  &__episode {
+    @include flex($gap: 1.6rem);
+    border-bottom: 0.2rem solid rgba($color-text-subtle, 0.15);
+    padding: 2rem 0;
+
+    &-img {
+      width: 13rem;
+      height: 13rem;
+      object-fit: cover;
+      border-radius: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    &-title {
+      font-size: 1.8rem;
+      font-weight: $font-weight-medium;
+      color: $color-text-active;
+    }
+
+    &-meta {
+      @include flex($gap: 1rem);
+    }
+
+    &-date,
+    &-duration {
+      font-size: 1.2rem;
+      color: $color-text-subtle;
+    }
+
+    &-desc {
+      font-weight: $font-weight-regular;
+      font-size: 1.4rem;
+      color: $color-text-subtle;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &-actions {
+      @include flex($gap: 1.4rem);
+    }
+  }
+
+  &__sidebar {
+    &-artist {
+      @include flex($direction: column, $gap: 3rem);
+    }
+    &-img {
+      border-radius: 1rem;
+    }
+
+    &-title {
+      font-weight: $font-weight-bold;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    &-desc {
+      font-weight: $font-weight-regular;
+      font-size: 1.6rem;
+      color: $color-text-subtle;
+      margin-bottom: 3rem;
+    }
+    &-btns {
+      @include flex($gap: 1rem);
+    }
+    &-btn {
+      padding: 1rem 2rem;
+      border: 0.2rem solid $color-text-subtle;
+      border-radius: 4.4rem;
+      color: $color-text-subtle;
+      &:hover {
+        background-color: $color-surface-hover;
+      }
+    }
+  }
+}
+
+//მობილურისთვის(არასრული)....
+
+@media (max-width: #{$bp-mobile}) {
+  .podcast {
+    &__wrapper {
+      grid-template-columns: 1fr;
+      padding-inline: 2.4rem;
+    }
+
+    &__sidebar {
+      display: none;
+    }
+
+    &__header {
+      margin-bottom: 2rem;
+    }
+
+    &__btn {
+      padding: 0.8rem 1.4rem;
+      font-size: 1.2rem;
+    }
+
+    &__episode {
+      &-img {
+        width: 9rem;
+        height: 9rem;
+      }
+
+      &-desc {
+        display: none;
+      }
+
+      &-actions {
+        gap: 1rem;
+      }
+    }
+
+    &__filter {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.4rem;
+    }
+  }
+}
