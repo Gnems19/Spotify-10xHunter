@@ -26,20 +26,20 @@
       font-family: 'Segoe UI', system-ui, sans-serif;
       background: var(--bg-app);
       color: var(--text);
+      scrollbar-width: none;       /* Firefox */
+      -ms-overflow-style: none;    /* IE / Edge */
     }
+    html::-webkit-scrollbar { display: none; } /* Chrome / Safari */
 
     /* ── Slide container ── */
     .deck {
       width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
     }
 
     .slide {
       display: none;
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       padding: 4rem 5.5rem 3rem;
       flex-direction: column;
       justify-content: flex-start;
@@ -237,17 +237,18 @@
     .nav-btn {
       background: var(--surface);
       border: 1px solid #404040;
-      color: var(--text);
-      width: 2.8rem;
-      height: 2.8rem;
+      color: var(--text-subtle);
+      width: 4.1rem;
+      height: 4.1rem;
       border-radius: 50%;
-      font-size: 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 120ms ease, border-color 120ms ease;
+      padding: 0;
+      transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
     }
+    .nav-btn svg { display: block; }
     .nav-btn:hover {
       background: var(--accent);
       border-color: var(--accent);
@@ -319,13 +320,7 @@
     .tree .file   { color: #e0e0e0; }
     .tree .dim    { color: var(--text-subtle); }
 
-    /* ── Responsive for small screens / print ── */
-    @media print {
-      .deck { overflow: visible; height: auto; }
-      .slide { display: flex !important; height: 100vh; page-break-after: always; }
-      .nav, .key-hint, .progress-bar { display: none; }
-    }
-
+    /* ── Responsive for small screens ── */
     @media (max-width: 900px) {
       .slide { padding: 2.5rem 2.5rem 2rem; }
       h1 { font-size: 2.5rem; }
@@ -1106,16 +1101,27 @@
 
 <!-- Navigation -->
 <div class="nav">
-  <button class="nav-btn" id="prev" title="Previous (←)">&#8592;</button>
+  <button class="nav-btn" id="prev" title="Previous (←)">
+    <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.8892 15.1543L16.8379 20.2056L21.8892 25.257" stroke="currentColor" stroke-width="2.3573" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
   <span class="slide-counter" id="counter">1 / 12</span>
-  <button class="nav-btn" id="next" title="Next (→)">&#8594;</button>
+  <button class="nav-btn" id="next" title="Next (→)">
+    <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.5216 25.2578L23.5729 20.2065L18.5216 15.1551" stroke="currentColor" stroke-width="2.3573" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 </div>
-<div class="key-hint">← → to navigate &nbsp;·&nbsp; P to print</div>
 
 <script>
   const slides = Array.from(document.querySelectorAll('.slide'));
   const total = slides.length;
   let current = 0;
+  const HORIZONTAL_NAV_THRESHOLD = 45;
+  const HORIZONTAL_NAV_COOLDOWN_MS = 400;
+  let horizontalWheelBuffer = 0;
+  let lastHorizontalNavAt = 0;
 
   function go(n) {
     slides[current].classList.remove('active');
@@ -1123,16 +1129,84 @@
     slides[current].classList.add('active');
     document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
     document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+    window.scrollTo(0, 0);
   }
 
   document.getElementById('next').addEventListener('click', () => go(current + 1));
   document.getElementById('prev').addEventListener('click', () => go(current - 1));
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(current + 1);
-    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     go(current - 1);
-    if (e.key === 'p' || e.key === 'P') window.print();
+    if (['ArrowRight','ArrowLeft','ArrowUp','ArrowDown'].includes(e.key)) {
+      e.preventDefault();
+    }
+    if (e.key === 'ArrowRight') go(current + 1);
+    if (e.key === 'ArrowLeft')  go(current - 1);
+    if (e.key === 'ArrowDown')  window.scrollBy({ top:  200, behavior: 'smooth' });
+    if (e.key === 'ArrowUp')    window.scrollBy({ top: -200, behavior: 'smooth' });
   });
+
+  function isEditableTarget(target) {
+    return target instanceof Element &&
+      target.closest('input, textarea, select, [contenteditable="true"]');
+  }
+
+  function getHorizontalScroller(target) {
+    let element = target instanceof Element ? target : null;
+
+    while (element && element !== document.body) {
+      const style = window.getComputedStyle(element);
+      const canScrollX = element.scrollWidth > element.clientWidth + 1;
+      const allowsScrollX = /(auto|scroll)/.test(style.overflowX);
+
+      if (canScrollX && allowsScrollX) {
+        return element;
+      }
+
+      element = element.parentElement;
+    }
+
+    return null;
+  }
+
+  document.addEventListener('wheel', e => {
+    const horizontalIntent = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+
+    if (!horizontalIntent || Math.abs(e.deltaX) < 4 || isEditableTarget(e.target)) {
+      return;
+    }
+
+    const scroller = getHorizontalScroller(e.target);
+    if (scroller) {
+      const movingRight = e.deltaX > 0;
+      const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+      const canKeepScrolling =
+        (movingRight && scroller.scrollLeft < maxScrollLeft - 1) ||
+        (!movingRight && scroller.scrollLeft > 1);
+
+      if (canKeepScrolling) {
+        return;
+      }
+    }
+
+    const now = Date.now();
+    if (now - lastHorizontalNavAt < HORIZONTAL_NAV_COOLDOWN_MS) {
+      e.preventDefault();
+      return;
+    }
+
+    horizontalWheelBuffer += e.deltaX;
+
+    if (Math.abs(horizontalWheelBuffer) < HORIZONTAL_NAV_THRESHOLD) {
+      e.preventDefault();
+      return;
+    }
+
+    const direction = horizontalWheelBuffer > 0 ? -1 : 1;
+    horizontalWheelBuffer = 0;
+    lastHorizontalNavAt = now;
+    e.preventDefault();
+    go(current + direction);
+  }, { passive: false });
 
   // init progress
   go(0);
