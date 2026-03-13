@@ -97,7 +97,7 @@
               </ul>
             </li>
             <li class="sidebar__item">
-              <a href="#">
+              <a href="liked-songs.html">
                 <img
                   src="../assets/icons/big/like.svg"
                   alt="spotify-liked-songs-icon"
@@ -184,13 +184,11 @@
                   <span class="nav-pill__label">Home</span>
                 </a>
 
-                <label class="nav-pill nav-pill--discover">
-                  <input
-                    type="radio"
-                    id="nav-discover"
-                    name="primary-nav"
-                    class="nav-radio"
-                  />
+                <a
+                  class="nav-pill nav-pill--discover nav-pill--active"
+                  href="discover.html"
+                  aria-current="page"
+                >
                   <img
                     src="../assets/icons/big/discover.svg"
                     alt=""
@@ -204,7 +202,7 @@
                     aria-hidden="true"
                   />
                   <span class="nav-pill__label">Discover</span>
-                </label>
+                </a>
 
                 <a class="nav-pill nav-pill--search" href="search.html">
                   <img
@@ -908,8 +906,12 @@
           <span class="nav-mobile__label">Home</span>
         </a>
 
-        <label class="nav-mobile__item" aria-label="Discover">
-          <input type="radio" name="mobile-nav" class="nav-radio" />
+        <a
+          class="nav-mobile__item nav-mobile__item--active"
+          href="discover.html"
+          aria-label="Discover"
+          aria-current="page"
+        >
           <img
             src="../assets/icons/big/discover.svg"
             alt=""
@@ -923,14 +925,9 @@
             aria-hidden="true"
           />
           <span class="nav-mobile__label">Discover</span>
-        </label>
+        </a>
 
-        <a
-          class="nav-mobile__item nav-mobile__item--active"
-          href="search.html"
-          aria-label="Search"
-          aria-current="page"
-        >
+        <a class="nav-mobile__item" href="search.html" aria-label="Search">
           <img
             src="../assets/icons/big/search.svg"
             alt=""
@@ -946,8 +943,7 @@
           <span class="nav-mobile__label">Search</span>
         </a>
 
-        <label class="nav-mobile__item" aria-label="Library">
-          <input type="radio" name="mobile-nav" class="nav-radio" />
+        <a class="nav-mobile__item" href="liked-songs.html" aria-label="Library">
           <img
             src="../assets/icons/big/library.svg"
             alt=""
@@ -961,10 +957,9 @@
             aria-hidden="true"
           />
           <span class="nav-mobile__label">Library</span>
-        </label>
+        </a>
 
-        <label class="nav-mobile__item" aria-label="Me">
-          <input type="radio" name="mobile-nav" class="nav-radio" />
+        <a class="nav-mobile__item" href="artist.html" aria-label="Me">
           <img
             src="../assets/icons/big/user.svg"
             alt=""
@@ -978,7 +973,7 @@
             aria-hidden="true"
           />
           <span class="nav-mobile__label">Me</span>
-        </label>
+        </a>
       </div>
     </nav>
 
