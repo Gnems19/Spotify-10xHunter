@@ -7,6 +7,7 @@
 .app-main {
   flex: 1;
   min-width: 0;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   background: $color-bg-app;
@@ -66,9 +67,7 @@
   opacity: 0.7;
   transition: opacity $transition-fast;
 
-  img {
-    width: $nav-icon-size;
-    height: $nav-icon-size;
+  .nav-icon {
     filter: invert(1);
   }
 
@@ -640,14 +639,18 @@
 
 @media (max-width: #{$bp-mobile}) {
   .home-layout {
-    display: block;
+    // Keep app-main constrained so mobile uses it as the vertical scroll container.
+    display: flex;
+    flex-direction: column;
   }
 
   .app-main {
     margin-left: 0;
+    min-height: 0;
     border: none;
     border-radius: 0;
     background: $color-bg-mobile;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px));
   }
 
@@ -657,7 +660,7 @@
     border-radius: 0;
     padding: $font-size-md $spacing-lg $spacing-md;
     gap: $spacing-base;
-
+    background-color: $color-bg-mobile;
     .filter-pill:first-child {
       display: none;
     }
@@ -680,9 +683,9 @@
   .filter-grid-icon {
     opacity: 1;
 
-    img {
-      width: 2.4rem;
-      height: 2.4rem;
+    .nav-icon {
+      width: $nav-icon-size;
+      height: $nav-icon-size;
       filter: invert(0.75);
     }
   }
