@@ -188,6 +188,7 @@ p, li, a, button, span {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin-right: 0.7rem;
 }
 @media (max-width: 767px) {
   .app-layout {
@@ -386,15 +387,6 @@ p, li, a, button, span {
   color: #898989;
   letter-spacing: 0.03rem;
 }
-.sidebar__item--current a {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-.sidebar__item--current a span {
-  color: #FFFFFF;
-}
-.sidebar__item--current a img {
-  filter: brightness(2);
-}
 .sidebar__item--arrow a {
   justify-content: space-between;
 }
@@ -471,15 +463,6 @@ p, li, a, button, span {
   font-size: 1.4rem;
   color: #898989;
   letter-spacing: 0.03rem;
-}
-.sidebar__dropdown-item--current a, .sidebar__item a[aria-current=page], .sidebar__dropdown-item a[aria-current=page] {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-.sidebar__dropdown-item--current a span, .sidebar__item a[aria-current=page] span, .sidebar__dropdown-item a[aria-current=page] span {
-  color: #FFFFFF;
-}
-.sidebar__dropdown-item--current a img, .sidebar__item a[aria-current=page] img, .sidebar__dropdown-item a[aria-current=page] img {
-  filter: brightness(2);
 }
 .sidebar__link-left {
   display: flex;
@@ -1455,12 +1438,12 @@ p, li, a, button, span {
   height: 8.1rem;
   border-radius: 1rem;
   position: sticky;
-  bottom: 1rem;
-  top: 0;
+  bottom: 0;
   left: 27.3rem;
-  margin-top: 1.4rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
   margin-left: 2.4rem;
-  margin-right: 0.7rem;
+  padding-left: 2.4rem;
 }
 .player__left {
   display: flex;
@@ -3598,7 +3581,7 @@ p, li, a, button, span {
   }
   .song-row:hover .song-row__actions,
   .song-row:hover .song-row__check-label {
-    display: none !important;
+    display: none;
     opacity: 0;
     visibility: hidden;
   }
@@ -3655,6 +3638,12 @@ p, li, a, button, span {
 .page--artist .sidebar,
 .page--artist .app-main--artist {
   background: #060606;
+}
+.page--artist .sidebar__item--current a span {
+  color: #E0E0E0;
+}
+.page--artist .sidebar__item--current a img {
+  filter: brightness(2);
 }
 
 .page--artist .sr-only {

@@ -950,7 +950,7 @@
               </div>
               <div class="home-section__track" role="list">
 
-                <article class="card card--podcast" role="listitem">
+                <a class="card card--podcast" href="pages/podcasts.html" role="listitem" aria-label="Open anything goes podcast page">
                   <div class="card__thumb-wrap">
                     <img src="assets/img/anything-goes.webp" alt="anything goes…" class="card__thumb" loading="lazy">
                   </div>
@@ -958,9 +958,9 @@
                     <span class="card__title">anything goes…</span>
                     <p class="card__desc">emma chamberlain</p>
                   </div>
-                </article>
+                </a>
 
-                <article class="card card--podcast" role="listitem">
+                <a class="card card--podcast" href="pages/podcasts.html" role="listitem" aria-label="Open The Joe Rogan Experience podcast page">
                   <div class="card__thumb-wrap">
                     <img src="assets/img/joe-rogan.webp" alt="Podcast cover for The Joe Rogan Experience"
                       class="card__thumb" loading="lazy">
@@ -969,9 +969,9 @@
                     <span class="card__title">The Joe Rogan…</span>
                     <p class="card__desc">Joe Rogan</p>
                   </div>
-                </article>
+                </a>
 
-                <article class="card card--podcast" role="listitem">
+                <a class="card card--podcast" href="pages/podcasts.html" role="listitem" aria-label="Open The Journal podcast page">
                   <div class="card__thumb-wrap">
                     <img src="assets/img/the-journal.webp" alt="Podcast cover for The Journal" class="card__thumb"
                       loading="lazy">
@@ -980,7 +980,7 @@
                     <span class="card__title">The Journal</span>
                     <p class="card__desc">The Wall Street Journal</p>
                   </div>
-                </article>
+                </a>
 
               </div>
             </section>
@@ -1224,80 +1224,81 @@
           </div>
         </aside>
       </div><!-- /home-layout -->
-
+      <!-- ===== Player ===== -->
+      <section class="player" aria-label="player bar">
+        <div class="player__left">
+          <button class="btn-play-pause">
+            <img src="assets/icons/big/pause.svg" alt="pause">
+          </button>
+          <button class="player__btn-prev">
+            <img src="assets/icons/big/prev.svg" alt="previous">
+          </button>
+          <button class="player__btn-next">
+            <img src="assets/icons/big/next.svg" alt="next">
+          </button>
+          <button class="player__btn-shuffle">
+            <img src="assets/icons/big/shuffle.svg" alt="shuffle">
+          </button>
+          <button class="player__btn-loop">
+            <img src="assets/icons/big/loop.svg" alt="loop">
+          </button>
+        </div>
+        <div class="player__center">
+          <span class="player__time-current">2:23</span>
+          <input class="player__progress-bar" type="range" min="0" max="100" value="52">
+          <span class="player__time-total">4:45</span>
+          <button class="player__btn-volume">
+            <img src="assets/icons/big/volume.svg" alt="volume">
+          </button>
+          <figure class="player__album-cover">
+            <img src="assets/img/random-access-memories.webp" alt="album cover">
+          </figure>
+          <a href="pages/lyrics.html" class="player__song-info">
+            <span class="player__song-title">Get Lucky</span>
+            <span class="player__song-artist">Daft Punk</span>
+            <span class="player__song-album">Random Access Memories</span>
+          </a>
+        </div>
+      </section>
     </div><!-- /app-layout__content -->
-
   </div><!-- /app-layout -->
 
-  <!-- ===== Player ===== -->
-  <section class="player" aria-label="player bar">
-    <div class="player__left">
-      <button class="btn-play-pause">
-        <img src="assets/icons/big/pause.svg" alt="pause">
-      </button>
-      <button class="player__btn-prev">
-        <img src="assets/icons/big/prev.svg" alt="previous">
-      </button>
-      <button class="player__btn-next">
-        <img src="assets/icons/big/next.svg" alt="next">
-      </button>
-      <button class="player__btn-shuffle">
-        <img src="assets/icons/big/shuffle.svg" alt="shuffle">
-      </button>
-      <button class="player__btn-loop">
-        <img src="assets/icons/big/loop.svg" alt="loop">
-      </button>
-    </div>
-    <div class="player__center">
-      <span class="player__time-current">2:23</span>
-      <input class="player__progress-bar" type="range" min="0" max="100" value="52">
-      <span class="player__time-total">4:45</span>
-      <button class="player__btn-volume">
-        <img src="assets/icons/big/volume.svg" alt="volume">
-      </button>
-      <figure class="player__album-cover">
-        <img src="assets/img/random-access-memories.webp" alt="album cover">
-      </figure>
-      <div class="player__song-info">
-        <span class="player__song-title">Get Lucky</span>
-        <span class="player__song-artist">Daft Punk</span>
-        <span class="player__song-album">Random Access Memories</span>
-      </div>
-    </section>
 
-    <!-- ===== Mobile Bottom Nav ===== -->
-    <nav class="nav-mobile" aria-label="Primary mobile">
-      <div class="nav-mobile__inner">
 
-        <a class="nav-mobile__item nav-mobile__item--active" href="index.html" aria-label="Home" aria-current="page">
-          <img src="assets/icons/big/home.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
-          <img src="assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
-          <span class="nav-mobile__label">Home</span>
-        </a>
 
-        <a class="nav-mobile__item" href="pages/discover.html" aria-label="Discover">
-          <img src="assets/icons/big/discover.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
-          <img src="assets/icons/big/discover-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
-          <span class="nav-mobile__label">Discover</span>
-        </a>
+  <!-- ===== Mobile Bottom Nav ===== -->
+  <nav class="nav-mobile" aria-label="Primary mobile">
+    <div class="nav-mobile__inner">
 
-        <a class="nav-mobile__item" href="pages/search.html" aria-label="Search">
-          <img src="assets/icons/big/search.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
-          <img src="assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
-          <span class="nav-mobile__label">Search</span>
-        </a>
+      <a class="nav-mobile__item nav-mobile__item--active" href="index.html" aria-label="Home" aria-current="page">
+        <img src="assets/icons/big/home.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Home</span>
+      </a>
 
-        <a class="nav-mobile__item" href="pages/liked-songs.html" aria-label="Library">
-          <img src="assets/icons/big/library.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
-          <img src="assets/icons/big/library-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
-          <span class="nav-mobile__label">Library</span>
-        </a>
+      <a class="nav-mobile__item" href="pages/discover.html" aria-label="Discover">
+        <img src="assets/icons/big/discover.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="assets/icons/big/discover-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Discover</span>
+      </a>
 
-        <a class="nav-mobile__item" href="pages/artist.html" aria-label="Me">
-          <img src="assets/icons/big/user.svg"        alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
-          <img src="assets/icons/big/user-filled.svg" alt="" class="nav-mobile__icon icon--on"  aria-hidden="true">
-          <span class="nav-mobile__label">Me</span>
-        </a>
+      <a class="nav-mobile__item" href="pages/search.html" aria-label="Search">
+        <img src="assets/icons/big/search.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Search</span>
+      </a>
+
+      <a class="nav-mobile__item" href="pages/liked-songs.html" aria-label="Library">
+        <img src="assets/icons/big/library.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="assets/icons/big/library-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Library</span>
+      </a>
+
+      <a class="nav-mobile__item" href="pages/artist.html" aria-label="Me">
+        <img src="assets/icons/big/user.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true">
+        <img src="assets/icons/big/user-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true">
+        <span class="nav-mobile__label">Me</span>
+      </a>
 
     </div>
   </nav><!-- /nav-mobile -->

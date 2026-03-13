@@ -1,294 +1,191 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#191414" />
-    <title>Spotify - Liked Songs</title>
-    <link rel="stylesheet" href="../css/main.css" />
-  </head>
-  <body class="page--liked-songs">
-    <div class="app-layout">
-      <aside class="sidebar">
-        <div class="sidebar__header">
-          <a href="../index.html">
-            <img
-              src="../assets/icons/big/library.svg"
-              alt="spotify-library-icon"
-            />
-            <span>My Library</span>
-          </a>
-        </div>
-        <nav class="sidebar__nav">
-          <ul class="sidebar__list">
-            <li class="sidebar__item sidebar__item--arrow">
-              <a href="#">
-                <div class="sidebar__link-left">
-                  <img src="../assets/icons/big/pin.svg" alt="pins-icon" />
-                  <span>Pins</span>
-                </div>
-                <span class="sidebar__arrow">
-                  <img src="../assets/icons/big/right.svg" alt="arrow-right" />
-                </span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#191414" />
+  <title>Spotify - Liked Songs</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body class="page--liked-songs">
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="../index.html">
+          <img src="../assets/icons/big/library.svg" alt="spotify-library-icon" />
+          <span>My Library</span>
+        </a>
+      </div>
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item sidebar__item--arrow">
+            <a href="#">
+              <div class="sidebar__link-left">
+                <img src="../assets/icons/big/pin.svg" alt="pins-icon" />
+                <span>Pins</span>
+              </div>
+              <span class="sidebar__arrow">
+                <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+              </span>
+            </a>
+          </li>
+          <li class="sidebar__item sidebar__item--accordion">
+            <button class="sidebar__accordion-trigger" aria-expanded="false">
+              <div class="sidebar__link-left">
+                <img src="../assets/icons/big/playlist.svg" alt="playlist-icon" />
+                <span class="sidebar__accordion-label">Playlists</span>
+              </div>
+              <span class="sidebar__arrow">
+                <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+              </span>
+            </button>
+            <ul class="sidebar__dropdown">
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Chill stuff</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Rock n Roll</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>The Jux Box</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Selected Linkin Park</span>
+                </a>
+              </li>
+              <li class="sidebar__dropdown-item">
+                <a href="#">
+                  <img src="../assets/icons/small/playlist.svg" alt="playlist-icon" />
+                  <span>Vibe</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="sidebar__item">
+            <a href="liked-songs.html">
+              <img src="../assets/icons/big/like.svg" alt="spotify-liked-songs-icon" />
+              <span>Liked songs</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/save.svg" alt="spotify-saved-songs-icon" />
+              <span>Saves</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/album.svg" alt="spotify-album-songs-icon" />
+              <span>Albums</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/folder.svg" alt="spotify-folders-icon" />
+              <span>Folders</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="podcasts.html">
+              <img src="../assets/icons/big/podcast.svg" alt="spotify-podcasts-icon" />
+              <span>Podcasts</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img src="../assets/icons/big/audiobook.svg" alt="spotify-audiobooks-icon" />
+              <span>Audiobooks</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="artist.html">
+              <img src="../assets/icons/big/artist.svg" alt="spotify-artists-icon" />
+              <span>Artists</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="app-layout__content">
+      <header class="app-header">
+        <div class="app-header__row">
+          <nav class="nav-primary" aria-label="Primary">
+            <div class="nav-primary__left">
+              <a class="nav-pill nav-pill--home" href="../index.html">
+                <img src="../assets/icons/big/home.svg" alt="" class="nav-icon icon--off" aria-hidden="true" />
+                <img src="../assets/icons/big/home-filled.svg" alt="" class="nav-icon icon--on" aria-hidden="true" />
+                <span class="nav-pill__label">Home</span>
               </a>
-            </li>
-            <li class="sidebar__item sidebar__item--accordion">
-              <button class="sidebar__accordion-trigger" aria-expanded="false">
-                <div class="sidebar__link-left">
-                  <img
-                    src="../assets/icons/big/playlist.svg"
-                    alt="playlist-icon"
-                  />
-                  <span class="sidebar__accordion-label">Playlists</span>
-                </div>
-                <span class="sidebar__arrow">
-                  <img src="../assets/icons/big/right.svg" alt="arrow-right" />
-                </span>
+
+              <a class="nav-pill nav-pill--discover" href="discover.html">
+                <img src="../assets/icons/big/discover.svg" alt="" class="nav-icon icon--off" aria-hidden="true" />
+                <img src="../assets/icons/big/discover-filled.svg" alt="" class="nav-icon icon--on"
+                  aria-hidden="true" />
+                <span class="nav-pill__label">Discover</span>
+              </a>
+
+              <a class="nav-pill nav-pill--search" href="search.html">
+                <img src="../assets/icons/big/search.svg" alt="" class="nav-icon" aria-hidden="true" />
+                <span class="nav-pill__label">Search...</span>
+              </a>
+
+
+            </div>
+
+            <div class="nav-primary__right">
+              <button class="icon-button" type="button" aria-label="News">
+                <img src="../assets/icons/big/news.svg" alt="" class="nav-icon" aria-hidden="true" />
               </button>
-              <ul class="sidebar__dropdown">
-                <li class="sidebar__dropdown-item">
-                  <a href="#">
-                    <img
-                      src="../assets/icons/small/playlist.svg"
-                      alt="playlist-icon"
-                    />
-                    <span>Chill stuff</span>
-                  </a>
-                </li>
-                <li class="sidebar__dropdown-item">
-                  <a href="#">
-                    <img
-                      src="../assets/icons/small/playlist.svg"
-                      alt="playlist-icon"
-                    />
-                    <span>Rock n Roll</span>
-                  </a>
-                </li>
-                <li class="sidebar__dropdown-item">
-                  <a href="#">
-                    <img
-                      src="../assets/icons/small/playlist.svg"
-                      alt="playlist-icon"
-                    />
-                    <span>The Jux Box</span>
-                  </a>
-                </li>
-                <li class="sidebar__dropdown-item">
-                  <a href="#">
-                    <img
-                      src="../assets/icons/small/playlist.svg"
-                      alt="playlist-icon"
-                    />
-                    <span>Selected Linkin Park</span>
-                  </a>
-                </li>
-                <li class="sidebar__dropdown-item">
-                  <a href="#">
-                    <img
-                      src="../assets/icons/small/playlist.svg"
-                      alt="playlist-icon"
-                    />
-                    <span>Vibe</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="sidebar__item">
-              <a href="liked-songs.html">
-                <img
-                  src="../assets/icons/big/like.svg"
-                  alt="spotify-liked-songs-icon"
-                />
-                <span>Liked songs</span>
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#">
-                <img
-                  src="../assets/icons/big/save.svg"
-                  alt="spotify-saved-songs-icon"
-                />
-                <span>Saves</span>
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#">
-                <img
-                  src="../assets/icons/big/album.svg"
-                  alt="spotify-album-songs-icon"
-                />
-                <span>Albums</span>
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#">
-                <img
-                  src="../assets/icons/big/folder.svg"
-                  alt="spotify-folders-icon"
-                />
-                <span>Folders</span>
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#">
-                <img
-                  src="../assets/icons/big/podcast.svg"
-                  alt="spotify-podcasts-icon"
-                />
-                <span>Podcasts</span>
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#">
-                <img
-                  src="../assets/icons/big/audiobook.svg"
-                  alt="spotify-audiobooks-icon"
-                />
-                <span>Audiobooks</span>
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a href="artist.html">
-                <img
-                  src="../assets/icons/big/artist.svg"
-                  alt="spotify-artists-icon"
-                />
-                <span>Artists</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
 
-      <div class="app-layout__content">
-        <header class="app-header">
-          <div class="app-header__row">
-            <nav class="nav-primary" aria-label="Primary">
-              <div class="nav-primary__left">
-                <a class="nav-pill nav-pill--home" href="../index.html">
-                  <img
-                    src="../assets/icons/big/home.svg"
-                    alt=""
-                    class="nav-icon icon--off"
-                    aria-hidden="true"
-                  />
-                  <img
-                    src="../assets/icons/big/home-filled.svg"
-                    alt=""
-                    class="nav-icon icon--on"
-                    aria-hidden="true"
-                  />
-                  <span class="nav-pill__label">Home</span>
-                </a>
+              <label class="icon-button" aria-label="Private session">
+                <input type="checkbox" class="nav-radio" />
+                <img src="../assets/icons/big/private.svg" alt="" class="nav-icon icon--off" aria-hidden="true" />
+                <img src="../assets/icons/big/private-alt.svg" alt="" class="nav-icon icon--on icon--preserve"
+                  aria-hidden="true" />
+              </label>
 
-                <a class="nav-pill nav-pill--discover" href="discover.html">
-                  <img
-                    src="../assets/icons/big/discover.svg"
-                    alt=""
-                    class="nav-icon icon--off"
-                    aria-hidden="true"
-                  />
-                  <img
-                    src="../assets/icons/big/discover-filled.svg"
-                    alt=""
-                    class="nav-icon icon--on"
-                    aria-hidden="true"
-                  />
-                  <span class="nav-pill__label">Discover</span>
-                </a>
+              <label class="icon-button" aria-label="Friends activity">
+                <input type="checkbox" class="nav-radio" />
+                <img src="../assets/icons/big/friends.svg" alt="" class="nav-icon icon--off" aria-hidden="true" />
+                <img src="../assets/icons/big/friends-filled.svg" alt="" class="nav-icon icon--on" aria-hidden="true" />
+              </label>
 
-                <a class="nav-pill nav-pill--search" href="search.html">
-                  <img
-                    src="../assets/icons/big/search.svg"
-                    alt=""
-                    class="nav-icon"
-                    aria-hidden="true"
-                  />
-                  <span class="nav-pill__label">Search...</span>
-                </a>
+              <button class="icon-button" type="button" aria-label="Settings">
+                <img src="../assets/icons/big/settings.svg" alt="" class="nav-icon" aria-hidden="true" />
+              </button>
 
-                
-              </div>
+              <button class="avatar-button" type="button" aria-label="Profile">
+                <img src="../assets/img/profilePicture.webp" alt="User profile picture" class="avatar-image" />
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!--==================Likes songs page starts here======================-->
+      <main class="app-main app-main--search">
+        <h1 class="sr-only">Liked Songs</h1>
+        <div class="search-page">
+          <div class="search-page__inner">
 
-              <div class="nav-primary__right">
-                <button class="icon-button" type="button" aria-label="News">
-                  <img
-                    src="../assets/icons/big/news.svg"
-                    alt=""
-                    class="nav-icon"
-                    aria-hidden="true"
-                  />
-                </button>
-
-                <label class="icon-button" aria-label="Private session">
-                  <input type="checkbox" class="nav-radio" />
-                  <img
-                    src="../assets/icons/big/private.svg"
-                    alt=""
-                    class="nav-icon icon--off"
-                    aria-hidden="true"
-                  />
-                  <img
-                    src="../assets/icons/big/private-alt.svg"
-                    alt=""
-                    class="nav-icon icon--on icon--preserve"
-                    aria-hidden="true"
-                  />
-                </label>
-
-                <label class="icon-button" aria-label="Friends activity">
-                  <input type="checkbox" class="nav-radio" />
-                  <img
-                    src="../assets/icons/big/friends.svg"
-                    alt=""
-                    class="nav-icon icon--off"
-                    aria-hidden="true"
-                  />
-                  <img
-                    src="../assets/icons/big/friends-filled.svg"
-                    alt=""
-                    class="nav-icon icon--on"
-                    aria-hidden="true"
-                  />
-                </label>
-
-                <button class="icon-button" type="button" aria-label="Settings">
-                  <img
-                    src="../assets/icons/big/settings.svg"
-                    alt=""
-                    class="nav-icon"
-                    aria-hidden="true"
-                  />
-                </button>
-
-                <button
-                  class="avatar-button"
-                  type="button"
-                  aria-label="Profile"
-                >
-                  <img
-                    src="../assets/img/profilePicture.webp"
-                    alt="User profile picture"
-                    class="avatar-image"
-                  />
-                </button>
-              </div>
-            </nav>
-          </div>
-        </header>
-<!--==================Likes songs page starts here======================-->
-        <main class="app-main app-main--search">
-          <h1 class="sr-only">Liked Songs</h1>
-          <div class="search-page">
-            <div class="search-page__inner">
-
-             <div class="liked-songs__toolbar">
-             <button class="liked-songs__btn liked-songs__btn--add">
-              <img src="../assets/icons/big/add-simple.svg" alt="add icon">
-             </button>
+            <div class="liked-songs__toolbar">
+              <button class="liked-songs__btn liked-songs__btn--add">
+                <img src="../assets/icons/big/add-simple.svg" alt="add icon">
+              </button>
               <div class="liked-songs__toolbar-right">
                 <button class="liked-songs__btn liked-songs__btn--list">
                   <img src="../assets/icons/big/list.svg" alt="list view icon">
@@ -296,386 +193,371 @@
                 <button class="liked-songs__btn liked-songs__btn--grid">
                   <img src="../assets/icons/big/grid.svg" alt="grid view icon">
                 </button>
-                  <button class="liked-songs__btn liked-songs__btn--sort">
+                <button class="liked-songs__btn liked-songs__btn--sort">
                   <img src="../assets/icons/big/sort.svg" alt="sort view icon">
                   <span class="liked-songs__btn-text">Recent</span>
                 </button>
-                  <button class="liked-songs__btn liked-songs__btn--filter">
+                <button class="liked-songs__btn liked-songs__btn--filter">
                   <img src="../assets/icons/big/filter.svg" alt="filter view icon">
                   <span class="liked-songs__btn-text">Filter: All</span>
                 </button>
-               <button class="liked-songs__btn liked-songs__btn--search">
-                <img src="../assets/icons/big/search.svg" alt="search icon">
-               </button>
+                <button class="liked-songs__btn liked-songs__btn--search">
+                  <img src="../assets/icons/big/search.svg" alt="search icon">
+                </button>
               </div>
 
-             </div>
+            </div>
 
-          <!--table header-->
-          <div class="liked-songs__header">
-            <span>#</span>
-            <span>Title</span>
-            <span>Album</span>
-            <span>Duration</span>
-              <span></span>  <!-- like -->
-              <span></span>  <!-- actions -->
-              <span></span>  <!-- checkbox -->
-          </div>
-          <!--songs list-->
-          <ul class="liked-songs__list">
-            <li class="song-row">
-              <span class="song-row__number">1</span>
-              <div class="song-row__title">
-                <img src="../assets/img/daft.png" alt="daft punk album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">Get Lucky</p>
-                  <p class="song-row__artist">Daft Punk</p>
+            <!--table header-->
+            <div class="liked-songs__header">
+              <span>#</span>
+              <span>Title</span>
+              <span>Album</span>
+              <span>Duration</span>
+              <span></span> <!-- like -->
+              <span></span> <!-- actions -->
+              <span></span> <!-- checkbox -->
+            </div>
+            <!--songs list-->
+            <ul class="liked-songs__list">
+              <li class="song-row">
+                <span class="song-row__number">1</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/daft.png" alt="daft punk album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">Get Lucky</p>
+                    <p class="song-row__artist">Daft Punk</p>
+                  </div>
                 </div>
-             </div>
-             <span class="song-row__album">Random Access Memories</span>
-             <span class="song-row__duration">4:35</span>
-             <!-- <button class="song-row__like">
+                <span class="song-row__album">Random Access Memories</span>
+                <span class="song-row__duration">4:35</span>
+                <!-- <button class="song-row__like">
               <img src="assets/like.svg" alt="">
 
              </button> -->
-               <input type="checkbox" id="like-1" class="song-row__like-checkbox">
+                <input type="checkbox" id="like-1" class="song-row__like-checkbox">
                 <label for="like-1" class="song-row__like-label">
-                   <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                   <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
                 </label>
 
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                 <img src="../assets/icons/big/more.svg" alt="More options">
-                 </button>
-            </div>
-             <input type="checkbox" id="check-1" class="song-row__checkbox">
-             <label for="check-1" class="song-row__check-label">
-            <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-            <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-             </label>
-
-            </li>
-
-             <li class="song-row">
-              <span class="song-row__number">2</span>
-              <div class="song-row__title">
-                <img src="../assets/img/daft.png" alt="daft punk album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">Instant Crush</p>
-                  <p class="song-row__artist">Daft Punk, Julian Casablancas</p>
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
                 </div>
-             </div>
-             <span class="song-row__album">Random Access Memories</span>
-             <span class="song-row__duration">5:37</span>
-             <!-- <button class="song-row__like">
-              <img src="assets/like.svg" alt="">
+                <input type="checkbox" id="check-1" class="song-row__checkbox">
+                <label for="check-1" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
 
-             </button> -->
-               <input type="checkbox" id="like-2" class="song-row__like-checkbox">
-               <label for="like-2" class="song-row__like-label">
-                 <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                 <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
-              </label>
-
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                  <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                   <img src="../assets/icons/big/more.svg" alt="More options">
-                </button>
-              </div>
-              <input type="checkbox" id="check-2" class="song-row__checkbox">
-               <label for="check-2" class="song-row__check-label">
-                <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-                <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-              </label>
-            </li>
-
-            
-             <li class="song-row">
-              <span class="song-row__number">3</span>
-              <div class="song-row__title">
-                <img src="../assets/img/hill.png" alt="on melancholy hill album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">On Melancholy Hill</p>
-                  <p class="song-row__artist">Gorillaz</p>
-                </div>
-             </div>
-             <span class="song-row__album">Plastic Beach</span>
-             <span class="song-row__duration">3:53</span>
-             <!-- <button class="song-row__like">
-              <img src="assets/like.svg" alt="">
-
-             </button> -->
-               <input type="checkbox" id="like-3" class="song-row__like-checkbox">
-               <label for="like-3" class="song-row__like-label">
-                 <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                 <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
-              </label>
-
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                  <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                   <img src="../assets/icons/big/more.svg" alt="More options">
-                </button>
-              </div>
-              <input type="checkbox" id="check-3" class="song-row__checkbox">
-               <label for="check-3" class="song-row__check-label">
-                <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-                <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-              </label>
-            </li>
-
-             <li class="song-row">
-              <span class="song-row__number">4</span>
-              <div class="song-row__title">
-                <img src="../assets/img/trained-love.png" alt="trained on love album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">Trained Love</p>
-                  <p class="song-row__artist">Soft Cell</p>
-                </div>
-             </div>
-             <span class="song-row__album">Non-Stop Erotic Cabaret</span>
-             <span class="song-row__duration">2:33</span>
-             <!-- <button class="song-row__like">
-              <img src="assets/like.svg" alt="">
-
-             </button> -->
-               <input type="checkbox" id="like-4" class="song-row__like-checkbox">
-               <label for="like-4" class="song-row__like-label">
-                 <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                 <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
-              </label>
-
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                  <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                   <img src="../assets/icons/big/more.svg" alt="More options">
-                </button>
-              </div>
-              <input type="checkbox" id="check-4" class="song-row__checkbox">
-               <label for="check-4" class="song-row__check-label">
-                <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-                <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-              </label>
-            </li>
+              </li>
 
               <li class="song-row">
-              <span class="song-row__number">5</span>
-              <div class="song-row__title">
-                <img src="../assets/img/onemoretime.png" alt="one more time album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">One More Time</p>
-                  <p class="song-row__artist">Daft Punk</p>
+                <span class="song-row__number">2</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/daft.png" alt="daft punk album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">Instant Crush</p>
+                    <p class="song-row__artist">Daft Punk, Julian Casablancas</p>
+                  </div>
                 </div>
-             </div>
-             <span class="song-row__album">Discovery</span>
-             <span class="song-row__duration">5:20</span>
-             <!-- <button class="song-row__like">
+                <span class="song-row__album">Random Access Memories</span>
+                <span class="song-row__duration">5:37</span>
+                <!-- <button class="song-row__like">
               <img src="assets/like.svg" alt="">
 
              </button> -->
-               <input type="checkbox" id="like-5" class="song-row__like-checkbox">
-               <label for="like-5" class="song-row__like-label">
-                 <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                 <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
-              </label>
+                <input type="checkbox" id="like-2" class="song-row__like-checkbox">
+                <label for="like-2" class="song-row__like-label">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                </label>
 
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                  <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                   <img src="../assets/icons/big/more.svg" alt="More options">
-                </button>
-              </div>
-              <input type="checkbox" id="check-5" class="song-row__checkbox">
-               <label for="check-5" class="song-row__check-label">
-                <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-                <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-              </label>
-            </li>
-
-            <li class="song-row">
-              <span class="song-row__number">6</span>
-              <div class="song-row__title">
-                <img src="../assets/img/mgmt.png" alt="Electric feel album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">Electric Feele</p>
-                  <p class="song-row__artist">MGMT</p>
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
                 </div>
-             </div>
-             <span class="song-row__album">Oracular Spectacular</span>
-             <span class="song-row__duration">3:49</span>
-             <!-- <button class="song-row__like">
+                <input type="checkbox" id="check-2" class="song-row__checkbox">
+                <label for="check-2" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
+              </li>
+
+
+              <li class="song-row">
+                <span class="song-row__number">3</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/hill.png" alt="on melancholy hill album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">On Melancholy Hill</p>
+                    <p class="song-row__artist">Gorillaz</p>
+                  </div>
+                </div>
+                <span class="song-row__album">Plastic Beach</span>
+                <span class="song-row__duration">3:53</span>
+                <!-- <button class="song-row__like">
               <img src="assets/like.svg" alt="">
 
              </button> -->
-               <input type="checkbox" id="like-6" class="song-row__like-checkbox">
-               <label for="like-6" class="song-row__like-label">
-                 <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                 <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
-              </label>
+                <input type="checkbox" id="like-3" class="song-row__like-checkbox">
+                <label for="like-3" class="song-row__like-label">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                </label>
 
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                  <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                   <img src="../assets/icons/big/more.svg" alt="More options">
-                </button>
-              </div>
-              <input type="checkbox" id="check-6" class="song-row__checkbox">
-               <label for="check-6" class="song-row__check-label">
-                <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-                <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-              </label>
-            </li>
-
-            <li class="song-row">
-              <span class="song-row__number">7</span>
-              <div class="song-row__title">
-                <img src="../assets/img/daft.png" alt="daft punk album cover">
-                <div class="song-row__info">
-                  <p class="song-row__name">Give Life Back to Music</p>
-                  <p class="song-row__artist">Daft Punk</p>
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
                 </div>
-             </div>
-             <span class="song-row__album">Random Access Memories</span>
-             <span class="song-row__duration">4:35</span>
-             <!-- <button class="song-row__like">
+                <input type="checkbox" id="check-3" class="song-row__checkbox">
+                <label for="check-3" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
+              </li>
+
+              <li class="song-row">
+                <span class="song-row__number">4</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/trained-love.png" alt="trained on love album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">Trained Love</p>
+                    <p class="song-row__artist">Soft Cell</p>
+                  </div>
+                </div>
+                <span class="song-row__album">Non-Stop Erotic Cabaret</span>
+                <span class="song-row__duration">2:33</span>
+                <!-- <button class="song-row__like">
               <img src="assets/like.svg" alt="">
 
              </button> -->
-               <input type="checkbox" id="like-7" class="song-row__like-checkbox">
-               <label for="like-7" class="song-row__like-label">
-                 <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
-                 <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
-              </label>
+                <input type="checkbox" id="like-4" class="song-row__like-checkbox">
+                <label for="like-4" class="song-row__like-label">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                </label>
 
-             <div class="song-row__actions">
-                <button class="song-row__add">
-                  <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
-                </button>
-                <button class="song-row__more">
-                   <img src="../assets/icons/big/more.svg" alt="More options">
-                </button>
-              </div>
-              <input type="checkbox" id="check-7" class="song-row__checkbox">
-               <label for="check-7" class="song-row__check-label">
-                <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
-                <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
-              </label>
-            </li>
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
+                </div>
+                <input type="checkbox" id="check-4" class="song-row__checkbox">
+                <label for="check-4" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
+              </li>
 
-          </ul>
-          
+              <li class="song-row">
+                <span class="song-row__number">5</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/onemoretime.png" alt="one more time album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">One More Time</p>
+                    <p class="song-row__artist">Daft Punk</p>
+                  </div>
+                </div>
+                <span class="song-row__album">Discovery</span>
+                <span class="song-row__duration">5:20</span>
+                <!-- <button class="song-row__like">
+              <img src="assets/like.svg" alt="">
+
+             </button> -->
+                <input type="checkbox" id="like-5" class="song-row__like-checkbox">
+                <label for="like-5" class="song-row__like-label">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                </label>
+
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
+                </div>
+                <input type="checkbox" id="check-5" class="song-row__checkbox">
+                <label for="check-5" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
+              </li>
+
+              <li class="song-row">
+                <span class="song-row__number">6</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/mgmt.png" alt="Electric feel album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">Electric Feele</p>
+                    <p class="song-row__artist">MGMT</p>
+                  </div>
+                </div>
+                <span class="song-row__album">Oracular Spectacular</span>
+                <span class="song-row__duration">3:49</span>
+                <!-- <button class="song-row__like">
+              <img src="assets/like.svg" alt="">
+
+             </button> -->
+                <input type="checkbox" id="like-6" class="song-row__like-checkbox">
+                <label for="like-6" class="song-row__like-label">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                </label>
+
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
+                </div>
+                <input type="checkbox" id="check-6" class="song-row__checkbox">
+                <label for="check-6" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
+              </li>
+
+              <li class="song-row">
+                <span class="song-row__number">7</span>
+                <div class="song-row__title">
+                  <img src="../assets/img/daft.png" alt="daft punk album cover">
+                  <div class="song-row__info">
+                    <p class="song-row__name">Give Life Back to Music</p>
+                    <p class="song-row__artist">Daft Punk</p>
+                  </div>
+                </div>
+                <span class="song-row__album">Random Access Memories</span>
+                <span class="song-row__duration">4:35</span>
+                <!-- <button class="song-row__like">
+              <img src="assets/like.svg" alt="">
+
+             </button> -->
+                <input type="checkbox" id="like-7" class="song-row__like-checkbox">
+                <label for="like-7" class="song-row__like-label">
+                  <img class="song-row__like-empty" src="../assets/icons/big/like.svg" alt="like">
+                  <img class="song-row__like-filled" src="../assets/icons/big/green-like.svg" alt="liked">
+                </label>
+
+                <div class="song-row__actions">
+                  <button class="song-row__add">
+                    <img src="../assets/icons/big/add-to-playlist.svg" alt="Add to playlist">
+                  </button>
+                  <button class="song-row__more">
+                    <img src="../assets/icons/big/more.svg" alt="More options">
+                  </button>
+                </div>
+                <input type="checkbox" id="check-7" class="song-row__checkbox">
+                <label for="check-7" class="song-row__check-label">
+                  <img class="song-row__check-unchecked" src="../assets/icons/big/check.svg" alt="check icon">
+                  <img class="song-row__check-checked" src="../assets/icons/big/check-filled.svg" alt="checked icon">
+                </label>
+              </li>
+
+            </ul>
+
           </div>
-            </div>
-          </div>
-        </main>
-        <!--==================Liked songs page ends here======================-->
-      </div>
+        </div>
     </div>
-
-    <nav class="nav-mobile" aria-label="Primary mobile">
-      <div class="nav-mobile__inner">
-        <a class="nav-mobile__item" href="../index.html" aria-label="Home">
-          <img
-            src="../assets/icons/big/home.svg"
-            alt=""
-            class="nav-mobile__icon icon--off"
-            aria-hidden="true"
-          />
-          <img
-            src="../assets/icons/big/home-filled.svg"
-            alt=""
-            class="nav-mobile__icon icon--on"
-            aria-hidden="true"
-          />
-          <span class="nav-mobile__label">Home</span>
-        </a>
-
-        <a class="nav-mobile__item" href="discover.html" aria-label="Discover">
-          <img
-            src="../assets/icons/big/discover.svg"
-            alt=""
-            class="nav-mobile__icon icon--off"
-            aria-hidden="true"
-          />
-          <img
-            src="../assets/icons/big/discover-filled.svg"
-            alt=""
-            class="nav-mobile__icon icon--on"
-            aria-hidden="true"
-          />
-          <span class="nav-mobile__label">Discover</span>
-        </a>
-
-        <a class="nav-mobile__item" href="search.html" aria-label="Search">
-          <img
-            src="../assets/icons/big/search.svg"
-            alt=""
-            class="nav-mobile__icon icon--off"
-            aria-hidden="true"
-          />
-          <img
-            src="../assets/icons/big/search-filled.svg"
-            alt=""
-            class="nav-mobile__icon icon--on"
-            aria-hidden="true"
-          />
-          <span class="nav-mobile__label">Search</span>
-        </a>
-
-        <a
-          class="nav-mobile__item nav-mobile__item--active"
-          href="liked-songs.html"
-          aria-label="Library"
-          aria-current="page"
-        >
-          <img
-            src="../assets/icons/big/library.svg"
-            alt=""
-            class="nav-mobile__icon icon--off"
-            aria-hidden="true"
-          />
-          <img
-            src="../assets/icons/big/library-filled.svg"
-            alt=""
-            class="nav-mobile__icon icon--on"
-            aria-hidden="true"
-          />
-          <span class="nav-mobile__label">Library</span>
-        </a>
-
-        <a class="nav-mobile__item" href="artist.html" aria-label="Me">
-          <img
-            src="../assets/icons/big/user.svg"
-            alt=""
-            class="nav-mobile__icon icon--off"
-            aria-hidden="true"
-          />
-          <img
-            src="../assets/icons/big/user-filled.svg"
-            alt=""
-            class="nav-mobile__icon icon--on"
-            aria-hidden="true"
-          />
-          <span class="nav-mobile__label">Me</span>
+    </main>
+    <!--==================Liked songs page ends here======================-->
+    <!-- ===== Player ===== -->
+    <section class="player" aria-label="player bar">
+      <div class="player__left">
+        <button class="btn-play-pause">
+          <img src="../assets/icons/big/pause.svg" alt="pause">
+        </button>
+        <button class="player__btn-prev">
+          <img src="../assets/icons/big/prev.svg" alt="previous">
+        </button>
+        <button class="player__btn-next">
+          <img src="../assets/icons/big/next.svg" alt="next">
+        </button>
+        <button class="player__btn-shuffle">
+          <img src="../assets/icons/big/shuffle.svg" alt="shuffle">
+        </button>
+        <button class="player__btn-loop">
+          <img src="../assets/icons/big/loop.svg" alt="loop">
+        </button>
+      </div>
+      <div class="player__center">
+        <span class="player__time-current">2:23</span>
+        <input class="player__progress-bar" type="range" min="0" max="100" value="52">
+        <span class="player__time-total">4:45</span>
+        <button class="player__btn-volume">
+          <img src="../assets/icons/big/volume.svg" alt="volume">
+        </button>
+        <figure class="player__album-cover">
+          <img src="../assets/img/random-access-memories.webp" alt="album cover">
+        </figure>
+        <a href="lyrics.html" class="player__song-info">
+          <span class="player__song-title">Get Lucky</span>
+          <span class="player__song-artist">Daft Punk</span>
+          <span class="player__song-album">Random Access Memories</span>
         </a>
       </div>
-    </nav>
+    </section>
+  </div> <!-- /app-layout__content -->
 
-    <script src="../js/app.js"></script>
-  </body>
+  </div> <!-- /app-layout -->
+
+  <nav class="nav-mobile" aria-label="Primary mobile">
+    <div class="nav-mobile__inner">
+      <a class="nav-mobile__item" href="../index.html" aria-label="Home">
+        <img src="../assets/icons/big/home.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true" />
+        <img src="../assets/icons/big/home-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true" />
+        <span class="nav-mobile__label">Home</span>
+      </a>
+
+      <a class="nav-mobile__item" href="discover.html" aria-label="Discover">
+        <img src="../assets/icons/big/discover.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true" />
+        <img src="../assets/icons/big/discover-filled.svg" alt="" class="nav-mobile__icon icon--on"
+          aria-hidden="true" />
+        <span class="nav-mobile__label">Discover</span>
+      </a>
+
+      <a class="nav-mobile__item" href="search.html" aria-label="Search">
+        <img src="../assets/icons/big/search.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true" />
+        <img src="../assets/icons/big/search-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true" />
+        <span class="nav-mobile__label">Search</span>
+      </a>
+
+      <a class="nav-mobile__item nav-mobile__item--active" href="liked-songs.html" aria-label="Library"
+        aria-current="page">
+        <img src="../assets/icons/big/library.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true" />
+        <img src="../assets/icons/big/library-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true" />
+        <span class="nav-mobile__label">Library</span>
+      </a>
+
+      <a class="nav-mobile__item" href="artist.html" aria-label="Me">
+        <img src="../assets/icons/big/user.svg" alt="" class="nav-mobile__icon icon--off" aria-hidden="true" />
+        <img src="../assets/icons/big/user-filled.svg" alt="" class="nav-mobile__icon icon--on" aria-hidden="true" />
+        <span class="nav-mobile__label">Me</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="../js/app.js"></script>
+</body>
+
 </html>
