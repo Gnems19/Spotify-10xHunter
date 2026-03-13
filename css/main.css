@@ -1151,6 +1151,7 @@ p, li, a, button, span {
   padding: 0;
   margin: 0;
   width: 43.2rem;
+  max-width: calc(100vw - 4.8rem);
   border-radius: 1rem;
   color: #FFFFFF;
   box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0);
@@ -1158,6 +1159,9 @@ p, li, a, button, span {
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
   position: fixed;
+  top: calc(5.4rem + 1.6rem + 4.6rem + 0.8rem);
+  right: 2.4rem;
+  left: auto;
   z-index: 30;
   opacity: 0;
   pointer-events: none;
@@ -4116,9 +4120,6 @@ p, li, a, button, span {
 .artist-album-row:first-child {
   padding-top: 0;
   border-top: none;
-}
-.artist-album-row.is-expanded {
-  padding-bottom: 1.6rem;
 }
 .artist-album-row__summary {
   display: grid;

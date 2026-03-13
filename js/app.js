@@ -33,10 +33,9 @@
     }
 
     // ── Artist page ────────────────────────────────────────────
-    // Handles three features on the artist page:
-    //   1. Tab switching (Home / Albums / etc.)
+    // Handles two features on the artist page:
+    //   1. Tab switching (Home / Albums / about.)
     //   2. Album view toggle (grid vs list)
-    //   3. Album row accordion (expand one, collapse the rest)
     const artistPage = document.querySelector('.artist-page');
     if (artistPage) {
 
@@ -48,8 +47,6 @@
 
       const viewButtons = artistPage.querySelectorAll('[data-artist-albums-view-target]');
       const viewPanels  = artistPage.querySelectorAll('[data-artist-albums-view-panel]');
-
-      const albumRows   = artistPage.querySelectorAll('[data-artist-album-row]');
 
       // --- 1. Tab switching (Home / Albums / etc.) ---
       // Shows the matching panel and hides all others.
@@ -107,48 +104,6 @@
       viewButtons.forEach(function (button) {
         button.addEventListener('click', function () {
           switchAlbumView(this.dataset.artistAlbumsViewTarget);
-        });
-      });
-
-      // --- 3. Album row accordion ---
-      // Only one row can be expanded at a time — clicking a row
-      // collapses any other open row first, then toggles the clicked one.
-      function setRowExpanded(row, isExpanded) {
-        row.classList.toggle('is-expanded', isExpanded);
-
-        const details = row.querySelector('.artist-album-row__details');
-        if (details) {
-          details.hidden = !isExpanded;
-        }
-
-        row.querySelectorAll('[data-artist-album-toggle]').forEach(function (toggle) {
-          toggle.setAttribute('aria-expanded', String(isExpanded));
-        });
-      }
-
-      albumRows.forEach(function (row) {
-        // Set the initial state from the HTML markup
-        const isExpanded = row.classList.contains('is-expanded');
-        const details = row.querySelector('.artist-album-row__details');
-        if (details) {
-          details.hidden = !isExpanded;
-        }
-
-        row.querySelectorAll('[data-artist-album-toggle]').forEach(function (toggle) {
-          toggle.setAttribute('aria-expanded', String(isExpanded));
-
-          toggle.addEventListener('click', function () {
-            const shouldExpand = !row.classList.contains('is-expanded');
-
-            // Collapse every other row first
-            albumRows.forEach(function (otherRow) {
-              if (otherRow !== row) {
-                setRowExpanded(otherRow, false);
-              }
-            });
-
-            setRowExpanded(row, shouldExpand);
-          });
         });
       });
 
@@ -214,41 +169,12 @@
       const feedModalTransitionMs = 180;
       let feedModalCloseTimer = 0;
 
-      // Position the dialog below the feed button, right-aligned with viewport gutters.
-      function positionFeedModal() {
-        const gutter = 12;
-        const verticalOffset = 8;
-        const rect = feedBtn.getBoundingClientRect();
-        const modalRect = feedModal.getBoundingClientRect();
-
-        const minRight = gutter;
-        const maxRight = window.innerWidth - modalRect.width - gutter;
-        const desiredRight = window.innerWidth - rect.right;
-        const right = Math.min(maxRight, Math.max(minRight, desiredRight));
-
-        const minTop = gutter;
-        const maxTop = window.innerHeight - modalRect.height - gutter;
-        let top = rect.bottom + verticalOffset;
-
-        // If there's no room below, place it above the trigger.
-        if (top > maxTop) {
-          top = rect.top - modalRect.height - verticalOffset;
-        }
-        top = Math.min(maxTop, Math.max(minTop, top));
-
-        feedModal.style.left = 'auto';
-        feedModal.style.right = right + 'px';
-        feedModal.style.top = top + 'px';
-      }
-
       function openFeedModal() {
         window.clearTimeout(feedModalCloseTimer);
 
         if (!feedModal.open) {
           feedModal.show();
         }
-
-        positionFeedModal();
 
         window.requestAnimationFrame(() => {
           feedModal.classList.add('feed-modal--visible');
@@ -297,14 +223,6 @@
           closeFeedModal();
         }
       });
-
-      // Reposition on resize/scroll
-      window.addEventListener('resize', function () {
-        if (feedModal.open) positionFeedModal();
-      });
-      window.addEventListener('scroll', function () {
-        if (feedModal.open) positionFeedModal();
-      }, { passive: true });
 
       // Feed row controls (visibility + pin) via one delegated listener
       feedModal.querySelector('.feed-modal__list')?.addEventListener('click', function (e) {

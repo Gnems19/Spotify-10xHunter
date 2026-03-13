@@ -534,10 +534,6 @@
     border-top: none;
   }
 
-  &.is-expanded {
-    padding-bottom: 1.6rem;
-  }
-
   &__summary {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 4rem;
