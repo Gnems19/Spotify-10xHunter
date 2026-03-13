@@ -1,0 +1,2046 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#191414" />
+    <title>Spotify - Daft Punk</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body class="page--artist">
+    <div class="app-layout">
+      <aside class="sidebar">
+        <div class="sidebar__header">
+          <a href="../index.html">
+            <img
+              src="../assets/icons/big/library.svg"
+              alt="spotify-library-icon"
+            />
+            <span>My Library</span>
+          </a>
+        </div>
+        <nav class="sidebar__nav">
+          <ul class="sidebar__list">
+            <li class="sidebar__item sidebar__item--arrow">
+              <a href="#">
+                <div class="sidebar__link-left">
+                  <img src="../assets/icons/big/pin.svg" alt="pins-icon" />
+                  <span>Pins</span>
+                </div>
+                <span class="sidebar__arrow">
+                  <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__item sidebar__item--accordion">
+              <button class="sidebar__accordion-trigger" aria-expanded="false">
+                <div class="sidebar__link-left">
+                  <img
+                    src="../assets/icons/big/playlist.svg"
+                    alt="playlist-icon"
+                  />
+                  <span class="sidebar__accordion-label">Playlists</span>
+                </div>
+                <span class="sidebar__arrow">
+                  <img src="../assets/icons/big/right.svg" alt="arrow-right" />
+                </span>
+              </button>
+              <ul class="sidebar__dropdown">
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Chill stuff</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Rock n Roll</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>The Jux Box</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Selected Linkin Park</span>
+                  </a>
+                </li>
+                <li class="sidebar__dropdown-item">
+                  <a href="#">
+                    <img
+                      src="../assets/icons/small/playlist.svg"
+                      alt="playlist-icon"
+                    />
+                    <span>Vibe</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/like.svg"
+                  alt="spotify-liked-songs-icon"
+                />
+                <span>Liked songs</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/save.svg"
+                  alt="spotify-saved-songs-icon"
+                />
+                <span>Saves</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/album.svg"
+                  alt="spotify-album-songs-icon"
+                />
+                <span>Albums</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/folder.svg"
+                  alt="spotify-folders-icon"
+                />
+                <span>Folders</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/podcast.svg"
+                  alt="spotify-podcasts-icon"
+                />
+                <span>Podcasts</span>
+              </a>
+            </li>
+            <li class="sidebar__item">
+              <a href="#">
+                <img
+                  src="../assets/icons/big/audiobook.svg"
+                  alt="spotify-audiobooks-icon"
+                />
+                <span>Audiobooks</span>
+              </a>
+            </li>
+            <li class="sidebar__item sidebar__item--current">
+              <a href="artist.html" aria-current="page">
+                <img
+                  src="../assets/icons/big/artist.svg"
+                  alt="spotify-artists-icon"
+                />
+                <span>Artists</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="app-layout__content">
+        <header class="app-header">
+          <div class="app-header__row">
+            <nav class="nav-primary" aria-label="Primary">
+              <div class="nav-primary__left">
+                <a class="nav-pill nav-pill--home" href="../index.html">
+                  <img
+                    src="../assets/icons/big/home.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/home-filled.svg"
+                    alt=""
+                    class="nav-icon icon--on"
+                    aria-hidden="true"
+                  />
+                  <span class="nav-pill__label">Home</span>
+                </a>
+
+                <label class="nav-pill nav-pill--discover">
+                  <input
+                    type="radio"
+                    id="nav-discover"
+                    name="primary-nav"
+                    class="nav-radio"
+                  />
+                  <img
+                    src="../assets/icons/big/discover.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/discover-filled.svg"
+                    alt=""
+                    class="nav-icon icon--on"
+                    aria-hidden="true"
+                  />
+                  <span class="nav-pill__label">Discover</span>
+                </label>
+
+                <a class="nav-pill nav-pill--search" href="search.html">
+                  <img
+                    src="../assets/icons/big/search.svg"
+                    alt=""
+                    class="nav-icon"
+                    aria-hidden="true"
+                  />
+                  <span class="nav-pill__label">Search...</span>
+                </a>
+              </div>
+
+              <div class="nav-primary__right">
+                <button class="icon-button" type="button" aria-label="News">
+                  <img
+                    src="../assets/icons/big/news.svg"
+                    alt=""
+                    class="nav-icon"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <label class="icon-button" aria-label="Private session">
+                  <input type="checkbox" class="nav-radio" />
+                  <img
+                    src="../assets/icons/big/private.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/private-alt.svg"
+                    alt=""
+                    class="nav-icon icon--on icon--preserve"
+                    aria-hidden="true"
+                  />
+                </label>
+
+                <label class="icon-button" aria-label="Friends activity">
+                  <input type="checkbox" class="nav-radio" />
+                  <img
+                    src="../assets/icons/big/friends.svg"
+                    alt=""
+                    class="nav-icon icon--off"
+                    aria-hidden="true"
+                  />
+                  <img
+                    src="../assets/icons/big/friends-filled.svg"
+                    alt=""
+                    class="nav-icon icon--on"
+                    aria-hidden="true"
+                  />
+                </label>
+
+                <button class="icon-button" type="button" aria-label="Settings">
+                  <img
+                    src="../assets/icons/big/settings.svg"
+                    alt=""
+                    class="nav-icon"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <button
+                  class="avatar-button"
+                  type="button"
+                  aria-label="Profile"
+                >
+                  <img
+                    src="../assets/img/profilePicture.webp"
+                    alt="User profile picture"
+                    class="avatar-image"
+                  />
+                </button>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <main class="app-main app-main--artist">
+          <div class="artist-page">
+            <section class="artist-hero" id="artist-home">
+              <img
+                class="artist-hero__image"
+                src="../assets/img/draft-punk-cover.png"
+                alt="Daft Punk promotional cover"
+                loading="eager"
+              />
+              <div class="artist-hero__overlay" aria-hidden="true"></div>
+              <div class="artist-hero__content">
+                <div class="artist-hero__copy">
+                  <h1 class="artist-hero__title">Daft Punk</h1>
+                  <p class="artist-hero__listeners">
+                    22,430,353 monthly listeners
+                  </p>
+                </div>
+
+                <div class="artist-hero__actions" aria-label="Artist actions">
+                  <button
+                    class="artist-action artist-action--play"
+                    type="button"
+                    aria-label="Play Daft Punk"
+                  >
+                    <img
+                      src="../assets/icons/big/play.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="artist-action artist-action--follow"
+                    type="button"
+                  >
+                    Follow
+                  </button>
+                  <button
+                    class="artist-action lyrics-actions__icon--playlist"
+                    type="button"
+                    aria-label="Add to playlist"
+                    popovertarget="artist-playlist-popover"
+                  >
+                    <img
+                      src="../assets/icons/big/add-to-playlist.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="artist-action"
+                    type="button"
+                    aria-label="Add to queue"
+                  >
+                    <img
+                      src="../assets/icons/big/add-to-queue.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  
+                  <button
+                    class="artist-action"
+                    type="button"
+                    aria-label="More artist actions"
+                  >
+                    <img
+                      src="../assets/icons/big/more.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <nav class="artist-subnav" aria-label="Artist sections">
+              <div class="artist-subnav__track">
+                <div class="artist-subnav__links">
+                  <button
+                    class="artist-subnav__link is-active"
+                    type="button"
+                    data-artist-panel-target="home"
+                    aria-current="page"
+                  >
+                    Home
+                  </button>
+                  <button
+                    class="artist-subnav__link"
+                    type="button"
+                    data-artist-panel-target="albums"
+                  >
+                    Albums
+                  </button>
+                  <button class="artist-subnav__link" type="button">
+                    Singles and EPs
+                  </button>
+                  <button class="artist-subnav__link" type="button">
+                    Compilations
+                  </button>
+                  <button class="artist-subnav__link" type="button">
+                    Merch
+                  </button>
+                  <button
+                    class="artist-subnav__link"
+                    type="button"
+                    data-artist-panel-target="about"
+                  >
+                    About
+                  </button>
+                  <button class="artist-subnav__link" type="button">
+                    Features &amp; More
+                  </button>
+                  <button
+                    class="artist-action artist-subnav__search"
+                    type="button"
+                    aria-label="Search within artist page"
+                  >
+                    <img
+                      src="../assets/icons/big/search.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div class="artist-subnav__view-controls" hidden>
+                  <button
+                    class="artist-subnav__view-btn"
+                    type="button"
+                    data-artist-albums-view-target="list"
+                    aria-label="Show albums as a list"
+                    aria-pressed="false"
+                  >
+                    <img
+                      src="../assets/icons/big/list.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="artist-subnav__view-btn is-active"
+                    type="button"
+                    data-artist-albums-view-target="grid"
+                    aria-label="Show albums as a grid"
+                    aria-pressed="true"
+                  >
+                    <img
+                      src="../assets/icons/big/grid.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+              </div>
+            </nav>
+
+            <section
+              class="artist-page__panel is-active"
+              id="artist-panel-home"
+              data-artist-panel="home"
+            >
+              <div class="artist-page__body">
+                <div class="artist-page__main">
+                  <section class="artist-section" aria-labelledby="most-played">
+                    <h2 class="artist-section__title" id="most-played">
+                      Your most played
+                    </h2>
+
+                    <div class="artist-tracklist" role="list">
+                      <article class="artist-track" role="listitem">
+                        <span class="artist-track__number">1</span>
+                        <div class="artist-track__main">
+                          <img
+                            class="artist-track__cover"
+                            src="../assets/img/onemoretime.png"
+                            alt="One More Time cover art"
+                            loading="lazy"
+                          />
+                          <div class="artist-track__meta">
+                            <span class="artist-track__title">One More Time</span>
+                            <p class="artist-track__artist">Daft Punk</p>
+                          </div>
+                        </div>
+                        <span class="artist-track__duration">5:20</span>
+                        <button
+                          class="artist-track__action"
+                          type="button"
+                          aria-label="Like One More Time"
+                        >
+                          <img
+                            src="../assets/icons/big/like.svg"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </article>
+
+                    <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">2</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/random-access-memories.webp"
+                          alt="Get Lucky cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title">Get Lucky</span>
+                          <p class="artist-track__artist">Daft Punk</p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">4:35</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Get Lucky"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </article>
+
+                    <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">3</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/random-access-memories.webp"
+                          alt="Give Life Back to Music cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title"
+                            >Give Life Back to Music</span
+                          >
+                          <p class="artist-track__artist">Daft Punk</p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">4:35</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Give Life Back to Music"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </article>
+
+                    <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">4</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/random-access-memories.webp"
+                          alt="Instant Crush cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title">Instant Crush</span>
+                          <p class="artist-track__artist">
+                            Daft Punk, Julian Casablancas
+                          </p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">5:37</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Instant Crush"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </article>
+                    </div>
+                  </section>
+
+                  <section
+                    class="artist-section"
+                    id="artist-popular"
+                    aria-labelledby="popular"
+                  >
+                    <h2 class="artist-section__title" id="popular">Popular</h2>
+
+                    <div class="artist-tracklist" role="list">
+                      <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">1</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/onemoretime.png"
+                          alt="Around the World cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title"
+                            >Around the World</span
+                          >
+                          <p class="artist-track__artist">Daft Punk</p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">7:10</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Around the World"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </article>
+
+                    <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">2</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/daft.png"
+                          alt="Harder, Better, Faster, Stronger cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title"
+                            >Harder, Better, Faster, Stronger</span
+                          >
+                          <p class="artist-track__artist">Daft Punk</p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">3:45</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Harder, Better, Faster, Stronger"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </article>
+
+                    <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">3</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/onemoretime.png"
+                          alt="Digital Love cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title">Digital Love</span>
+                          <p class="artist-track__artist">Daft Punk</p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">5:01</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Digital Love"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </article>
+
+                    <article class="artist-track" role="listitem">
+                      <span class="artist-track__number">4</span>
+                      <div class="artist-track__main">
+                        <img
+                          class="artist-track__cover"
+                          src="../assets/img/daft.png"
+                          alt="Aerodynamic cover art"
+                          loading="lazy"
+                        />
+                        <div class="artist-track__meta">
+                          <span class="artist-track__title">Aerodynamic</span>
+                          <p class="artist-track__artist">Daft Punk</p>
+                        </div>
+                      </div>
+                      <span class="artist-track__duration">3:27</span>
+                      <button
+                        class="artist-track__action"
+                        type="button"
+                        aria-label="Like Aerodynamic"
+                      >
+                        <img
+                          src="../assets/icons/big/like.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </button>
+                      </article>
+                    </div>
+                  </section>
+                </div>
+
+                <aside class="artist-page__aside">
+                  <section
+                    class="artist-panel"
+                    id="artist-picks"
+                    aria-labelledby="artist-pick"
+                  >
+                    <h2 class="artist-panel__title" id="artist-pick">
+                      Artist Pick
+                    </h2>
+
+                  <article class="artist-pick-card">
+                    <div class="artist-pick-card__art" aria-hidden="true">
+                      <span class="artist-pick-card__top"></span>
+                      <img
+                        class="artist-pick-card__thumb"
+                        src="../assets/img/draft-punk-mix.png"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="artist-pick-card__meta">
+                      <p class="artist-pick-card__title">
+                        Listen to the Best of Daft Punk
+                      </p>
+                    </div>
+                  </article>
+                  </section>
+
+                </aside>
+              </div>
+            </section>
+
+            <section
+              class="artist-page__panel artist-page__panel--about"
+              id="artist-panel-about"
+              data-artist-panel="about"
+              hidden
+            >
+              <div class="artist-about">
+                <div
+                  class="artist-about__badge"
+                  aria-label="Daft Punk is ranked 292 in the world"
+                >
+                  <span class="artist-about__badge-value">#292</span>
+                  <span class="artist-about__badge-label">in the world</span>
+                </div>
+
+                <div class="artist-about__copy">
+                  <p class="artist-about__description">
+                    As they evolved from '90s French house pioneers to 2000s
+                    dance tastemakers to mainstream heroes in the 2010s, Daft
+                    Punk remained one of dance music's most iconic acts. With
+                    their early singles and 1997's instant-classic debut album
+                    Homework, Guy-Manuel de Homem-Christo and Thomas Bangalter
+                    quickly won acclaim for their skill at blending their
+                    beloved Chicago house and Detroit techno with pop, funk,
+                    indie rock, and hip-hop into nostalgic yet futuristic
+                    forms. Not content to just widen electronic music's
+                    popularity, on 2001's Discovery they reinvented the
+                    then-unfashionable sounds of mid-'80s soft rock and R&amp;B
+                    into stylish tracks that also had a childlike wonder.
+                    Despite their sizable popularity, Daft Punk were never
+                    afraid to challenge their listeners, which they did with
+                    2005's cold and dystopic Human After All. Even when they
+                    polarized their audience, there was never any doubt that
+                    they staged groundbreaking concerts, and the tour captured
+                    on Alive 2007 helped pave the way for arena-sized EDM,
+                    particularly in the U.S. With 2013's Random Access
+                    Memories, the duo once again looked to the past to create
+                    the future, borrowing from prog, disco, and a laid-back
+                    West Coast vibe that bucked the predominant trends in
+                    electronic music but still resonated with a wide audience.
+                    Daft Punk's influence reached further into the mainstream
+                    through collaborations with Kanye West and the Weeknd, and
+                    the duo's music was sampled by artists ranging from Missy
+                    Elliott to the Fall. Though they reinvented themselves
+                    continually, wherever Daft Punk went, the rest of pop music
+                    followed.
+                  </p>
+
+                  <p class="artist-about__description">
+                    After meeting in 1987 as students at Paris' Lycee Carnot
+                    secondary school, Bangalter and de Homem-Christo became
+                    friends and soon started making music together. In 1992,
+                    they formed the band Darlin'. Named after a Beach Boys
+                    song, the group featured Bangalter on bass, de
+                    Homem-Christo on guitar, and additional guitarist Laurent
+                    Brancowitz. Darlin's career was brief: the trio recorded a
+                    cover of their namesake song that appeared, along with an
+                    original song, on a various artists EP released by
+                    Stereolab's label Duophonic, and the band also invited
+                    Darlin' to play some U.K. shows with them. Following a
+                    Melody Maker review that described Darlin's music as "a
+                    daft punky thrash," the band broke up. Bangalter and de
+                    Homem-Christo began experimenting with electronic music,
+                    taking their new project's name from that review and
+                    drawing inspiration from pioneers such as Todd Edwards,
+                    Juan Atkins, Kraftwerk, and Frankie Knuckles. By September
+                    1993, Daft Punk had readied a demo tape, which they gave to
+                    Soma co-founder Stuart MacMillan at a rave at EuroDisney.
+                    The label released the duo's debut single, "The New Wave,"
+                    in April 1994. Instantly hailed by the dance music press as
+                    the work of a new breed of house innovators, it was
+                    followed by May 1995's "Da Funk," the band's first true
+                    hit. In 1996, the buzz around Daft Punk led them to sign
+                    with Virgin, and the label released the single "Da
+                    Funk"/"Musique" that year. Recorded and mixed at the duo's
+                    Paris studio Daft House, January 1997's debut album
+                    Homework was a critical and commercial success that they
+                    supported with the Daftendirekt tour and 1999's D.A.F.T.: A
+                    Story about Dogs, Androids, Firemen and Tomatoes video
+                    collection.
+                  </p>
+
+                  <p class="artist-about__description">
+                    To follow their breakthrough debut album, de Homem-Christo
+                    and Bangalter reached back to their childhoods in the '70s
+                    and '80s and sought to fuse technology with humanity. Once
+                    again recorded at Daft House, March 2001's Discovery
+                    incorporated disco and synth pop as well as house, garage,
+                    and R&amp;B into a sleek, retro-futuristic sound that matched
+                    the robotic helmets and gloves the duo introduced with the
+                    release of the album. Featuring contributions from heroes
+                    such as Romanthony, Edwards, and DJ Sneak, Discovery was an
+                    even bigger hit than its predecessor. That November saw the
+                    release of Alive 1997, an edit of the duo's Birmingham,
+                    England stop on the Daftendirekt tour. Daft Punk capped the
+                    Discovery era in 2003 with Interstella 5555: The 5tory of
+                    the 5ecret 5tar 5ystem, an animated film they produced with
+                    anime and manga creator Leiji Matsumoto that used the album
+                    as its soundtrack.
+                  </p>
+
+                  <p class="artist-about__description">
+                    For Daft Punk's third album, the duo took a drastically
+                    different approach. Created in six weeks with a handful of
+                    gear that included an eight-track machine, March 2005's
+                    Human After All was a deliberately raw, stark set of songs
+                    inspired by George Orwell's Nineteen Eighty-Four. Though
+                    its cold, repetitive feel drew polarized reactions, the
+                    album fared well commercially and also earned a Best
+                    Electronic/Dance Album Grammy nomination. Shortly after its
+                    release, Human After All [Remixes] collected reworkings by
+                    Soulwax, Digitalism, and Erol Alkan among others. April
+                    2006 saw the arrival of Musique, Vol. 1: 1993-2005, a
+                    compilation of the duo's best-known songs and remixes
+                    accompanied by the videos for Human After All's singles.
+                    That May, Daft Punk premiered their film Electroma at the
+                    Director's Fortnight at the Cannes Film Festival. An
+                    experimental sci-fi film about a pair of robots seeking to
+                    become human, it began as the video for Human After All's
+                    title track before expanding into a feature film. That
+                    year, the duo embarked on the Alive tour, which lasted
+                    through 2007 and featured some of Daft Punk's most
+                    ambitiously staged live sets. Appearing in November 2007,
+                    Alive 2007 documented the tour, and early in 2009 the album
+                    and its single "Harder, Better, Faster, Stronger" won Grammy
+                    Awards.
+                  </p>
+
+                  <p class="artist-about__description">
+                    Daft Punk returned with new music in November 2010 in the
+                    form of the score to Joseph Kosinski's feature film Tron:
+                    Legacy. A collaboration with Joseph Trapanese, who arranged
+                    and orchestrated the pair's compositions, it featured an
+                    85-piece orchestra as well as Daft Punk's signature
+                    electronics, and the duo also appeared in the film in a
+                    brief cameo. The soundtrack eventually reached number four
+                    on the Billboard 200 in the U.S. and earned a Grammy
+                    nomination. The following year saw the release of the remix
+                    album Tron: Legacy Reconfigured, while that September's
+                    compilation Soma Records: 20 Years featured the track
+                    "Drive," an early recording long believed to be lost. For
+                    their fourth album, Daft Punk once again took a different
+                    creative tack. Seeking a breezy feel informed by Fleetwood
+                    Mac, the Eagles, and Jean-Michel Jarre, the duo emphasized
+                    live instrumentation and collaborated with artists
+                    including Nile Rodgers, Paul Williams, Giorgio Moroder,
+                    Panda Bear, and Pharrell Williams. The single "Get Lucky"
+                    preceded the release of Random Access Memories in May 2013.
+                    Recorded in California, New York City, and Paris and
+                    spanning disco, prog, and indie influences, the album
+                    became one of Daft Punk's biggest successes, topping charts
+                    around the world and winning Grammy Awards for Album of the
+                    Year, Best Dance/Electronica Album, and Best Engineered
+                    Album, Non-Classical.
+                  </p>
+
+                  <p class="artist-about__description">
+                    That year, Daft Punk also co-produced Kanye West's Yeezus
+                    and worked on tracks including "Black Skinhead." In 2014,
+                    the duo appeared on Pharrell's album G I R L and
+                    collaborated with Jay-Z on "Computerized." A 2015
+                    documentary titled Daft Punk Unchained charted their
+                    history from the '90s into the 2010s, and during the latter
+                    half of the decade the duo remained active through work
+                    with the Weeknd, Parcels, Arcade Fire, Charlotte
+                    Gainsbourg, and more. In 2019, Daft Punk were featured in
+                    the Philharmonie de Paris' exhibition Electro, which traced
+                    the history of electronic music and its influence on visual
+                    arts. In February 2021, the duo disbanded, spreading the
+                    news with a YouTube video that featured scenes from the end
+                    of Electroma. To commemorate the tenth anniversary of
+                    Random Access Memories in 2023, Daft Punk issued a pair of
+                    re-releases of the album, including a deluxe edition with
+                    unreleased demos and, later that year, a drumless version.
+                  </p>
+
+                  <p class="artist-about__credit">
+                    ~ Heather Phares &amp; Sean Cooper, Rovi
+                  </p>
+                </div>
+
+                <aside
+                  class="artist-about__stats"
+                  aria-label="Daft Punk audience statistics"
+                >
+                  <div class="artist-about__metric">
+                    <p class="artist-about__metric-value">9,868,787</p>
+                    <p class="artist-about__metric-label">Followers</p>
+                  </div>
+
+                  <div class="artist-about__metric">
+                    <p class="artist-about__metric-value">22,430,353</p>
+                    <p class="artist-about__metric-label">Monthly listeners</p>
+                  </div>
+
+                  <div class="artist-about__city">
+                    <p class="artist-about__city-name">Paris, FR</p>
+                    <p class="artist-about__city-value">391,036 listeners</p>
+                  </div>
+
+                  <div class="artist-about__city">
+                    <p class="artist-about__city-name">Mexico City, MX</p>
+                    <p class="artist-about__city-value">367,878 listeners</p>
+                  </div>
+
+                  <div class="artist-about__city">
+                    <p class="artist-about__city-name">Santiago, CL</p>
+                    <p class="artist-about__city-value">327,816 listeners</p>
+                  </div>
+
+                  <div class="artist-about__city">
+                    <p class="artist-about__city-name">London, GB</p>
+                    <p class="artist-about__city-value">274,515 listeners</p>
+                  </div>
+
+                  <div class="artist-about__city">
+                    <p class="artist-about__city-name">Bogota, CO</p>
+                    <p class="artist-about__city-value">251,175 listeners</p>
+                  </div>
+                </aside>
+              </div>
+            </section>
+
+            <section
+              class="artist-page__panel artist-page__panel--albums"
+              id="artist-panel-albums"
+              data-artist-panel="albums"
+              hidden
+            >
+              <div class="artist-albums" data-artist-albums-view="grid">
+                <div
+                  class="artist-albums__view artist-albums__view--grid"
+                  data-artist-albums-view-panel="grid"
+                >
+                  <div class="artist-albums__grid" role="list">
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(204, 201, 193, 0.3)"
+                    aria-label="Open Random Access Memories Drumless Edition"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/random-access-memories.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title"
+                          >Random Access Memories (Drumless Edition)</span
+                        >
+                        <span class="artist-album-card__count">22</span>
+                      </div>
+                      <p class="artist-album-card__year">2023</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(64, 69, 89, 0.3)"
+                    aria-label="Open Random Access Memories"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/random-access-memories.webp"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title"
+                          >Random Access Memories</span
+                        >
+                        <span class="artist-album-card__count">22</span>
+                      </div>
+                      <p class="artist-album-card__year">2013</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(65, 70, 78, 0.3)"
+                    aria-label="Open Random Access Memories deluxe release"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/random-access-memories.webp"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title"
+                          >Random Access Memories</span
+                        >
+                        <span class="artist-album-card__count">13</span>
+                      </div>
+                      <p class="artist-album-card__year">2013</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(25, 44, 26, 0.54)"
+                    aria-label="Open TRON Legacy Reconfigured"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/tron-legacy-reconfigured.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title"
+                          >TRON: Legacy Reconfigured</span
+                        >
+                        <span class="artist-album-card__count">15</span>
+                      </div>
+                      <p class="artist-album-card__year">2011</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(15, 44, 55, 0.44)"
+                    aria-label="Open TRON Legacy"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/tron-legacy.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">TRON: Legacy</span>
+                        <span class="artist-album-card__count">22</span>
+                      </div>
+                      <p class="artist-album-card__year">2010</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(39, 60, 70, 0.48)"
+                    aria-label="Open Alive 2007"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/alive-2007.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">Alive 2007</span>
+                        <span class="artist-album-card__count">13</span>
+                      </div>
+                      <p class="artist-album-card__year">2007</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(63, 55, 51, 0.57)"
+                    aria-label="Open Human After All remixes"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/human-after-all-remixes.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title"
+                          >Human After All (Remixes)</span
+                        >
+                        <span class="artist-album-card__count">15</span>
+                      </div>
+                      <p class="artist-album-card__year">2006</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(129, 145, 144, 0.31)"
+                    aria-label="Open Human After All"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/human-after-all.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">Human After All</span>
+                        <span class="artist-album-card__count">10</span>
+                      </div>
+                      <p class="artist-album-card__year">2005</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(64, 41, 27, 0.49)"
+                    aria-label="Open Daft Club"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/daft-club.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">Daft Club</span>
+                        <span class="artist-album-card__count">14</span>
+                      </div>
+                      <p class="artist-album-card__year">2003</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(67, 68, 70, 0.67)"
+                    aria-label="Open Alive 1997"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/alive-1997.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">Alive 1997</span>
+                        <span class="artist-album-card__count">1</span>
+                      </div>
+                      <p class="artist-album-card__year">2001</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(63, 63, 62, 0.3)"
+                    aria-label="Open Discovery"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/discovery.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">Discovery</span>
+                        <span class="artist-album-card__count">14</span>
+                      </div>
+                      <p class="artist-album-card__year">2001</p>
+                    </div>
+                  </button>
+                </article>
+
+                <article class="artist-album-card" role="listitem">
+                  <button
+                    class="artist-album-card__button"
+                    type="button"
+                    style="--album-bar: rgba(93, 51, 54, 0.3)"
+                    aria-label="Open Homework"
+                  >
+                    <div class="artist-album-card__art" aria-hidden="true">
+                      <span class="artist-album-card__top"></span>
+                      <div class="artist-album-card__cover">
+                        <img
+                          class="artist-album-card__image"
+                          src="../assets/img/homework.png"
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="artist-album-card__meta">
+                      <div class="artist-album-card__title-row">
+                        <span class="artist-album-card__title">Homework</span>
+                        <span class="artist-album-card__count">16</span>
+                      </div>
+                      <p class="artist-album-card__year">1997</p>
+                    </div>
+                  </button>
+                </article>
+                  </div>
+                </div>
+
+                <div
+                  class="artist-albums__view artist-albums__view--list"
+                  data-artist-albums-view-panel="list"
+                  hidden
+                >
+                  <!-- TODO: Replace inline album previews with dedicated album pages when those routes exist. -->
+                  <div class="artist-albums__list" role="list">
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(204, 201, 193, 0.3)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/random-access-memories.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Random Access Memories</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2023</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>22 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Random Access Memories"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Random Access Memories"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Random Access Memories to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Random Access Memories to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Random Access Memories"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Random Access Memories"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Random Access Memories"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(64, 69, 89, 0.3)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/random-access-memories.webp" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Random Access Memories (10th Anniversary Edition)</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2013</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>22 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Random Access Memories 10th Anniversary Edition"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Random Access Memories 10th Anniversary Edition"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Random Access Memories 10th Anniversary Edition to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Random Access Memories 10th Anniversary Edition to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Random Access Memories 10th Anniversary Edition"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Random Access Memories 10th Anniversary Edition"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Random Access Memories 10th Anniversary Edition"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(65, 70, 78, 0.3)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/random-access-memories.webp" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Random Access Memories</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2013</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>13 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Random Access Memories"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Random Access Memories"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Random Access Memories to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Random Access Memories to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Random Access Memories"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Random Access Memories"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Random Access Memories"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(25, 44, 26, 0.54)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/tron-legacy-reconfigured.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">TRON: Legacy Reconfigured</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2011</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>15 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play TRON Legacy Reconfigured"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle TRON Legacy Reconfigured"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add TRON Legacy Reconfigured to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add TRON Legacy Reconfigured to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download TRON Legacy Reconfigured"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share TRON Legacy Reconfigured"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for TRON Legacy Reconfigured"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(15, 44, 55, 0.44)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/tron-legacy.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">TRON: Legacy</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2010</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>22 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play TRON Legacy"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle TRON Legacy"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add TRON Legacy to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add TRON Legacy to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download TRON Legacy"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share TRON Legacy"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for TRON Legacy"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(39, 60, 70, 0.48)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/alive-2007.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Alive 2007</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2007</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>13 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Alive 2007"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Alive 2007"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Alive 2007 to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Alive 2007 to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Alive 2007"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Alive 2007"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Alive 2007"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(63, 55, 51, 0.57)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/human-after-all-remixes.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Human After All (Remixes)</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2006</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>15 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Human After All Remixes"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Human After All Remixes"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Human After All Remixes to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Human After All Remixes to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Human After All Remixes"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Human After All Remixes"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Human After All Remixes"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(129, 145, 144, 0.31)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/human-after-all.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Human After All</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2005</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>10 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Human After All"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Human After All"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Human After All to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Human After All to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Human After All"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Human After All"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Human After All"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(64, 41, 27, 0.49)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/daft-club.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Daft Club</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2003</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>14 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Daft Club"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Daft Club"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Daft Club to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Daft Club to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Daft Club"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Daft Club"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Daft Club"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(67, 68, 70, 0.67)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/alive-1997.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Alive 1997</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2001</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 song</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Alive 1997"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Alive 1997"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Alive 1997 to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Alive 1997 to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Alive 1997"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Alive 1997"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Alive 1997"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(63, 63, 62, 0.3)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/discovery.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Discovery</h3>
+                              <div class="artist-album-row__meta">
+                                <span>2001</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>14 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Discovery"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Discovery"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Discovery to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Discovery to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Discovery"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Discovery"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Discovery"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+
+                    <article class="artist-album-row" role="listitem">
+                      <div class="artist-album-row__summary">
+                        <div class="artist-album-row__content">
+                          <div class="artist-album-row__primary">
+                            <div class="artist-album-row__art" style="--album-bar: rgba(93, 51, 54, 0.3)" aria-hidden="true">
+                              <span class="artist-album-row__top"></span>
+                              <div class="artist-album-row__cover">
+                                <img class="artist-album-card__image artist-album-row__image" src="../assets/img/homework.png" alt="" loading="lazy" />
+                              </div>
+                            </div>
+                            <div class="artist-album-row__info">
+                              <h3 class="artist-album-row__title">Homework</h3>
+                              <div class="artist-album-row__meta">
+                                <span>1997</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>16 songs</span>
+                                <span class="artist-album-row__meta-dot" aria-hidden="true"></span>
+                                <span>1 hr 14 min</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="artist-album-row__actions" aria-label="Album actions">
+                            <button class="artist-action artist-action--play artist-album-row__play" type="button" aria-label="Play Homework"><img src="../assets/icons/big/play.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Shuffle Homework"><img src="../assets/icons/big/shuffle.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Homework to library"><img src="../assets/icons/big/add.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Add Homework to queue"><img src="../assets/icons/big/add-to-queue.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Download Homework"><img src="../assets/icons/big/download.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="Share Homework"><img src="../assets/icons/big/share.svg" alt="" aria-hidden="true" /></button>
+                            <button class="artist-action artist-album-row__action" type="button" aria-label="More actions for Homework"><img src="../assets/icons/big/more.svg" alt="" aria-hidden="true" /></button>
+                          </div>
+                        </div>
+                        <span class="artist-album-row__chevron" aria-hidden="true"><img src="../assets/icons/big/right.svg" alt="" /></span>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <section
+      class="lyrics-playlist-popover"
+      id="artist-playlist-popover"
+      popover
+      aria-labelledby="artist-playlist-popover-title"
+    >
+      <div class="lyrics-playlist-popover__surface">
+        <div class="lyrics-playlist-popover__header">
+          <h2
+            class="lyrics-playlist-popover__title"
+            id="artist-playlist-popover-title"
+          >
+            Add to a playlist
+          </h2>
+        </div>
+
+        <div class="lyrics-playlist-popover__body">
+          <label class="lyrics-playlist-popover__search">
+            <input
+              class="lyrics-playlist-popover__search-input"
+              type="search"
+              name="artist-playlist-search"
+              placeholder="Search for a playlist/folder"
+              aria-label="Search for a playlist or folder"
+            />
+            <span class="lyrics-playlist-popover__search-icon" aria-hidden="true">
+              <img src="../assets/icons/big/search.svg" alt="" />
+            </span>
+          </label>
+
+          <button class="lyrics-playlist-popover__create" type="button">
+            <img
+              src="../assets/icons/big/add-simple.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <span>New playlist</span>
+          </button>
+
+          <div
+            class="lyrics-playlist-popover__list"
+            role="group"
+            aria-label="Available playlists"
+          >
+            <label class="lyrics-playlist-popover__item">
+              <input
+                class="lyrics-playlist-popover__selection"
+                type="checkbox"
+                name="artist-playlist-daily"
+                checked
+              />
+              <span class="lyrics-playlist-popover__item-main">
+                <img
+                  class="lyrics-playlist-popover__item-icon"
+                  src="../assets/icons/big/playlist.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="lyrics-playlist-popover__item-name">Daily Playlist</span>
+              </span>
+              <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected"
+                  src="../assets/icons/big/check-filled.svg"
+                  alt=""
+                />
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected"
+                  src="../assets/icons/big/check.svg"
+                  alt=""
+                />
+              </span>
+            </label>
+
+            <label class="lyrics-playlist-popover__item">
+              <input
+                class="lyrics-playlist-popover__selection"
+                type="checkbox"
+                name="artist-playlist-chill"
+              />
+              <span class="lyrics-playlist-popover__item-main">
+                <img
+                  class="lyrics-playlist-popover__item-icon"
+                  src="../assets/icons/big/playlist.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="lyrics-playlist-popover__item-name">Chill stuff</span>
+              </span>
+              <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected"
+                  src="../assets/icons/big/check-filled.svg"
+                  alt=""
+                />
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected"
+                  src="../assets/icons/big/check.svg"
+                  alt=""
+                />
+              </span>
+            </label>
+
+            <label class="lyrics-playlist-popover__item">
+              <input
+                class="lyrics-playlist-popover__selection"
+                type="checkbox"
+                name="artist-playlist-late-night"
+              />
+              <span class="lyrics-playlist-popover__item-main">
+                <img
+                  class="lyrics-playlist-popover__item-icon"
+                  src="../assets/icons/big/playlist.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="lyrics-playlist-popover__item-name">Late Night Drive</span>
+              </span>
+              <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected"
+                  src="../assets/icons/big/check-filled.svg"
+                  alt=""
+                />
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected"
+                  src="../assets/icons/big/check.svg"
+                  alt=""
+                />
+              </span>
+            </label>
+
+            <button
+              class="lyrics-playlist-popover__item lyrics-playlist-popover__item--folder"
+              type="button"
+            >
+              <span class="lyrics-playlist-popover__item-main">
+                <img
+                  class="lyrics-playlist-popover__item-icon"
+                  src="../assets/icons/big/folder.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="lyrics-playlist-popover__item-name">Chill stuff</span>
+              </span>
+              <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+                <img
+                  class="lyrics-playlist-popover__arrow-icon"
+                  src="../assets/icons/big/right.svg"
+                  alt=""
+                />
+              </span>
+            </button>
+
+            <label class="lyrics-playlist-popover__item">
+              <input
+                class="lyrics-playlist-popover__selection"
+                type="checkbox"
+                name="artist-playlist-city-echoes"
+              />
+              <span class="lyrics-playlist-popover__item-main">
+                <img
+                  class="lyrics-playlist-popover__item-icon"
+                  src="../assets/icons/big/playlist.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="lyrics-playlist-popover__item-name">City Echoes</span>
+              </span>
+              <span class="lyrics-playlist-popover__item-state" aria-hidden="true">
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--selected"
+                  src="../assets/icons/big/check-filled.svg"
+                  alt=""
+                />
+                <img
+                  class="lyrics-playlist-popover__state-icon lyrics-playlist-popover__state-icon--unselected"
+                  src="../assets/icons/big/check.svg"
+                  alt=""
+                />
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lyrics-playlist-popover__footer">
+          <button
+            class="lyrics-playlist-popover__footer-btn lyrics-playlist-popover__footer-btn--ghost"
+            type="button"
+            popovertarget="artist-playlist-popover"
+            popovertargetaction="hide"
+          >
+            Cancel
+          </button>
+          <button
+            class="lyrics-playlist-popover__footer-btn lyrics-playlist-popover__footer-btn--primary"
+            type="button"
+            popovertarget="artist-playlist-popover"
+            popovertargetaction="hide"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="nav-mobile" aria-label="Primary mobile">
+      <div class="nav-mobile__inner">
+        <a class="nav-mobile__item" href="../index.html" aria-label="Home">
+          <img
+            src="../assets/icons/big/home.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/home-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Home</span>
+        </a>
+
+        <label class="nav-mobile__item" aria-label="Discover">
+          <input type="radio" name="mobile-nav" class="nav-radio" />
+          <img
+            src="../assets/icons/big/discover.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/discover-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Discover</span>
+        </label>
+
+        <a class="nav-mobile__item" href="search.html" aria-label="Search">
+          <img
+            src="../assets/icons/big/search.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/search-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Search</span>
+        </a>
+
+        <label class="nav-mobile__item" aria-label="Library">
+          <input type="radio" name="mobile-nav" class="nav-radio" checked />
+          <img
+            src="../assets/icons/big/library.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/library-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Library</span>
+        </label>
+
+        <label class="nav-mobile__item" aria-label="Me">
+          <input type="radio" name="mobile-nav" class="nav-radio" />
+          <img
+            src="../assets/icons/big/user.svg"
+            alt=""
+            class="nav-mobile__icon icon--off"
+            aria-hidden="true"
+          />
+          <img
+            src="../assets/icons/big/user-filled.svg"
+            alt=""
+            class="nav-mobile__icon icon--on"
+            aria-hidden="true"
+          />
+          <span class="nav-mobile__label">Me</span>
+        </label>
+      </div>
+    </nav>
+
+    <script src="../js/app.js"></script>
+  </body>
+</html>

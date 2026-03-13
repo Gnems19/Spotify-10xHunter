@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 .page--lyrics {
-  background: $color-bg-search;
+  background: $color-bg-app;
   --lyrics-icon-muted: brightness(0) saturate(100%) invert(62%) sepia(0%) saturate(0%) hue-rotate(167deg) brightness(93%) contrast(88%);
   --lyrics-icon-white: brightness(0) saturate(100%) invert(92%) sepia(1%) saturate(0%) hue-rotate(182deg) brightness(106%) contrast(100%);
   --lyrics-icon-green: brightness(0) saturate(100%) invert(68%) sepia(67%) saturate(670%) hue-rotate(86deg) brightness(94%) contrast(88%);
@@ -11,7 +11,7 @@
   .app-layout,
   .app-header,
   .sidebar {
-    background: $color-bg-search;
+    background: $color-bg-app;
   }
 }
 
@@ -21,7 +21,7 @@
 
 .app-main--lyrics {
   position: relative;
-  background: linear-gradient(0deg, rgba(138, 157, 187, 0.18), rgba(138, 157, 187, 0.18)), $color-bg-search;
+  background: linear-gradient(0deg, rgba(138, 157, 187, 0.18), rgba(138, 157, 187, 0.18)), $color-bg-app;
   border: 1px solid $color-border-strong;
   border-radius: 1rem;
   isolation: isolate;

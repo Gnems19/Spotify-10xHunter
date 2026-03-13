@@ -1,0 +1,159 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.mix-page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 79, 182, 0.47) 0%,
+    rgba(6, 6, 6, 0.47) 100%
+  );
+
+  // liked-songs header-ის override
+  .liked-songs__header {
+    grid-template-columns: 3rem 1fr 1fr 5rem 3rem;
+
+    span:nth-child(6),
+    span:nth-child(7) {
+      display: none;
+    }
+  }
+
+  // song-row-ის override
+  .song-row {
+    grid-template-columns: 3rem 1fr 1fr 5rem 3rem;
+    .song-row__actions,
+    .song-row__check-label,
+    .song-row__checkbox {
+      display: none;
+    }
+  }
+}
+
+.mix-main__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.mix-main__title {
+  font-weight: $font-weight-bold;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.mix__meta {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #898989;
+  &-white {
+    color: #e0e0e0;
+  }
+
+  &--txt {
+    &::before {
+      content: "•";
+      margin-right: 0.8rem;
+      margin-left: 0.8rem;
+    }
+
+    &:first-child::before {
+      display: none;
+    }
+  }
+}
+.mix__actions {
+  @include flex($justify: space-between);
+}
+
+.mix__right {
+  @include flex($gap: 1.4rem);
+}
+
+.mix-sidebar__artists {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.mix-artist__img {
+  border-radius: 1rem;
+}
+
+.mix-sidebar__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.mix-sidebar__genre {
+  padding: 1rem 2rem;
+  border: 0.2rem solid $color-text-subtle;
+  border-radius: 4.4rem;
+  color: $color-text-subtle;
+  &:hover {
+    background-color: $color-surface-hover;
+  }
+}
+
+.mix-artists {
+  @include flex($gap: 2rem);
+
+  img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 5rem;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .mix-page {
+    display: flex;
+    flex-direction: column;
+
+    .mix-artist__img {
+      width: 50%;
+      margin: 0 auto;
+      aspect-ratio: 1; //სიმაღლეს ავტომატურად იგივე ხომაზე სვამს
+      object-fit: cover;
+    }
+  }
+
+  .mix-sidebar {
+    order: -1;
+  }
+
+  .mix-main {
+    order: 1;
+  }
+
+  .mix__search {
+    display: none;
+  }
+
+  .mix-page .liked-songs__header {
+    display: none;
+  }
+  .mix-page .song-row {
+    grid-template-columns: 1fr auto;
+
+    // ეს ყველაფერი იმალება
+    .song-row__number,
+    .song-row__album,
+    .song-row__like-label,
+    .song-row__like-checkbox,
+    .song-row__actions,
+    .song-row__checkbox,
+    .song-row__check-label {
+      display: none;
+    }
+  }
+
+  .mix-sidebar__genres,
+  .mix-artists {
+    display: none;
+  }
+}
