@@ -1427,6 +1427,60 @@ p, li, a, button, span {
     display: none !important;
   }
 }
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #333842;
+  height: 8.1rem;
+  border-radius: 1rem;
+  position: sticky;
+  bottom: 1rem;
+  top: 0;
+  left: 27.3rem;
+  margin-top: 1.4rem;
+  margin-left: 2.4rem;
+  margin-right: 0.7rem;
+}
+.player__left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.475rem;
+}
+.player__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.player__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.631rem;
+}
+.player__album-cover img {
+  width: 5.1rem;
+  border-radius: 0.3rem;
+}
+.player__song-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.player__song-title {
+  color: #E0E0E0;
+}
+.player__song-artist, .player__song-album {
+  color: #898989;
+}
+
 /* ======= Cards ======= */
 .card {
   flex: 0 0 auto;

@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+.player{
+    @include flex-center;
+    flex-direction:row;
+    justify-content: space-around;
+    background:$color-bg-player;
+    height:8.1rem;
+    border-radius: 1rem;
+    position: sticky;
+    bottom: $spacing-base;
+    top:0;
+    left: 27.3rem;
+    margin-top: 1.4rem;
+    margin-left: 2.4rem;
+    margin-right: 0.7rem;
+
+    &__left {
+            @include flex-center;
+            gap: 0.475rem;
+        }
+    
+    &__center {
+        @include flex-center;
+        gap:1rem;
+    }
+
+    &__right {
+        @include flex-center;
+        gap:0.631rem;
+    }
+
+    &__album-cover img{
+        width: 5.1rem;
+        border-radius: 0.3rem;
+    }
+
+    &__song-info{
+        @include nav-column-item;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    &__song-title{
+        color: $color-text-active;
+    }
+
+    &__song-artist,
+    &__song-album {
+        color: $color-text-subtle;
+    }
+}
+
