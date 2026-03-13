@@ -7,7 +7,7 @@ A Spotify Web UI clone built as a team markup exam for 10X Academy (Frontend mod
 
 | Team Member | Role | Owned Scope |
 |---|---|---|
-| **Gigi Nemsadze** | Team Lead | Repo setup, layout architecture, Navbar, Homepage (feed + filter bar + modal), Search page, Artist page, Lyrics page, Layered cards, Friends window, Mobile search, Metadata & SEO, Accessibility (screen reader headings) |
+| **Gigi Nemsadze** | Team Lead | Repo setup, Navbar, Homepage (feed + filter bar + modal), Search page, Artist page, Lyrics page, Layered cards, Friends window, Mobile search, Metadata & SEO, Accessibility (screen reader headings) |
 | **Mariam Grigolia** | Developer | SCSS structure & base styles, Sidebar (with hover/accordion), Liked Songs page, Discovery page, Mix page, Podcast page, Responsive layout adjustments |
 | **Guram Abramishvili** | Developer / PR Reviewer | Player (HTML structure + desktop design), Library page (in progress), SCSS refactor, reviewed and merged multiple PRs (#10, #12, #13, #14, #15) |
 
@@ -16,16 +16,16 @@ A Spotify Web UI clone built as a team markup exam for 10X Academy (Frontend mod
 ## Team Decisions
 
 ### Development Approach
-- We built the project **Mobile First**, starting with small-screen structure and scaling up to desktop.
+- We built the project **Desktop First**.
 - Used **Flexbox** as the primary layout method after group discussions on how to structure the main grid (sidebar + main content + player).
 
 ### Layout Discussion
-Early on, we had a key debate: **does the "My Library" button belong to the header or to the sidebar?** In the Figma design, it visually sits at the boundary between the two. After discussing it in our online calls, we agreed to treat it as part of the sidebar navigation on desktop, while on mobile it becomes a top-level nav item in the header bar.
+Early on, we had a key debate: **does the "My Library" button belong to the header or to the sidebar?** In the Figma design, it visually sits at the boundary between the two. After discussing it in our online calls, we agreed to treat it as part of the sidebar navigation on desktop, while on mobile it becomes a bottom nav item.
 
 ![Layout discussion — My Library: header or sidebar?](Layout-discussion-dilemma.png)
 
 ### Task Management
-We tracked tasks using a shared task board, with each member assigned clear responsibilities upfront.
+We tracked tasks using Notion with its shared task board, with each member assigned clear responsibilities, while taking notes of any new bug reports or discovered features with free to choose culture.
 
 ![Task tracker](Tasks.png)
 
@@ -44,7 +44,7 @@ We researched specific CSS details together, such as custom `cubic-bezier` timin
 
 ### Team Lead
 - **Gigi Nemsadze** served as Team Lead.
-- Responsibilities: repo initialization, layout architecture decisions, task coordination, PR reviews, and keeping the team aligned on structure and conventions.
+- Responsibilities: repo initialization, task coordination, PR reviews, and keeping the team aligned on structure and conventions.
 
 ## Workflow
 - Each feature was developed on its own branch (`feat/sidebar`, `feat/homepage`, `feat/player`, etc.).
