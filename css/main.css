@@ -386,6 +386,15 @@ p, li, a, button, span {
   color: #898989;
   letter-spacing: 0.03rem;
 }
+.sidebar__item--current a {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.sidebar__item--current a span {
+  color: #FFFFFF;
+}
+.sidebar__item--current a img {
+  filter: brightness(2);
+}
 .sidebar__item--arrow a {
   justify-content: space-between;
 }
@@ -462,6 +471,15 @@ p, li, a, button, span {
   font-size: 1.4rem;
   color: #898989;
   letter-spacing: 0.03rem;
+}
+.sidebar__dropdown-item--current a, .sidebar__item a[aria-current=page], .sidebar__dropdown-item a[aria-current=page] {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.sidebar__dropdown-item--current a span, .sidebar__item a[aria-current=page] span, .sidebar__dropdown-item a[aria-current=page] span {
+  color: #FFFFFF;
+}
+.sidebar__dropdown-item--current a img, .sidebar__item a[aria-current=page] img, .sidebar__dropdown-item a[aria-current=page] img {
+  filter: brightness(2);
 }
 .sidebar__link-left {
   display: flex;
@@ -3637,12 +3655,6 @@ p, li, a, button, span {
 .page--artist .sidebar,
 .page--artist .app-main--artist {
   background: #060606;
-}
-.page--artist .sidebar__item--current a span {
-  color: #E0E0E0;
-}
-.page--artist .sidebar__item--current a img {
-  filter: brightness(2);
 }
 
 .page--artist .sr-only {
