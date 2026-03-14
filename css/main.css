@@ -4132,9 +4132,6 @@ p, li, a, button, span {
   flex: 0 0 auto;
   min-width: max-content;
 }
-.artist-subnav__view-controls[hidden] {
-  display: none !important;
-}
 .artist-subnav--albums-active .artist-subnav__view-controls {
   display: inline-flex;
 }

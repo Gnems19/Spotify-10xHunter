@@ -23,11 +23,11 @@
     const filterBar = document.querySelector('.home-filter-bar');
     if (filterBar) {
       filterBar.addEventListener('click', function (e) {
-        const pill = e.target.closest('.filter-pill');
-        if (pill){ 
+        const childItem = e.target.closest('.filter-pill'); // not grandchild
+        if (childItem){ 
           const current = this.querySelector('.filter-pill--active');
           if (current) current.classList.remove('filter-pill--active');
-          pill.classList.add('filter-pill--active');
+          childItem.classList.add('filter-pill--active');
         }
       });
     }
@@ -43,7 +43,6 @@
       const tabs        = artistPage.querySelectorAll('[data-artist-panel-target]');
       const panels      = artistPage.querySelectorAll('[data-artist-panel]');
       const subnav      = artistPage.querySelector('.artist-subnav');
-      const viewControls = artistPage.querySelector('.artist-subnav__view-controls');
 
       const viewButtons = artistPage.querySelectorAll('[data-artist-albums-view-target]');
       const viewPanels  = artistPage.querySelectorAll('[data-artist-albums-view-panel]');
@@ -56,28 +55,33 @@
 
         tabs.forEach(function (tab) {
           const isActive = tab.dataset.artistPanelTarget === tabName;
-          tab.classList.toggle('is-active', isActive);
 
           if (isActive) {
+            tab.classList.add('is-active');
             tab.setAttribute('aria-current', 'page');
           } else {
+            tab.classList.remove('is-active');
             tab.removeAttribute('aria-current');
           }
         });
 
         panels.forEach(function (panel) {
           const isActive = panel.dataset.artistPanel === tabName;
-          panel.hidden = !isActive;
-          panel.classList.toggle('is-active', isActive);
+          if (isActive) {
+            panel.hidden = false;
+            panel.setAttribute('aria-current', 'page');
+            panel.classList.add('is-active');
+          } else {
+            panel.hidden = true;
+            panel.removeAttribute('aria-current');
+            panel.classList.remove('is-active');
+          }
         });
 
         artistPage.dataset.artistPanel = tabName;
 
         if (subnav) {
           subnav.classList.toggle('artist-subnav--albums-active', isAlbums);
-        }
-        if (viewControls) {
-          viewControls.hidden = !isAlbums;
         }
       }
 
@@ -106,16 +110,6 @@
           switchAlbumView(this.dataset.artistAlbumsViewTarget);
         });
       });
-
-      // --- Set the initial active tab & view from the HTML markup ---
-      const activeTab = artistPage.querySelector(
-        '.artist-subnav__link.is-active[data-artist-panel-target]'
-      );
-      const activeView = artistPage.querySelector(
-        '.artist-subnav__view-btn.is-active[data-artist-albums-view-target]'
-      );
-      switchAlbumView(activeView?.dataset.artistAlbumsViewTarget || 'grid');
-      switchTab(activeTab?.dataset.artistPanelTarget || 'home');
     }
 
     // ── Section carousel prev/next ──────────────────────────────

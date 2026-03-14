@@ -302,10 +302,6 @@
     min-width: max-content;
   }
 
-  &__view-controls[hidden] {
-    display: none !important;
-  }
-
   &--albums-active &__view-controls {
     display: inline-flex;
   }
