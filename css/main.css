@@ -552,6 +552,9 @@ p, li, a, button, span {
   gap: 2.4rem;
 }
 
+.home-section--hidden {
+  display: none;
+}
 .home-section__header {
   display: flex;
   align-items: center;

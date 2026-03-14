@@ -268,7 +268,7 @@
           <div class="home-feed">
 
             <!-- ── Section 1: Made For You ── -->
-            <section class="home-section">
+            <section class="home-section" data-feed-key="made-for-you">
               <div class="home-section__header">
                 <h2 class="home-section__title">Made For You</h2>
                 <div class="home-section__controls">
@@ -495,7 +495,7 @@
             </section>
 
             <!-- ── Section 2: Your top mixes ── -->
-            <section class="home-section">
+            <section class="home-section" data-feed-key="your-top-mixes">
               <div class="home-section__header">
                 <h2 class="home-section__title">Your top mixes</h2>
                 <div class="home-section__controls">
@@ -748,7 +748,7 @@
             </section>
 
             <!-- ── Section 3: Your favorite artists ── -->
-            <section class="home-section">
+            <section class="home-section" data-feed-key="your-favorite-artists">
               <div class="home-section__header">
                 <h2 class="home-section__title">Your favorite artists</h2>
                 <div class="home-section__controls">
@@ -799,7 +799,7 @@
             </section>
 
             <!-- ── Section 4: Albums for You ── -->
-            <section class="home-section">
+            <section class="home-section" data-feed-key="albums-for-you">
               <div class="home-section__header">
                 <h2 class="home-section__title">Albums for You</h2>
                 <div class="home-section__controls">
@@ -879,7 +879,7 @@
             </section>
 
             <!-- ── Section 5: Audiobooks for you ── -->
-            <section class="home-section">
+            <section class="home-section" data-feed-key="audiobooks-for-you">
               <div class="home-section__header">
                 <h2 class="home-section__title">Audiobooks for you</h2>
                 <div class="home-section__controls">
@@ -986,7 +986,7 @@
             </section>
 
             <!-- ── Section 7: Episodes for you ── -->
-            <section class="home-section">
+            <section class="home-section" data-feed-key="episodes-for-you">
               <div class="home-section__header">
                 <h2 class="home-section__title">Episodes for you</h2>
                 <div class="home-section__controls">
@@ -1344,7 +1344,7 @@
       </button>
 
       <ul class="feed-modal__list">
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="new-releases">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="true">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1358,7 +1358,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="made-for-you">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="true">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1372,7 +1372,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="recently-played">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="true">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1386,7 +1386,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="your-playlists">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1400,7 +1400,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item feed-modal__item--hidden">
+        <li class="feed-modal__item feed-modal__item--hidden" data-feed-key="spotify-original-podcasts">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1415,7 +1415,7 @@
                 aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="your-favorite-artists">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1429,7 +1429,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="recommended-radio">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1443,7 +1443,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="audiobooks-for-you">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1457,7 +1457,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="your-top-mixes">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1471,7 +1471,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="episodes-for-you">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">
@@ -1485,7 +1485,7 @@
                 src="assets/icons/big/show-filled.svg" alt="" class="icon--vis-off" aria-hidden="true"></button>
           </div>
         </li>
-        <li class="feed-modal__item">
+        <li class="feed-modal__item" data-feed-key="albums-for-you">
           <button class="feed-modal__pin-toggle" type="button" aria-label="Toggle pin" aria-pressed="false">
             <img src="assets/icons/big/pin-filled.svg" alt="" class="feed-modal__icon icon--pin-on" aria-hidden="true">
             <img src="assets/icons/big/pin.svg" alt="" class="feed-modal__icon icon--pin-off" aria-hidden="true">

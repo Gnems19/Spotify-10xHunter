@@ -235,9 +235,19 @@
 
         // Toggle the hidden class on the parent row
         const item = toggleBtn.closest('.feed-modal__item');
-        if (item) {
-          item.classList.toggle('feed-modal__item--hidden', isPressed);
-        }
+        if (!item) return;
+
+        item.classList.toggle('feed-modal__item--hidden', isPressed);
+
+        // Also show/hide the matching home section based on a shared data key
+        const key = item.dataset.feedKey;
+        if (!key) return;
+
+        document.querySelectorAll('.home-section').forEach(function (section) {
+          if (section.dataset.feedKey === key) {
+            section.classList.toggle('home-section--hidden', isPressed);
+          }
+        });
       });
     }
   });
