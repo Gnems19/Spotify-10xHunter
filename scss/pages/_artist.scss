@@ -37,6 +37,7 @@
   background: $color-bg-app;
   border: 1px solid $color-border-strong;
   border-radius: 1rem;
+  margin-left: $spacing-xl;
 }
 
 .artist-page {
@@ -532,10 +533,6 @@
   &:first-child {
     padding-top: 0;
     border-top: none;
-  }
-
-  &.is-expanded {
-    padding-bottom: 1.6rem;
   }
 
   &__summary {

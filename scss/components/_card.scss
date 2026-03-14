@@ -14,10 +14,6 @@ $card-stack-frame-color: var(--card-stack-frame-color, #{$color-bg-app});
     width: 18rem;
   }
 
-  &:hover {
-    transform: scale(1.03);
-  }
-
   // ── Thumbnail wrapper ──
   &__thumb-wrap {
     position: relative;
@@ -270,9 +266,9 @@ $card-stack-frame-color: var(--card-stack-frame-color, #{$color-bg-app});
     &--podcast {
       position: relative;
       background: $color-bg-elevated;
-      border-radius: 0 0 $radius-md $radius-md;
+      border-radius: $radius-md;
       padding: $spacing-sm $font-size-xs;
-      margin-top: -$font-size-xs;
+      margin-top: $spacing-xs;
     }
   }
 
@@ -339,6 +335,7 @@ $card-mix-accent-colors: (
 
 @media (max-width: #{$bp-mobile}) {
   .card {
+    --card-stack-frame-color: #{$color-bg-mobile};
     width: 14.1rem;
 
     &__thumb-wrap {
@@ -378,6 +375,10 @@ $card-mix-accent-colors: (
     }
 
     &__mix-layer {
+      box-shadow:
+        0 0 0 $stack-stroke-width $card-stack-frame-color,
+        0 1.2rem 2.4rem rgba($color-bg-mobile, 0.24);
+
       &--rear {
         transform: $stack-rear-rest-transform-mobile;
       }
@@ -389,11 +390,17 @@ $card-mix-accent-colors: (
 
     &__mix-front {
       transform: $stack-front-rest-transform-mobile;
+      box-shadow:
+        0 0 0 $stack-front-stroke-width $card-stack-frame-color,
+        0 1.8rem 3rem rgba($color-bg-mobile, 0.34);
     }
 
     &--stacked:is(:hover, :focus-visible) {
       .card__mix-front {
         transform: $stack-front-hover-transform-mobile;
+        box-shadow:
+          0 0 0 $stack-front-stroke-width $card-stack-frame-color,
+          0 2.2rem 3.8rem rgba($color-bg-mobile, 0.4);
       }
 
       .card__mix-layer--middle {

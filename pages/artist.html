@@ -97,7 +97,7 @@
               </ul>
             </li>
             <li class="sidebar__item">
-              <a href="#">
+              <a href="liked-songs.html">
                 <img
                   src="../assets/icons/big/like.svg"
                   alt="spotify-liked-songs-icon"
@@ -133,7 +133,7 @@
               </a>
             </li>
             <li class="sidebar__item">
-              <a href="#">
+              <a href="podcasts.html">
                 <img
                   src="../assets/icons/big/podcast.svg"
                   alt="spotify-podcasts-icon"
@@ -184,13 +184,7 @@
                   <span class="nav-pill__label">Home</span>
                 </a>
 
-                <label class="nav-pill nav-pill--discover">
-                  <input
-                    type="radio"
-                    id="nav-discover"
-                    name="primary-nav"
-                    class="nav-radio"
-                  />
+                <a class="nav-pill nav-pill--discover" href="discover.html">
                   <img
                     src="../assets/icons/big/discover.svg"
                     alt=""
@@ -204,7 +198,7 @@
                     aria-hidden="true"
                   />
                   <span class="nav-pill__label">Discover</span>
-                </label>
+                </a>
 
                 <a class="nav-pill nav-pill--search" href="search.html">
                   <img
@@ -711,12 +705,14 @@
                   <article class="artist-pick-card">
                     <div class="artist-pick-card__art" aria-hidden="true">
                       <span class="artist-pick-card__top"></span>
+                      <a href="mix.html" aria-label="Open Daft Punk Mix podcast page">
                       <img
                         class="artist-pick-card__thumb"
                         src="../assets/img/draft-punk-mix.png"
                         alt=""
                         loading="lazy"
                       />
+                    </a>
                     </div>
                     <div class="artist-pick-card__meta">
                       <p class="artist-pick-card__title">
@@ -1745,6 +1741,42 @@
             </section>
           </div>
         </main>
+        <!-- ===== Player ===== -->
+        <section class="player" aria-label="player bar">
+          <div class="player__left">
+            <button class="btn-play-pause">
+              <img src="../assets/icons/big/pause.svg" alt="pause">
+            </button>
+            <button class="player__btn-prev">
+              <img src="../assets/icons/big/prev.svg" alt="previous">
+            </button>
+            <button class="player__btn-next">
+              <img src="../assets/icons/big/next.svg" alt="next">
+            </button>
+            <button class="player__btn-shuffle">
+              <img src="../assets/icons/big/shuffle.svg" alt="shuffle">
+            </button>
+            <button class="player__btn-loop">
+              <img src="../assets/icons/big/loop.svg" alt="loop">
+            </button>
+          </div>
+          <div class="player__center">
+            <span class="player__time-current">2:23</span>
+            <input class="player__progress-bar" type="range" min="0" max="100" value="52">
+            <span class="player__time-total">4:45</span>
+            <button class="player__btn-volume">
+              <img src="../assets/icons/big/volume.svg" alt="volume">
+            </button>
+            <figure class="player__album-cover">
+              <img src="../assets/img/random-access-memories.webp" alt="album cover">
+            </figure>
+            <a href="lyrics.html" class="player__song-info">
+              <span class="player__song-title">Get Lucky</span>
+              <span class="player__song-artist">Daft Punk</span>
+              <span class="player__song-album">Random Access Memories</span>
+            </a>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -1972,8 +2004,7 @@
           <span class="nav-mobile__label">Home</span>
         </a>
 
-        <label class="nav-mobile__item" aria-label="Discover">
-          <input type="radio" name="mobile-nav" class="nav-radio" />
+        <a class="nav-mobile__item" href="discover.html" aria-label="Discover">
           <img
             src="../assets/icons/big/discover.svg"
             alt=""
@@ -1987,7 +2018,7 @@
             aria-hidden="true"
           />
           <span class="nav-mobile__label">Discover</span>
-        </label>
+        </a>
 
         <a class="nav-mobile__item" href="search.html" aria-label="Search">
           <img
@@ -2005,8 +2036,7 @@
           <span class="nav-mobile__label">Search</span>
         </a>
 
-        <label class="nav-mobile__item" aria-label="Library">
-          <input type="radio" name="mobile-nav" class="nav-radio" checked />
+        <a class="nav-mobile__item" href="liked-songs.html" aria-label="Library">
           <img
             src="../assets/icons/big/library.svg"
             alt=""
@@ -2020,10 +2050,14 @@
             aria-hidden="true"
           />
           <span class="nav-mobile__label">Library</span>
-        </label>
+        </a>
 
-        <label class="nav-mobile__item" aria-label="Me">
-          <input type="radio" name="mobile-nav" class="nav-radio" />
+        <a
+          class="nav-mobile__item nav-mobile__item--active"
+          href="artist.html"
+          aria-label="Me"
+          aria-current="page"
+        >
           <img
             src="../assets/icons/big/user.svg"
             alt=""
@@ -2037,7 +2071,7 @@
             aria-hidden="true"
           />
           <span class="nav-mobile__label">Me</span>
-        </label>
+        </a>
       </div>
     </nav>
 
